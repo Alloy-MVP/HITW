@@ -1,7 +1,7 @@
 extends Camera3D
 
 @onready var Player = $".."
-@onready var fps = $CanvasLayer/Label
+@onready var fps = $CanvasLayer/FPS
 
 var sensitivity = 0.2
 
@@ -25,4 +25,4 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	fps.text = str(Engine.get_frames_per_second())
+	fps.text = "FPS: " + str(Engine.get_frames_per_second())
