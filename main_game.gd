@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func go_time():
 	await get_tree().create_timer(2.0)
-	call("WV"+(str(randi_range(5,5))))
+	call("WV"+(str(randi_range(1,12))))
 	score += 1
 
 func WV1():
@@ -204,8 +204,179 @@ func WV6():
 	duplicate_wv6.queue_free()
 	go_time()
 
+func WV7():
+	var duplicate_wv7 = Wall_Variant_7.duplicate()
+	duplicate_wv7.visible = true
+	var direction = randi_range(1, 4)
+	if direction == 1:
+		duplicate_wv7.position = Vector3(0, 0.5, 0)
+	elif direction == 2:
+		duplicate_wv7.position = Vector3(0, 0.5, 15.5)
+	elif direction == 3:
+		duplicate_wv7.rotate_y(deg_to_rad(90))
+	elif direction == 4:
+		duplicate_wv7.rotate_y(deg_to_rad(-90))
+	get_tree().current_scene.add_child(duplicate_wv7)
+	
+	var wall_animation = create_tween()
+	
+	if direction == 1:
+		wall_animation.tween_property(duplicate_wv7, "position", Vector3(0, 0.5, 15.5), wall_speed)
+	elif direction == 2:
+		wall_animation.tween_property(duplicate_wv7, "position", Vector3(0, 0.5, 0), wall_speed)
+	elif direction == 3:
+		wall_animation.tween_property(duplicate_wv7, "position", Vector3(15.5, 0.5, 0), wall_speed)
+	elif direction == 4:
+		wall_animation.tween_property(duplicate_wv7, "position", Vector3(-15.5, 0.5, 0), wall_speed)
+	
+	await wall_animation.finished
+	duplicate_wv7.queue_free()
+	go_time()
 
+func WV8():
+	var duplicate_wv8 = Wall_Variant_8.duplicate()
+	duplicate_wv8.visible = true
+	var direction = randi_range(1, 4)
+	if direction == 1:
+		duplicate_wv8.position = Vector3(0, 0.5, 0)
+	elif direction == 2:
+		duplicate_wv8.position = Vector3(0, 0.5, 15.5)
+	elif direction == 3:
+		duplicate_wv8.rotate_y(deg_to_rad(90))
+	elif direction == 4:
+		duplicate_wv8.rotate_y(deg_to_rad(-90))
+	get_tree().current_scene.add_child(duplicate_wv8)
+	
+	var wall_animation = create_tween()
+	
+	if direction == 1:
+		wall_animation.tween_property(duplicate_wv8, "position", Vector3(0, 0.5, 15.5), wall_speed)
+	elif direction == 2:
+		wall_animation.tween_property(duplicate_wv8, "position", Vector3(0, 0.5, 0), wall_speed)
+	elif direction == 3:
+		wall_animation.tween_property(duplicate_wv8, "position", Vector3(15.5, 0.5, 0), wall_speed)
+	elif direction == 4:
+		wall_animation.tween_property(duplicate_wv8, "position", Vector3(-15.5, 0.5, 0), wall_speed)
+	
+	await wall_animation.finished
+	duplicate_wv8.queue_free()
+	go_time()
 
+func WV9():
+	var duplicate_wv9 = Wall_Variant_9.duplicate()
+	duplicate_wv9.visible = true
+	var direction = randi_range(1, 4)
+	if direction == 1:
+		duplicate_wv9.position = Vector3(0, 0.5, 0)
+	elif direction == 2:
+		duplicate_wv9.position = Vector3(0, 0.5, 15.5)
+	elif direction == 3:
+		duplicate_wv9.rotate_y(deg_to_rad(90))
+	elif direction == 4:
+		duplicate_wv9.rotate_y(deg_to_rad(-90))
+	get_tree().current_scene.add_child(duplicate_wv9)
+	
+	var wall_animation = create_tween()
+	
+	if direction == 1:
+		wall_animation.tween_property(duplicate_wv9, "position", Vector3(0, 0.5, 15.5), wall_speed)
+	elif direction == 2:
+		wall_animation.tween_property(duplicate_wv9, "position", Vector3(0, 0.5, 0), wall_speed)
+	elif direction == 3:
+		wall_animation.tween_property(duplicate_wv9, "position", Vector3(15.5, 0.5, 0), wall_speed)
+	elif direction == 4:
+		wall_animation.tween_property(duplicate_wv9, "position", Vector3(-15.5, 0.5, 0), wall_speed)
+	
+	await wall_animation.finished
+	duplicate_wv9.queue_free()
+	go_time()
+
+func WV10():
+	var duplicate_wv10 = Wall_Variant_10.duplicate()
+	duplicate_wv10.visible = true
+	var direction = randi_range(1, 4)
+	if direction == 1:
+		duplicate_wv10.position = Vector3(0, 0.5, 0)
+	elif direction == 2:
+		duplicate_wv10.position = Vector3(0, 0.5, 15.5)
+	elif direction == 3:
+		duplicate_wv10.rotate_y(deg_to_rad(90))
+	elif direction == 4:
+		duplicate_wv10.rotate_y(deg_to_rad(-90))
+	get_tree().current_scene.add_child(duplicate_wv10)
+	
+	var wall_animation = create_tween()
+	
+	if direction == 1:
+		wall_animation.tween_property(duplicate_wv10, "position", Vector3(0, 0.5, 15.5), wall_speed)
+	elif direction == 2:
+		wall_animation.tween_property(duplicate_wv10, "position", Vector3(0, 0.5, 0), wall_speed)
+	elif direction == 3:
+		wall_animation.tween_property(duplicate_wv10, "position", Vector3(15.5, 0.5, 0), wall_speed)
+	elif direction == 4:
+		wall_animation.tween_property(duplicate_wv10, "position", Vector3(-15.5, 0.5, 0), wall_speed)
+	
+	await wall_animation.finished
+	duplicate_wv10.queue_free()
+	go_time()
+
+func WV11():
+	var duplicate_wv11 = Wall_Variant_11.duplicate()
+	duplicate_wv11.visible = true
+	var direction = randi_range(1, 4)
+	if direction == 1:
+		duplicate_wv11.position = Vector3(0, 0.5, 0)
+	elif direction == 2:
+		duplicate_wv11.position = Vector3(0, 0.5, 15.5)
+	elif direction == 3:
+		duplicate_wv11.rotate_y(deg_to_rad(90))
+	elif direction == 4:
+		duplicate_wv11.rotate_y(deg_to_rad(-90))
+	get_tree().current_scene.add_child(duplicate_wv11)
+	
+	var wall_animation = create_tween()
+	
+	if direction == 1:
+		wall_animation.tween_property(duplicate_wv11, "position", Vector3(0, 0.5, 15.5), wall_speed)
+	elif direction == 2:
+		wall_animation.tween_property(duplicate_wv11, "position", Vector3(0, 0.5, 0), wall_speed)
+	elif direction == 3:
+		wall_animation.tween_property(duplicate_wv11, "position", Vector3(15.5, 0.5, 0), wall_speed)
+	elif direction == 4:
+		wall_animation.tween_property(duplicate_wv11, "position", Vector3(-15.5, 0.5, 0), wall_speed)
+	
+	await wall_animation.finished
+	duplicate_wv11.queue_free()
+	go_time()
+
+func WV12():
+	var duplicate_wv12 = Wall_Variant_12.duplicate()
+	duplicate_wv12.visible = true
+	var direction = randi_range(1, 4)
+	if direction == 1:
+		duplicate_wv12.position = Vector3(0, 0.5, 0)
+	elif direction == 2:
+		duplicate_wv12.position = Vector3(0, 0.5, 15.5)
+	elif direction == 3:
+		duplicate_wv12.rotate_y(deg_to_rad(90))
+	elif direction == 4:
+		duplicate_wv12.rotate_y(deg_to_rad(-90))
+	get_tree().current_scene.add_child(duplicate_wv12)
+	
+	var wall_animation = create_tween()
+	
+	if direction == 1:
+		wall_animation.tween_property(duplicate_wv12, "position", Vector3(0, 0.5, 15.5), wall_speed)
+	elif direction == 2:
+		wall_animation.tween_property(duplicate_wv12, "position", Vector3(0, 0.5, 0), wall_speed)
+	elif direction == 3:
+		wall_animation.tween_property(duplicate_wv12, "position", Vector3(15.5, 0.5, 0), wall_speed)
+	elif direction == 4:
+		wall_animation.tween_property(duplicate_wv12, "position", Vector3(-15.5, 0.5, 0), wall_speed)
+	
+	await wall_animation.finished
+	duplicate_wv12.queue_free()
+	go_time()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

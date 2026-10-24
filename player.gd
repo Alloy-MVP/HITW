@@ -2,45 +2,52 @@ extends CharacterBody3D
 
 @onready var Player_Camera = $Player_Camera
 
-var SPEED = 3
-var ACCELERATION: float
-var JUMP_VELOCITY = 6.26
+var speed = 3
+var accelleration: float
+var jump_velocity = 6.26
 var sprinting: bool = false
-var FRICTION = 20
+var friction = 20
+@onready var crouching: bool = Player_Camera.crouching
 
+
+
+func _input(event: InputEvent) -> void:
+	pass
+	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		ACCELERATION = 4
-		FRICTION = 6
+		velocity = velocity * 0.98
+		accelleration = 6
+		friction = 6
 	else:
-		ACCELERATION = 20
-		FRICTION = 20
+		accelleration = 20
+		friction = 15
 
 	if Input.is_action_just_pressed("sprint"):
 		sprinting = not sprinting
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
+		velocity.y = jump_velocity
+	
 	if sprinting:
-		SPEED = 5
+		speed = 4
 	else:
-		SPEED = 3
+		speed = 2.5
 	
 	
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	var vx = direction.x * SPEED
-	var vz = direction.z * SPEED
+	var vx = direction.x * speed
+	var vz = direction.z * speed
 	
 	if direction:
-		velocity.x = move_toward(velocity.x, vx, delta * ACCELERATION)
-		velocity.z = move_toward(velocity.z, vz, delta * ACCELERATION)
-	else:
-		velocity.x = move_toward(velocity.x, 0, delta * FRICTION)
-		velocity.z = move_toward(velocity.z, 0, delta * FRICTION)
+		velocity.x = move_toward(velocity.x, vx, delta * accelleration)
+		velocity.z = move_toward(velocity.z, vz, delta * accelleration)
+	elif is_on_floor():
+		velocity.x = move_toward(velocity.x, 0, delta * friction)
+		velocity.z = move_toward(velocity.z, 0, delta * friction)
 
 	move_and_slide()
 

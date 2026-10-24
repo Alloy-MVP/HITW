@@ -6,7 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dgevva58ucwpo" path="res://Map Designer.meshlib" id="3_ykeeq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
-size = Vector3(0.8, 1.8, 0.8)
+size = Vector3(0.5, 1.8, 0.5)
 
 [node name="Main Game" type="Node3D" unique_id=930402937]
 script = ExtResource("1_dugkq")
@@ -48,6 +48,7 @@ data = {
 }
 
 [node name="Walls" type="Node3D" parent="." unique_id=1599489639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
 
 [node name="Wall 1" type="GridMap" parent="Walls" unique_id=1742143274 groups=["Walls"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

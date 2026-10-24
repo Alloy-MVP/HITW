@@ -2,12 +2,27 @@ extends Camera3D
 
 @onready var Player = $".."
 @onready var fps = $CanvasLayer/FPS
+@onready var Collision_Shape = $"../CollisionShape3D"
+
 
 var sensitivity = 0.2
+var crouching: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("crouch") and not crouching:
+		Collision_Shape.shape.size = Vector3(0.5, 1.4, 0.5)
+		self.position.y -= 0.4
+		crouching = true
+	
+	elif Input.is_action_just_released("crouch") and crouching:
+		Collision_Shape.shape.size = Vector3(0.5, 1.8, 0.5)
+		self.position.y += 0.4
+		crouching = false
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
