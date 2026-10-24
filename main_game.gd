@@ -12,7 +12,7 @@ extends Node3D
 @onready var Wall_Variant_10 = $"Walls/Wall 10"
 @onready var Wall_Variant_11 = $"Walls/Wall 11"
 @onready var Wall_Variant_12 = $"Walls/Wall 12"
-@onready var Score = $Player/Player_Camera/CanvasLayer/Score
+@onready var Score = $Player/Player_Camera/CanvasLayer/GUI/Score
 
 var wall_speed = 10 #in seconds
 var score: int = -1
@@ -24,7 +24,6 @@ func _ready() -> void:
 	go_time()
 
 func go_time():
-	await get_tree().create_timer(2.0)
 	call("WV"+(str(randi_range(1,12))))
 	score += 1
 

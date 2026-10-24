@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://t3illpstqsat"]
+
+[ext_resource type="Script" uid="uid://cks6inbds6av0" path="res://pause_menu.gd" id="1_hdmo1"]
+
+[node name="Control" type="Control" unique_id=1214019416]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hdmo1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2096068063]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=773972126]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=962548467]
+layout_mode = 2
+text = "Resume"
+
+[node name="Options" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1674574795]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="MenuButton" parent="CanvasLayer/VBoxContainer" unique_id=2036094682]
+layout_mode = 2
+text = "Quit"
