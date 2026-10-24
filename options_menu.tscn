@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1615573066]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1615573066 groups=["Options"]]
 layer = 15
 script = ExtResource("1_lbr8e")
 

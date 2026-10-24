@@ -11,4 +11,4 @@ func _process(_delta: float) -> void:
 
 
 func _on_back_pressed() -> void:
-	get_tree().get_first_node_in_group("Pause/Options").back()
+	get_tree().get_first_node_in_group("Pause").back()

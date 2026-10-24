@@ -1,14 +1,19 @@
 extends CanvasLayer
 
 @onready var pause_menu = $"Pause Menu"
+@onready var OptionsMenu
 
 var paused: bool = false
 var options_menu: bool = false
+var options_scene: Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	pause_menu.visible = false
+	options_scene = preload("res://options_menu.tscn").instantiate()
+	get_tree().root.add_child(options_scene)
+	options_scene.visible = false
 	
 
 func _input(event: InputEvent) -> void:
@@ -46,6 +51,8 @@ func _on_resume_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
+	OptionsMenu = get_tree().get_first_node_in_group("Options")
+	print(OptionsMenu)
 	if paused:
 		pause_menu.visible = false
 		OptionsMenu.visible = true

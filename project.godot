@@ -15,10 +15,6 @@ run/main_scene="uid://ddrlptx2oqufs"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[autoload]
-
-OptionsMenu="*uid://druoyy55tinr2"
-
 [display]
 
 window/size/mode=2
@@ -31,6 +27,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 Walls=""
 Pause/Options=""
+Options=""
 
 [input]
 
