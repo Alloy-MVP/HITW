@@ -7,20 +7,33 @@ extends Camera3D
 
 var sensitivity = 0.2
 var crouching: bool = false
+var crouch_tween: Tween
+var camera_y: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	camera_y = self.position.y
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:
 		Collision_Shape.shape.size = Vector3(0.5, 1.4, 0.5)
-		self.position.y -= 0.4
+		if crouch_tween:
+			crouch_tween.kill()
+		
+		crouch_tween = create_tween()
+		crouch_tween.set_ease(crouch_tween.EASE_OUT)
+		crouch_tween.tween_property(self, "position:y", camera_y - 0.5, 0.3)
 		crouching = true
 	
 	elif Input.is_action_just_released("crouch") and crouching:
 		Collision_Shape.shape.size = Vector3(0.5, 1.8, 0.5)
-		self.position.y += 0.4
+		if crouch_tween:
+			crouch_tween.kill()
+		
+		crouch_tween = create_tween()
+		crouch_tween.set_ease(crouch_tween.EASE_IN)
+		crouch_tween.tween_property(self, "position:y", camera_y, 0.3)
 		crouching = false
 
 

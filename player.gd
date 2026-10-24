@@ -4,21 +4,19 @@ extends CharacterBody3D
 
 var speed = 3
 var accelleration: float
-var jump_velocity = 6.26
+var jump_velocity = 7.26
 var sprinting: bool = false
 var friction = 20
 @onready var crouching: bool = Player_Camera.crouching
 
 
-
-func _input(event: InputEvent) -> void:
-	pass
-	
 func _physics_process(delta: float) -> void:
+	crouching = Player_Camera.crouching
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		velocity = velocity * 0.98
-		accelleration = 6
+		accelleration = 4
 		friction = 6
 	else:
 		accelleration = 20
@@ -30,7 +28,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	
-	if sprinting:
+	if sprinting and crouching:
+		speed = 1
+	elif crouching:
+		speed = 1
+	elif sprinting:
 		speed = 4
 	else:
 		speed = 2.5
@@ -60,3 +62,4 @@ func _physics_process(delta: float) -> void:
 				var wall_direction = bounce.get_normal()
 				self.velocity = wall_direction * 7
 				self.velocity.y = 3
+	
