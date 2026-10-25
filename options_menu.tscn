@@ -35,7 +35,8 @@ size_flags_vertical = 4
 text = "Back"
 
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer" unique_id=1001796507]
-offset_right = 40.0
+offset_right = 398.0
+offset_bottom = 375.0
 current_tab = 0
 
 [node name="Mouse" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=948763679]
@@ -48,6 +49,10 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Mouse/Sensitivity" unique_id=1325181938]
 layout_mode = 2
 text = "Sensitivity"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Mouse/Sensitivity" unique_id=470211573]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Mouse/Sensitivity" unique_id=1232135382]
 custom_minimum_size = Vector2(100, 0)
@@ -69,9 +74,13 @@ layout_mode = 2
 layout_mode = 2
 text = "Move Forwards"
 
-[node name="Button" type="Button" parent="CanvasLayer/TabContainer/Mouse/Forward" unique_id=1922259712]
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Mouse/Forward" unique_id=116380895]
 layout_mode = 2
-text = "W"
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/Mouse/Forward" unique_id=1922259712]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Back" to="." method="_on_back_pressed"]
