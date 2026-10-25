@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3jcb2ddiejc2" path="res://options_menu.gd" id="1_lbr8e"]
 
-[node name="Control" type="Control" unique_id=47201885]
+[node name="Control" type="Control" unique_id=47201885 groups=["Options"]]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -13,7 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_lbr8e")
 metadata/_edit_vertical_guides_ = [-182.0]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1615573066 groups=["Options"]]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1615573066]
 layer = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1900348]
@@ -23,6 +23,10 @@ anchor_bottom = 1.0
 offset_top = -40.0
 offset_right = 45.0
 grow_vertical = 0
+
+[node name="Save" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=534633197]
+layout_mode = 2
+text = "Save"
 
 [node name="Back" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1838351142]
 layout_mode = 2
@@ -38,20 +42,38 @@ current_tab = 0
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/TabContainer/Mouse" unique_id=202832086]
+[node name="Sensitivity" type="HBoxContainer" parent="CanvasLayer/TabContainer/Mouse" unique_id=202832086]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Mouse/HBoxContainer" unique_id=1325181938]
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Mouse/Sensitivity" unique_id=1325181938]
 layout_mode = 2
 text = "Sensitivity"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Mouse/HBoxContainer" unique_id=1232135382]
+[node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Mouse/Sensitivity" unique_id=1232135382]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = 0.01
-max_value = 0.5
+max_value = 1.0
 step = 0.01
 value = 0.2
 
+[node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Mouse/Sensitivity" unique_id=716348659]
+layout_mode = 2
+text = "40%"
+
+[node name="Forward" type="HBoxContainer" parent="CanvasLayer/TabContainer/Mouse" unique_id=1609096895]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Mouse/Forward" unique_id=646129095]
+layout_mode = 2
+text = "Move Forwards"
+
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/Mouse/Forward" unique_id=1922259712]
+layout_mode = 2
+text = "W"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="CanvasLayer/TabContainer/Mouse/Sensitivity/HSlider" to="." method="sensitivity_changed"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Mouse/Forward/Button" to="." method="forwards_selected"]

@@ -31,10 +31,10 @@ func pause():
 		pause_menu.visible = false
 		get_tree().paused = false
 		options_menu = false
-	
+
 func back():
 	options_scene = get_tree().get_first_node_in_group("Options")
-	options_scene.visible = false
+	options_scene.Hide()
 	pause_menu.visible = true
 	options_menu = false
 
@@ -51,5 +51,5 @@ func _on_options_pressed() -> void:
 	options_scene = get_tree().get_first_node_in_group("Options")
 	if paused:
 		pause_menu.visible = false
-		options_scene.visible = true
+		options_scene.Show()
 		options_menu = true
