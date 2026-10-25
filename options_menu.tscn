@@ -82,7 +82,55 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
+[node name="Backward" type="HBoxContainer" parent="CanvasLayer/TabContainer/Mouse" unique_id=104445698]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Mouse/Backward" unique_id=958253889]
+layout_mode = 2
+text = "Move Backwards"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Mouse/Backward" unique_id=1320889712]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/Mouse/Backward" unique_id=481540928]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Left" type="HBoxContainer" parent="CanvasLayer/TabContainer/Mouse" unique_id=316887740]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Mouse/Left" unique_id=1684957926]
+layout_mode = 2
+text = "Strafe Left"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Mouse/Left" unique_id=395812442]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/Mouse/Left" unique_id=957062434]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Right" type="HBoxContainer" parent="CanvasLayer/TabContainer/Mouse" unique_id=631909233]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Mouse/Right" unique_id=810562409]
+layout_mode = 2
+text = "Strafe Right"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Mouse/Right" unique_id=1860590648]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/Mouse/Right" unique_id=1011665079]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="CanvasLayer/TabContainer/Mouse/Sensitivity/HSlider" to="." method="sensitivity_changed"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Mouse/Forward/Button" to="." method="forwards_selected"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Mouse/Backward/Button" to="." method="backwards_selected"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Mouse/Left/Button" to="." method="left_selected"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Mouse/Right/Button" to="." method="right_selected"]

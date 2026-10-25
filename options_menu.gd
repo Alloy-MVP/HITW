@@ -3,10 +3,16 @@ extends Control
 @onready var ui = $CanvasLayer
 @onready var sensitivity_label = $CanvasLayer/TabContainer/Mouse/Sensitivity/Label2
 @onready var forward_input_label = $CanvasLayer/TabContainer/Mouse/Forward/Button
+@onready var backward_input_label = $CanvasLayer/TabContainer/Mouse/Backward/Button
+@onready var left_input_label = $CanvasLayer/TabContainer/Mouse/Left/Button
+@onready var right_input_label = $CanvasLayer/TabContainer/Mouse/Right/Button
 
 var sensitivity
-var selected: bool = false
 var forward
+var backward
+var left
+var right
+var selected_keybind = ""
 
 signal options_update
 
@@ -30,16 +36,40 @@ func load_config():
 	sensitivity_label.text = str(int(sensitivity*100)) + "%"
 	forward = config.get_value("INPUTS", "forward")
 	forward_input_label.text = str(forward)
+	backward = config.get_value("INPUTS", "backward")
+	backward_input_label.text = str(backward)
+	left = config.get_value("INPUTS", "left")
+	left_input_label.text = str(left)
+	right = config.get_value("INPUTS", "right")
+	right_input_label.text = str(right)
+	
 	$CanvasLayer/TabContainer/Mouse/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
-		if selected:
-			forward = event.as_text()
-			forward_input_label.release_focus()
-			forward_input_label.text = forward
-			selected = false
-		
+		if selected_keybind != "":
+			if selected_keybind == "forward":
+				forward = event.as_text()
+				forward_input_label.release_focus()
+				forward_input_label.text = forward
+				
+			elif selected_keybind == "backward":
+				backward = event.as_text()
+				backward_input_label.release_focus()
+				backward_input_label.text = backward
+			
+			elif selected_keybind == "left":
+				left = event.as_text()
+				left_input_label.release_focus()
+				left_input_label.text = left
+			
+			elif selected_keybind == "right":
+				right = event.as_text()
+				right_input_label.release_focus()
+				right_input_label.text = right
+
+			selected_keybind = ""
+
 
 func Hide():
 	ui.visible = false
@@ -71,22 +101,58 @@ func sensitivity_changed(value: float) -> void:
 		sensitivity_label.text = s + "%"
 
 func forwards_selected() -> void:
-	selected = true
-	var b = config.get_value("INPUTS", "forward")
-	if selected:
-		forward_input_label.grab_focus()
-		forward_input_label.text = ">Press any key<"
+	selected_keybind = "forward"
+	forward_input_label.grab_focus()
+	forward_input_label.text = ">Press any key<"
+
+func backwards_selected() -> void:
+	selected_keybind = "backward"
+	backward_input_label.grab_focus()
+	backward_input_label.text = ">Press any key<"
+
+func left_selected() -> void:
+	selected_keybind = "left"
+	left_input_label.grab_focus()
+	left_input_label.text = ">Press any key<"
+
+func right_selected() -> void:
+	selected_keybind = "right"
+	right_input_label.grab_focus()
+	right_input_label.text = ">Press any key<"
+
 
 
 func _on_save_pressed() -> void:
 	if sensitivity != null:
 		config.set_value("INPUTS", "sensitivity", sensitivity)
+
 	if forward != null:
 		config.set_value("INPUTS", "forward", forward)
 		InputMap.action_erase_events("forward")
 		var new_forward = InputEventKey.new()
 		new_forward.keycode = OS.find_keycode_from_string(forward)
 		InputMap.action_add_event("forward", new_forward)
+
+	if backward != null:
+		config.set_value("INPUTS", "backward", backward)
+		InputMap.action_erase_events("backward")
+		var new_backward = InputEventKey.new()
+		new_backward.keycode = OS.find_keycode_from_string(backward)
+		InputMap.action_add_event("backward", new_backward)
+	
+	if left != null:
+		config.set_value("INPUTS", "left", left)
+		InputMap.action_erase_events("left")
+		var new_left = InputEventKey.new()
+		new_left.keycode = OS.find_keycode_from_string(left)
+		InputMap.action_add_event("left", new_left)
+	
+	if right != null:
+		config.set_value("INPUTS", "right", right)
+		InputMap.action_erase_events("right")
+		var new_right = InputEventKey.new()
+		new_right.keycode = OS.find_keycode_from_string(right)
+		InputMap.action_add_event("right", new_right)
 	
 	config.save(config_path)
 	
