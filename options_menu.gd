@@ -1,17 +1,21 @@
 extends Control
 
 @onready var ui = $CanvasLayer
-@onready var sensitivity_label = $CanvasLayer/TabContainer/Mouse/Sensitivity/Label2
-@onready var forward_input_label = $CanvasLayer/TabContainer/Mouse/Forward/Button
-@onready var backward_input_label = $CanvasLayer/TabContainer/Mouse/Backward/Button
-@onready var left_input_label = $CanvasLayer/TabContainer/Mouse/Left/Button
-@onready var right_input_label = $CanvasLayer/TabContainer/Mouse/Right/Button
+@onready var sensitivity_label = $CanvasLayer/TabContainer/Inputs/Sensitivity/Label2
+@onready var forward_input_label = $CanvasLayer/TabContainer/Inputs/Forward/Button
+@onready var backward_input_label = $CanvasLayer/TabContainer/Inputs/Backward/Button
+@onready var left_input_label = $CanvasLayer/TabContainer/Inputs/Left/Button
+@onready var right_input_label = $CanvasLayer/TabContainer/Inputs/Right/Button
+@onready var jump_input_label = $CanvasLayer/TabContainer/Inputs/Jump/Button
+@onready var crouch_input_label = $CanvasLayer/TabContainer/Inputs/Crouch/Button
 
 var sensitivity
 var forward
 var backward
 var left
 var right
+var jump
+var crouch
 var selected_keybind = ""
 
 signal options_update
@@ -42,8 +46,12 @@ func load_config():
 	left_input_label.text = str(left)
 	right = config.get_value("INPUTS", "right")
 	right_input_label.text = str(right)
+	jump = config.get_value("INPUTS", "jump")
+	jump_input_label.text = str(jump)
+	crouch = config.get_value("INPUTS", "crouch")
+	crouch_input_label.text = str(crouch)
 	
-	$CanvasLayer/TabContainer/Mouse/Sensitivity/HSlider.set_value_no_signal(sensitivity)
+	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
@@ -67,6 +75,16 @@ func _unhandled_input(event: InputEvent) -> void:
 				right = event.as_text()
 				right_input_label.release_focus()
 				right_input_label.text = right
+			
+			elif selected_keybind == "jump":
+				jump = event.as_text()
+				jump_input_label.release_focus()
+				jump_input_label.text = jump
+			
+			elif selected_keybind == "crouch":
+				crouch = event.as_text()
+				crouch_input_label.release_focus()
+				crouch_input_label.text = crouch
 
 			selected_keybind = ""
 
@@ -89,8 +107,6 @@ func _on_back_pressed() -> void:
 		get_tree().get_first_node_in_group("Pause").back()
 	else:
 		get_tree().get_first_node_in_group("Title Screen").back()
-
-
 
 
 
@@ -120,6 +136,15 @@ func right_selected() -> void:
 	right_input_label.grab_focus()
 	right_input_label.text = ">Press any key<"
 
+func jump_selected() -> void:
+	selected_keybind = "jump"
+	jump_input_label.grab_focus()
+	jump_input_label.text = ">Press any key<"
+
+func crouch_selected() -> void:
+	selected_keybind = "crouch"
+	crouch_input_label.grab_focus()
+	crouch_input_label.text = ">Press any key<"
 
 
 func _on_save_pressed() -> void:
@@ -153,6 +178,20 @@ func _on_save_pressed() -> void:
 		var new_right = InputEventKey.new()
 		new_right.keycode = OS.find_keycode_from_string(right)
 		InputMap.action_add_event("right", new_right)
+	
+	if jump != null:
+		config.set_value("INPUTS", "jump", jump)
+		InputMap.action_erase_events("jump")
+		var new_jump = InputEventKey.new()
+		new_jump.keycode = OS.find_keycode_from_string(jump)
+		InputMap.action_add_event("jump", new_jump)
+	
+	if crouch != null:
+		config.set_value("INPUTS", "crouch", crouch)
+		InputMap.action_erase_events("crouch")
+		var new_crouch = InputEventKey.new()
+		new_crouch.keycode = OS.find_keycode_from_string(crouch)
+		InputMap.action_add_event("crouch", new_crouch)
 	
 	config.save(config_path)
 	

@@ -5,8 +5,13 @@ var options_menu: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	options_scene = preload("res://options_menu.tscn").instantiate()
-	get_tree().root.add_child.call_deferred(options_scene)
+	var current_options_scene = get_tree().get_first_node_in_group("Options")
+	if current_options_scene:
+		options_scene = current_options_scene
+	else:
+		options_scene = preload("res://options_menu.tscn").instantiate()
+		options_scene.add_to_group("Options")
+		get_tree().root.add_child.call_deferred(options_scene)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

@@ -53,3 +53,7 @@ func _on_options_pressed() -> void:
 		pause_menu.visible = false
 		options_scene.Show()
 		options_menu = true
+
+
+func _on_quit_pressed() -> void:
+	pass

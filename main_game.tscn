@@ -58,7 +58,7 @@ text = "Resume"
 layout_mode = 2
 text = "Options"
 
-[node name="Quit" type="MenuButton" parent="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer" unique_id=82920149]
+[node name="Quit" type="Button" parent="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer" unique_id=1693337092]
 layout_mode = 2
 text = "Quit"
 
@@ -221,3 +221,4 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Resume" to="Player/Player_Camera/CanvasLayer" method="_on_resume_pressed"]
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Options" to="Player/Player_Camera/CanvasLayer" method="_on_options_pressed"]
+[connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Quit" to="Player/Player_Camera/CanvasLayer" method="_on_quit_pressed"]
