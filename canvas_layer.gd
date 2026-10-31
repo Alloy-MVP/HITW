@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @onready var pause_menu = $"Pause Menu"
 @onready var player_camera = $".."
+@onready var warning = $"Big Text/Warning"
+@onready var Main_Game = $"../../.."
 
 var paused: bool = false
 var options_scene = preload("res://options_menu.tscn")
@@ -12,7 +14,8 @@ var in_options_menu: bool = false
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	pause_menu.visible = false
-	
+	await get_tree().create_timer(2.0)
+	level1()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -35,6 +38,19 @@ func pause():
 func back():
 	pause_menu.visible = true
 
+func level1():
+	var countdown = 4
+	for i in range(3):
+		warning.text = "Starting in: "+str(countdown-1)
+		countdown = countdown - 1
+		await get_tree().create_timer(1.0).timeout
+	warning.text = "GO!!!"
+	await get_tree().create_timer(1.0).timeout
+	var fade = create_tween()
+	fade.tween_property(warning, "modulate:a", 0.0, 2.0)
+	await fade.finished
+	Main_Game.go_time()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -49,6 +65,7 @@ func _on_options_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://title_screen.tscn")
 
 func options_back():

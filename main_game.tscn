@@ -9,6 +9,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
 size = Vector3(0.5, 1.8, 0.5)
 
+[sub_resource type="LabelSettings" id="LabelSettings_dugkq"]
+font_size = 64
+font_color = Color(5.823821e-06, 0.74723315, 0.33584562, 1)
+
 [node name="Main Game" type="Node3D" unique_id=930402937]
 script = ExtResource("1_dugkq")
 
@@ -29,6 +33,7 @@ layer = 10
 script = ExtResource("4_dugkq")
 
 [node name="Pause Menu" type="Control" parent="Player/Player_Camera/CanvasLayer" unique_id=1095567244]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,14 +56,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Resume" type="Button" parent="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer" unique_id=1386842948]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 text = "Resume"
 
 [node name="Options" type="Button" parent="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer" unique_id=709355855]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 text = "Options"
 
 [node name="Quit" type="Button" parent="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer" unique_id=1693337092]
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 text = "Quit"
 
@@ -76,14 +84,39 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Score" type="Label" parent="Player/Player_Camera/CanvasLayer/GUI" unique_id=2088744358]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = 1072.0
-offset_right = 1112.0
-offset_bottom = 23.0
-grow_horizontal = 0
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score:"
+
+[node name="Big Text" type="Control" parent="Player/Player_Camera/CanvasLayer" unique_id=1834262314]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Warning" type="Label" parent="Player/Player_Camera/CanvasLayer/Big Text" unique_id=977747508]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -44.0
+offset_right = 169.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Starting in:"
+label_settings = SubResource("LabelSettings_dugkq")
+horizontal_alignment = 1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=1699208126]
 light_energy = 4.0

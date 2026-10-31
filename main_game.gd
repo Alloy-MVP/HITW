@@ -21,7 +21,6 @@ var score: int = -1
 func _ready() -> void:
 	for Wall in get_tree().get_nodes_in_group("Walls"):
 		Wall.visible = false
-	go_time()
 
 func go_time():
 	call("WV"+(str(randi_range(1,12))))
