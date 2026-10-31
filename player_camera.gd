@@ -4,7 +4,8 @@ extends Camera3D
 @onready var fps = $CanvasLayer/GUI/FPS
 @onready var Collision_Shape = $"../CollisionShape3D"
 
-
+var config = ConfigFile.new()
+var config_path = "user://Config.cfg"
 var sensitivity: float = 0.2
 var options
 var crouching: bool = false
@@ -15,13 +16,12 @@ var camera_y: float
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera_y = self.position.y
-	options = get_tree().get_first_node_in_group("Options")
-	options.options_update.connect(update)
-	sensitivity = options.sensitivity
-
+	update()
+	
+	
 func update():
-	options = get_tree().get_first_node_in_group("Options")
-	sensitivity = options.sensitivity
+	config.load(config_path)
+	sensitivity = config.get_value("INPUTS", "sensitivity")
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:

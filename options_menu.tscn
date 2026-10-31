@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3jcb2ddiejc2" path="res://options_menu.gd" id="1_lbr8e"]
 
-[node name="Control" type="Control" unique_id=47201885 groups=["Options"]]
+[node name="Control" type="Control" unique_id=47201885]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15

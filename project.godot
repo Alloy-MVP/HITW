@@ -27,7 +27,6 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 Walls=""
 Pause/Options=""
-Options=""
 "Title Screen"=""
 
 [input]

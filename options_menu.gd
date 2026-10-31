@@ -26,16 +26,12 @@ var master_config_path = "res://Config.cfg"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ui.visible = false
-	self.visible = false
-	
 	if not FileAccess.file_exists(config_path):
 		DirAccess.copy_absolute(master_config_path, config_path)
 	load_config()
 
 func load_config():
 	config.load(config_path)
-	
 	sensitivity = config.get_value("INPUTS", "sensitivity")
 	sensitivity_label.text = str(int(sensitivity*100)) + "%"
 	forward = config.get_value("INPUTS", "forward")
@@ -88,14 +84,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 			selected_keybind = ""
 
-
-func Hide():
-	ui.visible = false
-	
-func Show():
-	load_config()
-	ui.visible = true
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -104,9 +92,11 @@ func _process(_delta: float) -> void:
 func _on_back_pressed() -> void:
 	var pause_menu_exists = get_tree().get_first_node_in_group("Pause")
 	if pause_menu_exists and pause_menu_exists.paused:
-		get_tree().get_first_node_in_group("Pause").back()
+		pause_menu_exists.options_back()
 	else:
-		get_tree().get_first_node_in_group("Title Screen").back()
+		var title_screen = get_tree().get_first_node_in_group("Title Screen")
+		if title_screen:
+			title_screen.back()
 
 
 
