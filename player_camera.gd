@@ -4,6 +4,7 @@ extends Camera3D
 @onready var fps = $CanvasLayer/GUI/FPS
 @onready var Collision_Shape = $"../CollisionShape3D"
 @onready var Sea: MeshInstance3D = $"../../Sea/MeshInstance3D"
+@onready var Sun = $"../../WorldEnvironment/Sun"
 
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
@@ -14,6 +15,8 @@ var crouch_tween: Tween
 var camera_y: float
 var animated_sea = preload("res://textures/animated_sea.tres")
 var sea = preload("res://textures/non_animated_sea.tres")
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,12 +31,15 @@ func update():
 	if Sea:
 		if animated == true:
 			Sea.material_override = animated_sea
-			print("animated sea" + str(Sea.get_active_material(0)))
 		else:
 			Sea.material_override = sea
-			print("normal sea" + str(Sea.get_active_material(0)))
-	else:
-		print("no sea")
+	var shadows = config.get_value("GRAPHICS", "shadows")
+	if Sun:
+		if shadows == true:
+			Sun.shadow_enabled = true
+		else:
+			Sun.shadow_enabled = false
+		
 	
 	sensitivity = config.get_value("INPUTS", "sensitivity")
 

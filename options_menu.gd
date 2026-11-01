@@ -9,6 +9,7 @@ extends Control
 @onready var jump_input_label = $CanvasLayer/TabContainer/Inputs/Jump/Button
 @onready var crouch_input_label = $CanvasLayer/TabContainer/Inputs/Crouch/Button
 @onready var animated_sea_checkbox = $"CanvasLayer/TabContainer/Graphics/Animated Sea/Animated Sea"
+@onready var shadows_checkbox = $CanvasLayer/TabContainer/Graphics/Shadows/Shadows
 
 var sensitivity
 var forward
@@ -19,6 +20,7 @@ var jump
 var crouch
 var selected_keybind = ""
 var animated_sea: bool
+var shadows: bool
 
 signal options_update
 
@@ -50,6 +52,8 @@ func load_config():
 	crouch_input_label.text = str(crouch)
 	animated_sea = config.get_value("GRAPHICS", "animated_sea")
 	animated_sea_checkbox.button_pressed = config.get_value("GRAPHICS", "animated_sea")
+	shadows = config.get_value("GRAPHICS", "shadows")
+	shadows_checkbox.button_pressed = config.get_value("GRAPHICS", "shadows")
 	
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 
@@ -103,7 +107,7 @@ func _on_back_pressed() -> void:
 			title_screen.back()
 
 
-
+# INPUTS
 func sensitivity_changed(value: float) -> void:
 	sensitivity = value
 	if sensitivity:
@@ -141,9 +145,12 @@ func crouch_selected() -> void:
 	crouch_input_label.text = ">Press any key<"
 
 
+# GRAPHICS
 func _on_animate_sea_toggled(toggled_on: bool) -> void:
 	animated_sea = toggled_on
-	
+
+func _on_shadows_toggled(toggled_on: bool) -> void:
+	shadows = toggled_on
 
 
 func _on_save_pressed() -> void:
@@ -195,6 +202,11 @@ func _on_save_pressed() -> void:
 	if animated_sea != null:
 		config.set_value("GRAPHICS", "animated_sea", animated_sea)
 	
+	if shadows != null:
+		config.set_value("GRAPHICS", "shadows", shadows)
+	
+	
 	config.save(config_path)
 	
+	$CanvasLayer/VBoxContainer/HBoxContainer/Label.text = "Options saved"
 	emit_signal("options_update")

@@ -21,6 +21,7 @@ var score: int = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Score.visible = false
 	for Wall in get_tree().get_nodes_in_group("Walls"):
 		Wall.visible = false
 
@@ -32,6 +33,7 @@ func level1():
 		await get_tree().create_timer(1.0, false).timeout
 	warning.text = "GO!!!"
 	await get_tree().create_timer(1.0, false).timeout
+	Score.visible = true
 	go_time()
 	var fade = create_tween()
 	fade.tween_property(warning, "modulate:a", 0.0, 2.0)

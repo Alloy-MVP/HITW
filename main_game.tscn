@@ -111,7 +111,6 @@ offset_left = 1064.0
 offset_right = 1072.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Score:"
 
 [node name="Big Text" type="Control" parent="Player/Player_Camera/CanvasLayer" unique_id=1834262314]
 process_mode = 1
@@ -137,7 +136,6 @@ offset_right = 169.0
 offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Starting in:"
 label_settings = SubResource("LabelSettings_dugkq")
 horizontal_alignment = 1
 
@@ -284,7 +282,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=124764233]
 environment = SubResource("Environment_f52ns")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=568902381]
+[node name="Sun" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=568902381]
 transform = Transform3D(0.9396926, 0.059391167, -0.33682403, 0, 0.98480767, 0.17364816, 0.34202012, -0.1631759, 0.92541647, -40, 17.829845, 100)
 light_color = Color(1, 1, 0.7921569, 1)
 light_energy = 16.0
