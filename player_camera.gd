@@ -78,6 +78,12 @@ func update():
 		else:
 			game_sky.environment.fog_enabled = false
 	
+	var sun_strength = config.get_value("GRAPHICS", "sun_strength")
+	if Sun:
+		if 4.0 <= sun_strength and sun_strength <= 16.0:
+			Sun.light_energy = sun_strength
+	print("sun energy: "+str(Sun.light_energy)+" setting energy: "+str(sun_strength))
+	
 	sensitivity = config.get_value("INPUTS", "sensitivity")
 
 

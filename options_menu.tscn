@@ -272,6 +272,28 @@ size_flags_horizontal = 3
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer/TabContainer/Graphics/Show Fog" unique_id=1778273396]
 layout_mode = 2
 
+[node name="Sun Strength" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=43906173]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=1421333097]
+layout_mode = 2
+text = "Sun Strength"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=821092722]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=1103628345]
+layout_mode = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=318031330]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+min_value = 4.0
+max_value = 16.0
+step = 0.1
+value = 16.0
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider" to="." method="sensitivity_changed"]
@@ -288,3 +310,4 @@ layout_mode = 2
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Show Sea/CheckButton" to="." method="_on_show_sea_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Better Sun Refs/CheckButton" to="." method="_on_better_sun_refs_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Show Fog/CheckButton" to="." method="_on_show_fog_button_toggled"]
+[connection signal="value_changed" from="CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider" to="." method="_on_sun_strength_value_changed"]

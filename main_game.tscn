@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bhc4wd5gq7gx8" path="res://player_camera.gd" id="2_yx7mw"]
 [ext_resource type="MeshLibrary" uid="uid://dgevva58ucwpo" path="res://Map Designer.meshlib" id="3_ykeeq"]
 [ext_resource type="Script" uid="uid://3x20scnan24h" path="res://canvas_layer.gd" id="4_dugkq"]
+[ext_resource type="Sky" uid="uid://tkk6lyttm4qj" path="res://textures/sky.tres" id="6_2pltu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
 size = Vector3(0.5, 1.8, 0.5)
@@ -15,6 +16,7 @@ font_color = Color(5.823821e-06, 0.74723315, 0.33584562, 1)
 
 [sub_resource type="Environment" id="Environment_f52ns"]
 background_mode = 2
+sky = ExtResource("6_2pltu")
 fog_enabled = true
 fog_density = 0.003
 fog_sky_affect = 0.1

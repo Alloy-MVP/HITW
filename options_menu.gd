@@ -15,6 +15,7 @@ extends Control
 @onready var show_sea_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Sea/CheckButton"
 @onready var better_reflections_checkbox = $"CanvasLayer/TabContainer/Graphics/Better Sun Refs/CheckButton"
 @onready var show_fog_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Fog/CheckButton"
+@onready var sun_strength_label = $"CanvasLayer/TabContainer/Graphics/Sun Strength/Label2"
 
 var sensitivity
 var forward
@@ -31,6 +32,7 @@ var show_sky: bool
 var show_sea: bool
 var better_reflections: bool
 var show_fog: bool
+var sun_strength
 
 signal options_update
 
@@ -74,6 +76,10 @@ func load_config():
 	better_reflections_checkbox.button_pressed = config.get_value("GRAPHICS", "better_reflections")
 	show_fog = config.get_value("GRAPHICS", "show_fog")
 	show_fog_checkbox.button_pressed = config.get_value("GRAPHICS", "show_fog")
+	sun_strength = config.get_value("GRAPHICS", "sun_strength")
+	if sun_strength_label.text == "":
+		sun_strength_label.text = str(int(((sun_strength-4)/12)*100)) + "%"
+	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".value = sun_strength
 	
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 
@@ -187,6 +193,11 @@ func _on_better_sun_refs_button_toggled(toggled_on: bool) -> void:
 func _on_show_fog_button_toggled(toggled_on: bool) -> void:
 	show_fog = toggled_on
 
+func _on_sun_strength_value_changed(value: float) -> void:
+	sun_strength = value
+	if sun_strength:
+		var ss = str(int(((sun_strength-4)/12)*100))
+		sun_strength_label.text = ss + "%"
 
 
 func _on_save_pressed() -> void:
@@ -255,6 +266,10 @@ func _on_save_pressed() -> void:
 	
 	if show_fog != null:
 		config.set_value("GRAPHICS", "show_fog", show_fog)
+	
+	if sun_strength != null:
+		config.set_value("GRAPHICS", "sun_strength", sun_strength)
+	
 	
 	config.save(config_path)
 	
