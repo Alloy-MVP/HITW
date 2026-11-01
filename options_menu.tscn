@@ -157,6 +157,11 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
+[node name="Details" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=1730094708]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider" to="." method="sensitivity_changed"]

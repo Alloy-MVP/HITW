@@ -14,8 +14,7 @@ var in_options_menu: bool = false
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	pause_menu.visible = false
-	await get_tree().create_timer(2.0)
-	level1()
+	await get_tree().create_timer(2.0).timeout
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -23,6 +22,9 @@ func _input(event: InputEvent) -> void:
 			options_back()
 		else:
 			pause()
+	
+	if event.is_action_pressed("ui_up"):
+		level1()
 
 func pause():
 	paused = not paused
@@ -46,10 +48,10 @@ func level1():
 		await get_tree().create_timer(1.0).timeout
 	warning.text = "GO!!!"
 	await get_tree().create_timer(1.0).timeout
+	Main_Game.go_time()
 	var fade = create_tween()
 	fade.tween_property(warning, "modulate:a", 0.0, 2.0)
 	await fade.finished
-	Main_Game.go_time()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
