@@ -6,6 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dgevva58ucwpo" path="res://Map Designer.meshlib" id="3_ykeeq"]
 [ext_resource type="Script" uid="uid://3x20scnan24h" path="res://canvas_layer.gd" id="4_dugkq"]
 [ext_resource type="Texture2D" uid="uid://v7jovifp7i71" path="res://textures/sky_texture_1k.jpg" id="6_2pltu"]
+[ext_resource type="Shader" uid="uid://b4rul0etpac0y" path="res://sea.gdshader" id="7_f52ns"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
 size = Vector3(0.5, 1.8, 0.5)
@@ -23,6 +24,30 @@ sky_material = SubResource("PanoramaSkyMaterial_dugkq")
 [sub_resource type="Environment" id="Environment_f52ns"]
 background_mode = 2
 sky = SubResource("Sky_2pltu")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l5ukw"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4srsv"]
+width = 4096
+height = 4096
+noise = SubResource("FastNoiseLite_l5ukw")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4srsv"]
+render_priority = 0
+shader = ExtResource("7_f52ns")
+shader_parameter/water_colour = Color(0.007843138, 0.22745098, 0.9764706, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_4srsv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2pltu"]
+material = SubResource("ShaderMaterial_4srsv")
+size = Vector2(2000, 2000)
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2pltu"]
+size = Vector3(200, 1, 200)
 
 [node name="Main Game" type="Node3D" unique_id=930402937]
 process_mode = 1
@@ -281,6 +306,17 @@ transform = Transform3D(0.9396926, 0.059391167, -0.33682403, 0, 0.98480767, 0.17
 light_color = Color(1, 1, 0.7921569, 1)
 light_energy = 16.0
 
+[node name="Sea" type="Area3D" parent="." unique_id=1502195633]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sea" unique_id=1857272165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
+mesh = SubResource("PlaneMesh_2pltu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sea" unique_id=1442537433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
+shape = SubResource("BoxShape3D_2pltu")
+
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Resume" to="Player/Player_Camera/CanvasLayer" method="_on_resume_pressed"]
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Options" to="Player/Player_Camera/CanvasLayer" method="_on_options_pressed"]
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Quit" to="Player/Player_Camera/CanvasLayer" method="_on_quit_pressed"]
+[connection signal="body_entered" from="Sea" to="Player" method="_on_sea_body_entered"]

@@ -63,3 +63,8 @@ func _physics_process(delta: float) -> void:
 				var wall_direction = bounce.get_normal()
 				self.velocity = wall_direction * 7
 				self.velocity.y = 3
+
+
+func _on_sea_body_entered(body: Node3D) -> void:
+	print("Splash!!")
+	pass # audio splash
