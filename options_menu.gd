@@ -8,6 +8,7 @@ extends Control
 @onready var right_input_label = $CanvasLayer/TabContainer/Inputs/Right/Button
 @onready var jump_input_label = $CanvasLayer/TabContainer/Inputs/Jump/Button
 @onready var crouch_input_label = $CanvasLayer/TabContainer/Inputs/Crouch/Button
+@onready var animated_sea_checkbox = $"CanvasLayer/TabContainer/Graphics/Animated Sea/Animated Sea"
 
 var sensitivity
 var forward
@@ -17,6 +18,7 @@ var right
 var jump
 var crouch
 var selected_keybind = ""
+var animated_sea: bool
 
 signal options_update
 
@@ -46,6 +48,8 @@ func load_config():
 	jump_input_label.text = str(jump)
 	crouch = config.get_value("INPUTS", "crouch")
 	crouch_input_label.text = str(crouch)
+	animated_sea = config.get_value("GRAPHICS", "animated_sea")
+	animated_sea_checkbox.button_pressed = config.get_value("GRAPHICS", "animated_sea")
 	
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 
@@ -137,6 +141,11 @@ func crouch_selected() -> void:
 	crouch_input_label.text = ">Press any key<"
 
 
+func _on_animate_sea_toggled(toggled_on: bool) -> void:
+	animated_sea = toggled_on
+	
+
+
 func _on_save_pressed() -> void:
 	if sensitivity != null:
 		config.set_value("INPUTS", "sensitivity", sensitivity)
@@ -182,6 +191,9 @@ func _on_save_pressed() -> void:
 		var new_crouch = InputEventKey.new()
 		new_crouch.keycode = OS.find_keycode_from_string(crouch)
 		InputMap.action_add_event("crouch", new_crouch)
+	
+	if animated_sea != null:
+		config.set_value("GRAPHICS", "animated_sea", animated_sea)
 	
 	config.save(config_path)
 	

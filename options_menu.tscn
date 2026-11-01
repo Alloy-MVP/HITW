@@ -37,9 +37,10 @@ text = "Back"
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer" unique_id=1001796507]
 offset_right = 398.0
 offset_bottom = 375.0
-current_tab = 0
+current_tab = 1
 
 [node name="Inputs" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=948763679]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -157,10 +158,23 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Details" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=1730094708]
-visible = false
+[node name="Graphics" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=1730094708]
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="Animated Sea" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=1911720759]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Animated Sea" unique_id=1756937874]
+layout_mode = 2
+text = "Animated Sea"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Animated Sea" unique_id=96925110]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Animated Sea" type="CheckButton" parent="CanvasLayer/TabContainer/Graphics/Animated Sea" unique_id=1420510110]
+layout_mode = 2
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Back" to="." method="_on_back_pressed"]
@@ -171,3 +185,4 @@ metadata/_tab_index = 1
 [connection signal="pressed" from="CanvasLayer/TabContainer/Inputs/Right/Button" to="." method="right_selected"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Inputs/Jump/Button" to="." method="jump_selected"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Inputs/Crouch/Button" to="." method="crouch_selected"]
+[connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Animated Sea/Animated Sea" to="." method="_on_animate_sea_toggled"]

@@ -6,7 +6,6 @@
 [ext_resource type="MeshLibrary" uid="uid://dgevva58ucwpo" path="res://Map Designer.meshlib" id="3_ykeeq"]
 [ext_resource type="Script" uid="uid://3x20scnan24h" path="res://canvas_layer.gd" id="4_dugkq"]
 [ext_resource type="Texture2D" uid="uid://v7jovifp7i71" path="res://textures/sky_texture_1k.jpg" id="6_2pltu"]
-[ext_resource type="Shader" uid="uid://b4rul0etpac0y" path="res://sea.gdshader" id="7_f52ns"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
 size = Vector3(0.5, 1.8, 0.5)
@@ -25,23 +24,7 @@ sky_material = SubResource("PanoramaSkyMaterial_dugkq")
 background_mode = 2
 sky = SubResource("Sky_2pltu")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_l5ukw"]
-fractal_type = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4srsv"]
-width = 4096
-height = 4096
-noise = SubResource("FastNoiseLite_l5ukw")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4srsv"]
-render_priority = 0
-shader = ExtResource("7_f52ns")
-shader_parameter/water_colour = Color(0.007843138, 0.22745098, 0.9764706, 1)
-shader_parameter/wave_noise = SubResource("NoiseTexture2D_4srsv")
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_2pltu"]
-material = SubResource("ShaderMaterial_4srsv")
 size = Vector2(2000, 2000)
 subdivide_width = 32
 subdivide_depth = 32

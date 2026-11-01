@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cmrkdipvib45"]
+
+[ext_resource type="Shader" uid="uid://x51mwe6skfgk" path="res://outer_sea.gdshader" id="1_nunb5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l5ukw"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4srsv"]
+width = 2048
+height = 2048
+noise = SubResource("FastNoiseLite_l5ukw")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_nunb5")
+shader_parameter/water_colour = Color(0, 0.08235294, 0.8117647, 1)
+shader_parameter/wave_noise = SubResource("NoiseTexture2D_4srsv")
