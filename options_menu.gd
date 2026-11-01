@@ -10,6 +10,11 @@ extends Control
 @onready var crouch_input_label = $CanvasLayer/TabContainer/Inputs/Crouch/Button
 @onready var animated_sea_checkbox = $"CanvasLayer/TabContainer/Graphics/Animated Sea/Animated Sea"
 @onready var shadows_checkbox = $CanvasLayer/TabContainer/Graphics/Shadows/Shadows
+@onready var show_sun_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Sun/CheckButton"
+@onready var show_sky_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Sky/CheckButton"
+@onready var show_sea_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Sea/CheckButton"
+@onready var better_reflections_checkbox = $"CanvasLayer/TabContainer/Graphics/Better Sun Refs/CheckButton"
+@onready var show_fog_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Fog/CheckButton"
 
 var sensitivity
 var forward
@@ -21,6 +26,11 @@ var crouch
 var selected_keybind = ""
 var animated_sea: bool
 var shadows: bool
+var show_sun: bool
+var show_sky: bool
+var show_sea: bool
+var better_reflections: bool
+var show_fog: bool
 
 signal options_update
 
@@ -54,6 +64,16 @@ func load_config():
 	animated_sea_checkbox.button_pressed = config.get_value("GRAPHICS", "animated_sea")
 	shadows = config.get_value("GRAPHICS", "shadows")
 	shadows_checkbox.button_pressed = config.get_value("GRAPHICS", "shadows")
+	show_sun = config.get_value("GRAPHICS", "show_sun")
+	show_sun_checkbox.button_pressed = config.get_value("GRAPHICS", "show_sun")
+	show_sky = config.get_value("GRAPHICS", "show_sky")
+	show_sky_checkbox.button_pressed = config.get_value("GRAPHICS", "show_sky")
+	show_sea = config.get_value("GRAPHICS", "show_sea")
+	show_sea_checkbox.button_pressed = config.get_value("GRAPHICS", "show_sea")
+	better_reflections = config.get_value("GRAPHICS", "better_reflections")
+	better_reflections_checkbox.button_pressed = config.get_value("GRAPHICS", "better_reflections")
+	show_fog = config.get_value("GRAPHICS", "show_fog")
+	show_fog_checkbox.button_pressed = config.get_value("GRAPHICS", "show_fog")
 	
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 
@@ -152,6 +172,22 @@ func _on_animate_sea_toggled(toggled_on: bool) -> void:
 func _on_shadows_toggled(toggled_on: bool) -> void:
 	shadows = toggled_on
 
+func _on_show_sun_button_toggled(toggled_on: bool) -> void:
+	show_sun = toggled_on
+
+func _on_show_sky_button_toggled(toggled_on: bool) -> void:
+	show_sky = toggled_on
+
+func _on_show_sea_button_toggled(toggled_on: bool) -> void:
+	show_sea = toggled_on
+
+func _on_better_sun_refs_button_toggled(toggled_on: bool) -> void:
+	better_reflections = toggled_on
+
+func _on_show_fog_button_toggled(toggled_on: bool) -> void:
+	show_fog = toggled_on
+
+
 
 func _on_save_pressed() -> void:
 	if sensitivity != null:
@@ -205,8 +241,22 @@ func _on_save_pressed() -> void:
 	if shadows != null:
 		config.set_value("GRAPHICS", "shadows", shadows)
 	
+	if show_sun != null:
+		config.set_value("GRAPHICS", "show_sun", show_sun)
+	
+	if show_sky != null:
+		config.set_value("GRAPHICS", "show_sky", show_sky)
+	
+	if show_sea != null:
+		config.set_value("GRAPHICS", "show_sea", show_sea)
+	
+	if better_reflections != null:
+		config.set_value("GRAPHICS", "better_reflections", better_reflections)
+	
+	if show_fog != null:
+		config.set_value("GRAPHICS", "show_fog", show_fog)
 	
 	config.save(config_path)
 	
-	$CanvasLayer/VBoxContainer/HBoxContainer/Label.text = "Options saved"
+	$CanvasLayer/Label.text = "Options saved"
 	emit_signal("options_update")

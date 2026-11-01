@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bhc4wd5gq7gx8" path="res://player_camera.gd" id="2_yx7mw"]
 [ext_resource type="MeshLibrary" uid="uid://dgevva58ucwpo" path="res://Map Designer.meshlib" id="3_ykeeq"]
 [ext_resource type="Script" uid="uid://3x20scnan24h" path="res://canvas_layer.gd" id="4_dugkq"]
-[ext_resource type="Texture2D" uid="uid://v7jovifp7i71" path="res://textures/sky_texture_1k.jpg" id="6_2pltu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
 size = Vector3(0.5, 1.8, 0.5)
@@ -14,15 +13,11 @@ size = Vector3(0.5, 1.8, 0.5)
 font_size = 64
 font_color = Color(5.823821e-06, 0.74723315, 0.33584562, 1)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dugkq"]
-panorama = ExtResource("6_2pltu")
-
-[sub_resource type="Sky" id="Sky_2pltu"]
-sky_material = SubResource("PanoramaSkyMaterial_dugkq")
-
 [sub_resource type="Environment" id="Environment_f52ns"]
 background_mode = 2
-sky = SubResource("Sky_2pltu")
+fog_enabled = true
+fog_density = 0.003
+fog_sky_affect = 0.1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2pltu"]
 size = Vector2(2000, 2000)
@@ -282,10 +277,11 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=124764233]
 environment = SubResource("Environment_f52ns")
 
-[node name="Sun" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=568902381]
-transform = Transform3D(0.9396926, 0.059391167, -0.33682403, 0, 0.98480767, 0.17364816, 0.34202012, -0.1631759, 0.92541647, -40, 17.829845, 100)
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=568902381]
+transform = Transform3D(0.9396927, 0.05939117, -0.3368241, 0, 0.9848078, 0.17364818, 0.34202015, -0.16317591, 0.9254166, -40, 17.829845, 100)
 light_color = Color(1, 1, 0.7921569, 1)
 light_energy = 16.0
+light_volumetric_fog_energy = 0.0
 
 [node name="Sea" type="Area3D" parent="." unique_id=1502195633]
 

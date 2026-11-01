@@ -4,7 +4,8 @@ extends Camera3D
 @onready var fps = $CanvasLayer/GUI/FPS
 @onready var Collision_Shape = $"../CollisionShape3D"
 @onready var Sea: MeshInstance3D = $"../../Sea/MeshInstance3D"
-@onready var Sun = $"../../WorldEnvironment/Sun"
+@onready var Sun = $"../../Sun"
+@onready var game_sky = $"../../WorldEnvironment"
 
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
@@ -15,13 +16,14 @@ var crouch_tween: Tween
 var camera_y: float
 var animated_sea = preload("res://textures/animated_sea.tres")
 var sea = preload("res://textures/non_animated_sea.tres")
-
-
+var cloud_sky = preload("res://textures/sky.tres")
+var saved_sky
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera_y = self.position.y
+	saved_sky = cloud_sky
 	update()
 	
 	
@@ -33,15 +35,51 @@ func update():
 			Sea.material_override = animated_sea
 		else:
 			Sea.material_override = sea
+	
 	var shadows = config.get_value("GRAPHICS", "shadows")
 	if Sun:
 		if shadows == true:
 			Sun.shadow_enabled = true
 		else:
 			Sun.shadow_enabled = false
-		
+	
+	var show_sun = config.get_value("GRAPHICS", "show_sun")
+	if Sun:
+		if show_sun == true:
+			Sun.visible = true
+		else:
+			Sun.visible = false
+	
+	var show_sky = config.get_value("GRAPHICS", "show_sky")
+	if game_sky:
+		if show_sky == true:
+			game_sky.environment.sky = saved_sky
+		else:
+			game_sky.environment.sky = null
+	
+	var show_sea = config.get_value("GRAPHICS", "show_sea")
+	if Sea:
+		if show_sea == true:
+			Sea.visible = true
+		else:
+			Sea.visible = false
+	
+	var better_reflections = config.get_value("GRAPHICS", "better_reflections")
+	if game_sky:
+		if better_reflections == true:
+			game_sky.environment.glow_enabled = true
+		else:
+			game_sky.environment.glow_enabled = false
+	
+	var show_fog = config.get_value("GRAPHICS", "show_fog")
+	if game_sky:
+		if show_fog == true:
+			game_sky.environment.fog_enabled = true
+		else:
+			game_sky.environment.fog_enabled = false
 	
 	sensitivity = config.get_value("INPUTS", "sensitivity")
+
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:
