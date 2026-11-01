@@ -25,6 +25,7 @@ background_mode = 2
 sky = SubResource("Sky_2pltu")
 
 [node name="Main Game" type="Node3D" unique_id=930402937]
+process_mode = 1
 script = ExtResource("1_dugkq")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=331038583]
@@ -98,11 +99,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1064.0
+offset_right = 1072.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Score:"
 
 [node name="Big Text" type="Control" parent="Player/Player_Camera/CanvasLayer" unique_id=1834262314]
+process_mode = 1
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -128,6 +132,16 @@ grow_vertical = 2
 text = "Starting in:"
 label_settings = SubResource("LabelSettings_dugkq")
 horizontal_alignment = 1
+
+[node name="Black Fade" type="ColorRect" parent="Player/Player_Camera/CanvasLayer" unique_id=477615912]
+z_index = 20
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1556215499]
 mesh_library = ExtResource("3_ykeeq")
@@ -266,7 +280,6 @@ environment = SubResource("Environment_f52ns")
 transform = Transform3D(0.9396926, 0.059391167, -0.33682403, 0, 0.98480767, 0.17364816, 0.34202012, -0.1631759, 0.92541647, -40, 17.829845, 100)
 light_color = Color(1, 1, 0.7921569, 1)
 light_energy = 16.0
-shadow_enabled = true
 
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Resume" to="Player/Player_Camera/CanvasLayer" method="_on_resume_pressed"]
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Options" to="Player/Player_Camera/CanvasLayer" method="_on_options_pressed"]

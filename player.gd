@@ -1,13 +1,14 @@
 extends CharacterBody3D
 
 @onready var Player_Camera = $Player_Camera
+@onready var crouching: bool = Player_Camera.crouching
 
 var speed = 3
 var accelleration: float
 var jump_velocity = 7.26
 var sprinting: bool = false
 var friction = 20
-@onready var crouching: bool = Player_Camera.crouching
+var dead: bool = false
 
 
 func _physics_process(delta: float) -> void:
@@ -62,4 +63,3 @@ func _physics_process(delta: float) -> void:
 				var wall_direction = bounce.get_normal()
 				self.velocity = wall_direction * 7
 				self.velocity.y = 3
-	

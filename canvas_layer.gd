@@ -2,18 +2,19 @@ extends CanvasLayer
 
 @onready var pause_menu = $"Pause Menu"
 @onready var player_camera = $".."
-@onready var warning = $"Big Text/Warning"
 @onready var Main_Game = $"../../.."
 
 var paused: bool = false
 var options_scene = preload("res://options_menu.tscn")
 var new_options_scene
 var in_options_menu: bool = false
+var dead: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	pause_menu.visible = false
+	$"Black Fade".modulate.a = 0.0
 	await get_tree().create_timer(2.0).timeout
 
 func _input(event: InputEvent) -> void:
@@ -22,9 +23,6 @@ func _input(event: InputEvent) -> void:
 			options_back()
 		else:
 			pause()
-	
-	if event.is_action_pressed("ui_up"):
-		level1()
 
 func pause():
 	paused = not paused
@@ -40,23 +38,17 @@ func pause():
 func back():
 	pause_menu.visible = true
 
-func level1():
-	var countdown = 4
-	for i in range(3):
-		warning.text = "Starting in: "+str(countdown-1)
-		countdown = countdown - 1
-		await get_tree().create_timer(1.0).timeout
-	warning.text = "GO!!!"
-	await get_tree().create_timer(1.0).timeout
-	Main_Game.go_time()
-	var fade = create_tween()
-	fade.tween_property(warning, "modulate:a", 0.0, 2.0)
-	await fade.finished
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if player_camera.global_position.y < -20 and not dead:
+		print(player_camera.global_position.y)
+		dead = true
+		var fade_out = create_tween()
+		fade_out.tween_property($"Black Fade", "modulate:a", 1.0, 1)
+		if get_tree().paused:
+			get_tree().paused = false
+		await fade_out.finished
+		get_tree().change_scene_to_file("res://death_screen.tscn")
 
 func _on_resume_pressed() -> void:
 	pause()

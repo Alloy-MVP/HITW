@@ -14,6 +14,8 @@ extends Node3D
 @onready var Wall_Variant_12 = $"Walls/Wall 12"
 @onready var Score = $Player/Player_Camera/CanvasLayer/GUI/Score
 
+@onready var warning = $"Player/Player_Camera/CanvasLayer/Big Text/Warning"
+
 var wall_speed = 10 #in seconds
 var score: int = -1
 
@@ -21,6 +23,19 @@ var score: int = -1
 func _ready() -> void:
 	for Wall in get_tree().get_nodes_in_group("Walls"):
 		Wall.visible = false
+
+func level1():
+	var countdown = 4
+	for i in range(3):
+		warning.text = "Starting in: "+str(countdown-1)
+		countdown = countdown - 1
+		await get_tree().create_timer(1.0, false).timeout
+	warning.text = "GO!!!"
+	await get_tree().create_timer(1.0, false).timeout
+	go_time()
+	var fade = create_tween()
+	fade.tween_property(warning, "modulate:a", 0.0, 2.0)
+	await fade.finished
 
 func go_time():
 	call("WV"+(str(randi_range(1,12))))
@@ -375,6 +390,11 @@ func WV12():
 	await wall_animation.finished
 	duplicate_wv12.queue_free()
 	go_time()
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_up"):
+		level1()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
