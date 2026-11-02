@@ -8,6 +8,8 @@ extends Control
 @onready var right_input_label = $CanvasLayer/TabContainer/Inputs/Right/Button
 @onready var jump_input_label = $CanvasLayer/TabContainer/Inputs/Jump/Button
 @onready var crouch_input_label = $CanvasLayer/TabContainer/Inputs/Crouch/Button
+@onready var slide_input_label = $CanvasLayer/TabContainer/Inputs/Slide/Button
+
 @onready var animated_sea_checkbox = $"CanvasLayer/TabContainer/Graphics/Animated Sea/Animated Sea"
 @onready var shadows_checkbox = $CanvasLayer/TabContainer/Graphics/Shadows/Shadows
 @onready var show_sun_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Sun/CheckButton"
@@ -24,6 +26,7 @@ var left
 var right
 var jump
 var crouch
+var slide
 var selected_keybind = ""
 var animated_sea: bool
 var shadows: bool
@@ -62,6 +65,10 @@ func load_config():
 	jump_input_label.text = str(jump)
 	crouch = config.get_value("INPUTS", "crouch")
 	crouch_input_label.text = str(crouch)
+	slide = config.get_value("INPUTS", "slide")
+	slide_input_label.text = str(slide)
+	
+	
 	animated_sea = config.get_value("GRAPHICS", "animated_sea")
 	animated_sea_checkbox.button_pressed = config.get_value("GRAPHICS", "animated_sea")
 	shadows = config.get_value("GRAPHICS", "shadows")
@@ -115,6 +122,11 @@ func _unhandled_input(event: InputEvent) -> void:
 				crouch = event.as_text()
 				crouch_input_label.release_focus()
 				crouch_input_label.text = crouch
+			
+			elif selected_keybind == "slide":
+				slide = event.as_text()
+				slide_input_label.release_focus()
+				slide_input_label.text = slide
 
 			selected_keybind = ""
 
@@ -170,6 +182,10 @@ func crouch_selected() -> void:
 	crouch_input_label.grab_focus()
 	crouch_input_label.text = ">Press any key<"
 
+func slide_selected() -> void:
+	selected_keybind = "slide"
+	slide_input_label.grab_focus()
+	slide_input_label.text = ">Press any key<"
 
 # GRAPHICS
 func _on_animate_sea_toggled(toggled_on: bool) -> void:
@@ -246,6 +262,14 @@ func _on_save_pressed() -> void:
 		new_crouch.keycode = OS.find_keycode_from_string(crouch)
 		InputMap.action_add_event("crouch", new_crouch)
 	
+	if slide != null:
+		config.set_value("INPUTS", "slide", slide)
+		InputMap.action_erase_events("slide")
+		var new_slide = InputEventKey.new()
+		new_slide.keycode = OS.find_keycode_from_string(slide)
+		InputMap.action_add_event("slide", new_slide)
+	
+	
 	if animated_sea != null:
 		config.set_value("GRAPHICS", "animated_sea", animated_sea)
 	
@@ -273,5 +297,5 @@ func _on_save_pressed() -> void:
 	
 	config.save(config_path)
 	
-	$CanvasLayer/Label.text = "Options saved"
+	$"CanvasLayer/Options Saved".text = "Options saved"
 	emit_signal("options_update")

@@ -24,6 +24,7 @@ func _ready() -> void:
 	Score.visible = false
 	for Wall in get_tree().get_nodes_in_group("Walls"):
 		Wall.visible = false
+	level1()
 
 func level1():
 	var countdown = 4
@@ -392,11 +393,6 @@ func WV12():
 	await wall_animation.finished
 	duplicate_wv12.queue_free()
 	go_time()
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_up"):
-		level1()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://3jcb2ddiejc2" path="res://options_menu.gd" id="1_lbr8e"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_lbr8e"]
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="Control" type="Control" unique_id=47201885]
 process_mode = 3
 layout_mode = 3
@@ -16,7 +19,7 @@ metadata/_edit_vertical_guides_ = [-182.0]
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1615573066]
 layer = 15
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1590208900]
+[node name="Options Saved" type="Label" parent="CanvasLayer" unique_id=1590208900]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -27,6 +30,7 @@ offset_top = -23.0
 offset_right = 22.5
 grow_horizontal = 2
 grow_vertical = 0
+label_settings = SubResource("LabelSettings_lbr8e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1900348]
 anchors_preset = 2
@@ -78,7 +82,6 @@ value = 0.2
 
 [node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Inputs/Sensitivity" unique_id=716348659]
 layout_mode = 2
-text = "40%"
 
 [node name="Forward" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=1609096895]
 layout_mode = 2
@@ -167,6 +170,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Crouch" unique_id=1182345937]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Slide" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=1029037436]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Slide" unique_id=1035061235]
+layout_mode = 2
+text = "Slide"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Slide" unique_id=1571976420]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Slide" unique_id=1203578084]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
@@ -303,6 +321,7 @@ value = 16.0
 [connection signal="pressed" from="CanvasLayer/TabContainer/Inputs/Right/Button" to="." method="right_selected"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Inputs/Jump/Button" to="." method="jump_selected"]
 [connection signal="pressed" from="CanvasLayer/TabContainer/Inputs/Crouch/Button" to="." method="crouch_selected"]
+[connection signal="pressed" from="CanvasLayer/TabContainer/Inputs/Slide/Button" to="." method="slide_selected"]
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Animated Sea/Animated Sea" to="." method="_on_animate_sea_toggled"]
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Shadows/Shadows" to="." method="_on_shadows_toggled"]
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Show Sun/CheckButton" to="." method="_on_show_sun_button_toggled"]
