@@ -12,6 +12,7 @@ var config_path = "user://Config.cfg"
 var sensitivity: float = 0.2
 var options
 var crouching: bool = false
+var sliding: bool = false
 var crouch_tween: Tween
 var camera_y: float
 var animated_sea = preload("res://textures/animated_sea.tres")
@@ -107,6 +108,27 @@ func _input(event: InputEvent) -> void:
 		crouch_tween.set_ease(crouch_tween.EASE_IN)
 		crouch_tween.tween_property(self, "position:y", camera_y, 0.3)
 		crouching = false
+	
+	if Input.is_action_just_pressed("slide") and not sliding:
+		Collision_Shape.shape.size = Vector3(0.5, 1.4, 0.5)
+		if crouch_tween:
+			crouch_tween.kill()
+		
+		crouch_tween = create_tween()
+		crouch_tween.set_ease(crouch_tween.EASE_OUT)
+		crouch_tween.tween_property(self, "position:y", camera_y - 0.5, 0.3)
+		sliding = true
+		
+		await get_tree().create_timer(0.65).timeout
+		
+		Collision_Shape.shape.size = Vector3(0.5, 1.8, 0.5)
+		if crouch_tween:
+			crouch_tween.kill()
+		
+		crouch_tween = create_tween()
+		crouch_tween.set_ease(crouch_tween.EASE_IN)
+		crouch_tween.tween_property(self, "position:y", camera_y, 0.3)
+		sliding = false
 
 
 func _unhandled_input(event: InputEvent) -> void:
