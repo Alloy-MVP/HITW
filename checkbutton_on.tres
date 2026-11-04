@@ -1,0 +1,126 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://cvnoju2qp0bu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t1lix"]
+load_path = "res://.godot/imported/sprite_00.png-06c343c7da6592da3bab9ca898ab797f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4gmlt"]
+load_path = "res://.godot/imported/sprite_01.png-513e6fe6e3f03d2e6d087865858fc3ce.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ogda5"]
+load_path = "res://.godot/imported/sprite_10.png-10ac7c157d396515cf19a96099c8cfda.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6bffs"]
+load_path = "res://.godot/imported/sprite_11.png-4163d1e8a8d54bf39c7ce48ae80c64a3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vwtu1"]
+load_path = "res://.godot/imported/sprite_12.png-786870d7c51d442d6f4d9218da2704fb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrf4u"]
+load_path = "res://.godot/imported/sprite_13.png-7207f77ce6a84831c61646c0adaad750.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nqwpw"]
+load_path = "res://.godot/imported/sprite_14.png-3ebcf2c9bae07dfd17aa6cb2936f1cfb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mn670"]
+load_path = "res://.godot/imported/sprite_15.png-839dd8082bce6978d7956b198a7a566f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0g30k"]
+load_path = "res://.godot/imported/sprite_16.png-21d3d0e9a9ceec0a4a8279094db29c21.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sa5ru"]
+load_path = "res://.godot/imported/sprite_17.png-fedaabaa0ff66274c1dfc41d816df1e7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cust3"]
+load_path = "res://.godot/imported/sprite_18.png-f954a2d76fa45d94281f09dbccb7b7af.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_innu7"]
+load_path = "res://.godot/imported/sprite_19.png-4fa5073c85f141d0420cc630a612b0e4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fe2ui"]
+load_path = "res://.godot/imported/sprite_02.png-4e0873c11e5ef2b978d9b8ea9c21f62a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q7les"]
+load_path = "res://.godot/imported/sprite_20.png-8744b4c7f0378f51cd24d6254b581d41.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6jo7l"]
+load_path = "res://.godot/imported/sprite_21.png-7f3bafd3412b2b4af366204528a526c2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_58j1y"]
+load_path = "res://.godot/imported/sprite_22.png-6d823c3111a0f0094194ea821bf8075c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngskh"]
+load_path = "res://.godot/imported/sprite_23.png-e2bd8a639b9b753666ceb34c7347bedc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8v3uq"]
+load_path = "res://.godot/imported/sprite_03.png-4a5f4933f4155b9c60126adbec01b2c7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o32mg"]
+load_path = "res://.godot/imported/sprite_04.png-5192e35caea81c479199f4cd1e7df9f5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imrmm"]
+load_path = "res://.godot/imported/sprite_05.png-03555211a607dc1816fc91a1b3c640f8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ohij"]
+load_path = "res://.godot/imported/sprite_06.png-8e66c8e5f79a0af996f7db0da4f18a42.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0vvdh"]
+load_path = "res://.godot/imported/sprite_07.png-01d1d08b6aad81920e5dba2a36260cdd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_csgjg"]
+load_path = "res://.godot/imported/sprite_08.png-afbd37a0d5121f5ccf9e6603a25c132e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngclb"]
+load_path = "res://.godot/imported/sprite_09.png-2974d726777687df4a8cf2a3341e6b9c.ctex"
+
+[resource]
+frames = 24
+one_shot = true
+speed_scale = 5.0
+frame_0/texture = SubResource("CompressedTexture2D_t1lix")
+frame_0/duration = 0.05
+frame_1/texture = SubResource("CompressedTexture2D_4gmlt")
+frame_1/duration = 0.05
+frame_2/texture = SubResource("CompressedTexture2D_fe2ui")
+frame_2/duration = 0.05
+frame_3/texture = SubResource("CompressedTexture2D_8v3uq")
+frame_3/duration = 0.05
+frame_4/texture = SubResource("CompressedTexture2D_o32mg")
+frame_4/duration = 0.05
+frame_5/texture = SubResource("CompressedTexture2D_imrmm")
+frame_5/duration = 0.05
+frame_6/texture = SubResource("CompressedTexture2D_7ohij")
+frame_6/duration = 0.05
+frame_7/texture = SubResource("CompressedTexture2D_0vvdh")
+frame_7/duration = 0.05
+frame_8/texture = SubResource("CompressedTexture2D_csgjg")
+frame_8/duration = 0.05
+frame_9/texture = SubResource("CompressedTexture2D_ngclb")
+frame_9/duration = 0.05
+frame_10/texture = SubResource("CompressedTexture2D_ogda5")
+frame_10/duration = 0.05
+frame_11/texture = SubResource("CompressedTexture2D_6bffs")
+frame_11/duration = 0.05
+frame_12/texture = SubResource("CompressedTexture2D_vwtu1")
+frame_12/duration = 0.05
+frame_13/texture = SubResource("CompressedTexture2D_rrf4u")
+frame_13/duration = 0.05
+frame_14/texture = SubResource("CompressedTexture2D_nqwpw")
+frame_14/duration = 0.05
+frame_15/texture = SubResource("CompressedTexture2D_mn670")
+frame_15/duration = 0.05
+frame_16/texture = SubResource("CompressedTexture2D_0g30k")
+frame_16/duration = 0.05
+frame_17/texture = SubResource("CompressedTexture2D_sa5ru")
+frame_17/duration = 0.05
+frame_18/texture = SubResource("CompressedTexture2D_cust3")
+frame_18/duration = 0.05
+frame_19/texture = SubResource("CompressedTexture2D_innu7")
+frame_19/duration = 0.05
+frame_20/texture = SubResource("CompressedTexture2D_q7les")
+frame_20/duration = 0.05
+frame_21/texture = SubResource("CompressedTexture2D_6jo7l")
+frame_21/duration = 0.05
+frame_22/texture = SubResource("CompressedTexture2D_58j1y")
+frame_22/duration = 0.05
+frame_23/texture = SubResource("CompressedTexture2D_ngskh")
+frame_23/duration = 0.05
