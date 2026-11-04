@@ -28,7 +28,7 @@ size = Vector2(1, 10)
 size = Vector2(1, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqwpw"]
-bg_color = Color(0.44291073, 0.4429108, 0.4429106, 1)
+bg_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
@@ -41,6 +41,24 @@ expand_margin_bottom = 5.0
 bg_color = Color(1, 1, 1, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ogda5"]
+size = Vector2(1, 10)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6bffs"]
+size = Vector2(1, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0g30k"]
+bg_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa5ru"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cust3"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_bottom = 10.0
 
 [node name="Control" type="Control" unique_id=47201885]
 process_mode = 3
@@ -105,9 +123,10 @@ offset_top = 20.0
 offset_right = 420.0
 offset_bottom = 520.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vwtu1")
-current_tab = 0
+current_tab = 1
 
 [node name="Inputs" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=948763679]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -263,7 +282,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Graphics" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=1730094708]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -386,10 +404,17 @@ size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=1103628345]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
+theme_override_font_sizes/font_size = 16
 
 [node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=318031330]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_ogda5")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_6bffs")
+theme_override_styles/slider = SubResource("StyleBoxFlat_0g30k")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_sa5ru")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_cust3")
 min_value = 4.0
 max_value = 16.0
 step = 0.1
