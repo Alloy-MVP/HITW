@@ -1,9 +1,46 @@
 [gd_scene format=3 uid="uid://druoyy55tinr2"]
 
 [ext_resource type="Script" uid="uid://3jcb2ddiejc2" path="res://options_menu.gd" id="1_lbr8e"]
+[ext_resource type="FontFile" uid="uid://wmqyqqlf3trb" path="res://textures/boston_traffic.ttf" id="2_t1lix"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lbr8e"]
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogda5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bffs"]
+bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1lix"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gmlt"]
+bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwtu1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t1lix"]
+size = Vector2(1, 10)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4gmlt"]
+size = Vector2(1, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqwpw"]
+bg_color = Color(0.44291073, 0.4429108, 0.4429106, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrf4u"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mn670"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 
 [node name="Control" type="Control" unique_id=47201885]
 process_mode = 3
@@ -36,27 +73,41 @@ label_settings = SubResource("LabelSettings_lbr8e")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 45.0
+offset_top = -59.0
+offset_right = 80.0
 grow_vertical = 0
 
 [node name="Save" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=534633197]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_t1lix")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ogda5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6bffs")
 text = "Save"
 
 [node name="Back" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1838351142]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_t1lix")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_t1lix")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4gmlt")
 text = "Back"
 
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer" unique_id=1001796507]
-offset_right = 398.0
-offset_bottom = 375.0
-current_tab = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 420.0
+offset_bottom = 520.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vwtu1")
+current_tab = 0
 
 [node name="Inputs" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=948763679]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -65,29 +116,38 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Sensitivity" unique_id=1325181938]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Sensitivity"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Sensitivity" unique_id=470211573]
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Inputs/Sensitivity" unique_id=716348659]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
+
 [node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Inputs/Sensitivity" unique_id=1232135382]
+z_index = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_t1lix")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_4gmlt")
+theme_override_styles/slider = SubResource("StyleBoxFlat_nqwpw")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_rrf4u")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_mn670")
 min_value = 0.01
 max_value = 1.0
 step = 0.01
 value = 0.2
-
-[node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Inputs/Sensitivity" unique_id=716348659]
-layout_mode = 2
 
 [node name="Forward" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=1609096895]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Forward" unique_id=646129095]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Move Forwards"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Forward" unique_id=116380895]
@@ -97,12 +157,15 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Forward" unique_id=1922259712]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Backward" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=104445698]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Backward" unique_id=958253889]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Move Backwards"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Backward" unique_id=1320889712]
@@ -112,12 +175,14 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Backward" unique_id=481540928]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Left" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=316887740]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Left" unique_id=1684957926]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Strafe Left"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Left" unique_id=395812442]
@@ -127,12 +192,14 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Left" unique_id=957062434]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Right" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=631909233]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Right" unique_id=810562409]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Strafe Right"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Right" unique_id=1860590648]
@@ -142,12 +209,14 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Right" unique_id=1011665079]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Jump" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=1635503740]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Jump" unique_id=1572436548]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Jump"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Jump" unique_id=1466432483]
@@ -157,12 +226,14 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Jump" unique_id=2033256429]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Crouch" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=612218440]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Crouch" unique_id=690491292]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Crouch"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Crouch" unique_id=1448092261]
@@ -172,12 +243,14 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Crouch" unique_id=1182345937]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Slide" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=1029037436]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Slide" unique_id=1035061235]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Slide"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Inputs/Slide" unique_id=1571976420]
@@ -187,8 +260,10 @@ size_flags_horizontal = 3
 [node name="Button" type="Button" parent="CanvasLayer/TabContainer/Inputs/Slide" unique_id=1203578084]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Graphics" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=1730094708]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -197,6 +272,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Animated Sea" unique_id=1756937874]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Animated Sea"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Animated Sea" unique_id=96925110]
@@ -211,6 +287,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Shadows" unique_id=1303087198]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Shadows"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Shadows" unique_id=650578647]
@@ -225,6 +302,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Show Sun" unique_id=1786333373]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Show Sun"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Show Sun" unique_id=244008559]
@@ -239,6 +317,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Show Sky" unique_id=966830016]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Show Sky"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Show Sky" unique_id=2006413423]
@@ -253,6 +332,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Show Sea" unique_id=1090658070]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Show Sea"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Show Sea" unique_id=1135905389]
@@ -267,6 +347,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Better Sun Refs" unique_id=1878795136]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Better Sun Reflections"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Better Sun Refs" unique_id=16710675]
@@ -281,6 +362,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Show Fog" unique_id=202027768]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Show Fog"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Show Fog" unique_id=1428905852]
@@ -295,6 +377,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=1421333097]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_t1lix")
 text = "Sun Strength"
 
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=821092722]
@@ -311,6 +394,16 @@ min_value = 4.0
 max_value = 16.0
 step = 0.1
 value = 16.0
+
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=284663294]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Back" to="." method="_on_back_pressed"]

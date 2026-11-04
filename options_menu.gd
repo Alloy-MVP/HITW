@@ -84,8 +84,7 @@ func load_config():
 	show_fog = config.get_value("GRAPHICS", "show_fog")
 	show_fog_checkbox.button_pressed = config.get_value("GRAPHICS", "show_fog")
 	sun_strength = config.get_value("GRAPHICS", "sun_strength")
-	if sun_strength_label.text == "":
-		sun_strength_label.text = str(int(((sun_strength-4)/12)*100)) + "%"
+	sun_strength_label.text = str(int(((sun_strength-4)/12)*100)) + "%"
 	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".value = sun_strength
 	
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
