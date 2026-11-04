@@ -1,12 +1,36 @@
 [gd_scene format=3 uid="uid://ddrlptx2oqufs"]
 
 [ext_resource type="Script" uid="uid://b64ylnfuehqc6" path="res://title_screen.gd" id="1_v6p8y"]
+[ext_resource type="Texture2D" uid="uid://t2vnecag1e21" path="res://textures/hitw_title.png" id="2_ak2if"]
+[ext_resource type="FontFile" uid="uid://wmqyqqlf3trb" path="res://textures/boston_traffic.ttf" id="2_ig5kc"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_v6p8y"]
-font_size = 100
-shadow_size = 20
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(10, 10)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig5kc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05l2w"]
+content_margin_left = 4.0
+bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hafda"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_013yr"]
+content_margin_left = 4.0
+bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpml5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8vmu4"]
+content_margin_left = 4.0
+bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqemp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfn3p"]
+content_margin_left = 4.0
+bg_color = Color(0, 0, 0, 0.13725491)
 
 [node name="Title Screen" type="Control" unique_id=836274124 groups=["Title Screen"]]
 layout_mode = 3
@@ -24,48 +48,68 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -479.0
-offset_top = 95.0
+offset_left = -529.0
+offset_top = 77.0
 offset_right = -379.0
-offset_bottom = 231.0
+offset_bottom = 277.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=1058993904]
-custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_ig5kc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_05l2w")
 text = "Play"
+alignment = 0
 
 [node name="Options" type="Button" parent="VBoxContainer" unique_id=891090016]
-custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_hafda")
+theme_override_styles/hover = SubResource("StyleBoxFlat_013yr")
 text = "Options"
+alignment = 0
 
 [node name="Credits" type="MenuButton" parent="VBoxContainer" unique_id=836649520]
-custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_tpml5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8vmu4")
 text = "Credits"
+alignment = 0
 item_count = 1
 popup/item_0/text = "Everything was made by me (Alloy)"
 popup/item_0/id = 0
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=365069377]
-custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_jqemp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xfn3p")
 text = "Quit"
+alignment = 0
 
-[node name="Label" type="Label" parent="." unique_id=1965209038]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -128.0
-offset_top = 108.0
-offset_right = 129.0
-offset_bottom = 245.0
-grow_horizontal = 2
-text = "Hole in the Wall"
-label_settings = SubResource("LabelSettings_v6p8y")
+[node name="HitwTitle" type="Sprite2D" parent="." unique_id=1519428941]
+position = Vector2(590, 150)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ak2if")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
