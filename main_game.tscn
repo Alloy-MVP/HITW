@@ -5,10 +5,29 @@
 [ext_resource type="Script" uid="uid://bhc4wd5gq7gx8" path="res://player_camera.gd" id="2_yx7mw"]
 [ext_resource type="MeshLibrary" uid="uid://dgevva58ucwpo" path="res://Map Designer.meshlib" id="3_ykeeq"]
 [ext_resource type="Script" uid="uid://3x20scnan24h" path="res://canvas_layer.gd" id="4_dugkq"]
+[ext_resource type="FontFile" uid="uid://wmqyqqlf3trb" path="res://textures/boston_traffic.ttf" id="5_f52ns"]
 [ext_resource type="Sky" uid="uid://tkk6lyttm4qj" path="res://textures/sky.tres" id="6_2pltu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
 size = Vector3(0.5, 1.8, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f52ns"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5ukw"]
+bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4srsv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf81u"]
+bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02kkc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aomqu"]
+bg_color = Color(0, 0, 0, 0.13725491)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dugkq"]
 font_size = 64
@@ -75,16 +94,37 @@ grow_vertical = 2
 [node name="Resume" type="Button" parent="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer" unique_id=1386842948]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_f52ns")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_f52ns")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l5ukw")
 text = "Resume"
 
 [node name="Options" type="Button" parent="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer" unique_id=709355855]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_f52ns")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_4srsv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mf81u")
 text = "Options"
 
 [node name="Quit" type="Button" parent="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer" unique_id=1693337092]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_f52ns")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_02kkc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aomqu")
 text = "Quit"
 
 [node name="GUI" type="Control" parent="Player/Player_Camera/CanvasLayer" unique_id=694018001]

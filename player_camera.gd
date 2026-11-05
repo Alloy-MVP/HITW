@@ -140,3 +140,6 @@ func _unhandled_input(event: InputEvent) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	fps.text = "FPS: " + str(Engine.get_frames_per_second())
+	
+	if self.global_position.y < 0:
+		pass

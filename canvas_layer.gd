@@ -41,12 +41,12 @@ func back():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player_camera.global_position.y < -20 and not dead:
+		get_tree().paused = false
 		print(player_camera.global_position.y)
+		pause_menu.visible = false
 		dead = true
 		var fade_out = create_tween()
 		fade_out.tween_property($"Black Fade", "modulate:a", 1.0, 1)
-		if get_tree().paused:
-			get_tree().paused = false
 		await fade_out.finished
 		get_tree().change_scene_to_file("res://death_screen.tscn")
 

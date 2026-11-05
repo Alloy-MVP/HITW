@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("slide"):
 		sliding = true
 	
-	if sliding:
+	if sliding and is_on_floor():
 		speed = 8
 		
 	elif sprinting and crouching:

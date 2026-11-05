@@ -4,6 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = false
 	var fade_in = create_tween()
 	fade_in.tween_property(Black_Fade, "modulate:a", 0.0, 2)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -20,4 +21,4 @@ func _on_respawn_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://title_screen.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://title_screen.tscn")

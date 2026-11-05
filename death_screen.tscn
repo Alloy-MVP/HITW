@@ -1,11 +1,25 @@
 [gd_scene format=3 uid="uid://yljce2gxtjrg"]
 
 [ext_resource type="Script" uid="uid://dr16r2vc5kmeb" path="res://death_screen.gd" id="1_if853"]
+[ext_resource type="FontFile" uid="uid://wmqyqqlf3trb" path="res://textures/boston_traffic.ttf" id="2_ex68u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ex68u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bi5g"]
+bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0ggs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhlqb"]
+bg_color = Color(0, 0, 0, 0.13725491)
 
 [sub_resource type="LabelSettings" id="LabelSettings_if853"]
 font_size = 80
 
 [node name="Death Screen" type="Node2D" unique_id=1859726938]
+process_mode = 3
 script = ExtResource("1_if853")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1079986103]
@@ -26,11 +40,25 @@ grow_vertical = 2
 [node name="Respawn" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=847627844]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ex68u")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ex68u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6bi5g")
 text = "Respawn"
 
 [node name="Quit" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=2090496017]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ex68u")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_y0ggs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hhlqb")
 text = "Quit"
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1694560685]
@@ -42,12 +70,23 @@ offset_top = 89.0
 offset_right = 210.0
 offset_bottom = 226.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_ex68u")
 text = "You died"
 label_settings = SubResource("LabelSettings_if853")
 horizontal_alignment = 1
 
 [node name="Black Fade" type="ColorRect" parent="CanvasLayer" unique_id=1840197480]
 z_index = 20
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Black Fade2" type="ColorRect" parent="CanvasLayer" unique_id=43766428]
+z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

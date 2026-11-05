@@ -1800,6 +1800,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 420.0
 offset_bottom = 520.0
+theme_override_fonts/font = ExtResource("2_t1lix")
 theme_override_styles/panel = SubResource("StyleBoxFlat_vwtu1")
 current_tab = 1
 
