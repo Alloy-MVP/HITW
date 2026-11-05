@@ -35,7 +35,6 @@ func back():
 func options():
 	new_options_scene = options_scene.instantiate()
 	get_tree().root.add_child(new_options_scene)
-	
 	self.visible = false
 	in_options_menu = true
 

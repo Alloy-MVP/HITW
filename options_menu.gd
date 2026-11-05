@@ -19,6 +19,7 @@ extends Control
 @onready var show_fog_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Fog/CheckButton"
 @onready var sun_strength_label = $"CanvasLayer/TabContainer/Graphics/Sun Strength/Label2"
 
+
 var sensitivity
 var forward
 var backward
@@ -70,19 +71,19 @@ func load_config():
 	
 	
 	animated_sea = config.get_value("GRAPHICS", "animated_sea")
-	animated_sea_checkbox.button_pressed = config.get_value("GRAPHICS", "animated_sea")
+	animated_sea_checkbox.set_pressed_no_signal(animated_sea)
 	shadows = config.get_value("GRAPHICS", "shadows")
-	shadows_checkbox.button_pressed = config.get_value("GRAPHICS", "shadows")
+	shadows_checkbox.set_pressed_no_signal(shadows)
 	show_sun = config.get_value("GRAPHICS", "show_sun")
-	show_sun_checkbox.button_pressed = config.get_value("GRAPHICS", "show_sun")
+	show_sun_checkbox.set_pressed_no_signal(show_sun)
 	show_sky = config.get_value("GRAPHICS", "show_sky")
-	show_sky_checkbox.button_pressed = config.get_value("GRAPHICS", "show_sky")
+	show_sky_checkbox.set_pressed_no_signal(show_sky)
 	show_sea = config.get_value("GRAPHICS", "show_sea")
-	show_sea_checkbox.button_pressed = config.get_value("GRAPHICS", "show_sea")
+	show_sea_checkbox.set_pressed_no_signal(show_sea)
 	better_reflections = config.get_value("GRAPHICS", "better_reflections")
-	better_reflections_checkbox.button_pressed = config.get_value("GRAPHICS", "better_reflections")
+	better_reflections_checkbox.set_pressed_no_signal(better_reflections)
 	show_fog = config.get_value("GRAPHICS", "show_fog")
-	show_fog_checkbox.button_pressed = config.get_value("GRAPHICS", "show_fog")
+	show_fog_checkbox.set_pressed_no_signal(show_fog)
 	sun_strength = config.get_value("GRAPHICS", "sun_strength")
 	sun_strength_label.text = str(int(((sun_strength-4)/12)*100)) + "%"
 	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".value = sun_strength
@@ -189,24 +190,94 @@ func slide_selected() -> void:
 # GRAPHICS
 func _on_animate_sea_toggled(toggled_on: bool) -> void:
 	animated_sea = toggled_on
+	var state
+	if toggled_on:
+		state = "checked"
+	else:
+		state = "unchecked"
+	var animation = animated_sea_checkbox.get_theme_icon(state)
+	
+	if animation:
+		animation.current_frame = 0
+		animation.pause = false
 
 func _on_shadows_toggled(toggled_on: bool) -> void:
 	shadows = toggled_on
+	var state
+	if toggled_on:
+		state = "checked"
+	else:
+		state = "unchecked"
+	var animation = shadows_checkbox.get_theme_icon(state)
+	
+	if animation:
+		animation.current_frame = 0
+		animation.pause = false
 
 func _on_show_sun_button_toggled(toggled_on: bool) -> void:
 	show_sun = toggled_on
+	var state
+	if toggled_on:
+		state = "checked"
+	else:
+		state = "unchecked"
+	var animation = show_sun_checkbox.get_theme_icon(state)
+	
+	if animation:
+		animation.current_frame = 0
+		animation.pause = false
 
 func _on_show_sky_button_toggled(toggled_on: bool) -> void:
 	show_sky = toggled_on
+	var state
+	if toggled_on:
+		state = "checked"
+	else:
+		state = "unchecked"
+	var animation = show_sky_checkbox.get_theme_icon(state)
+	
+	if animation:
+		animation.current_frame = 0
+		animation.pause = false
 
 func _on_show_sea_button_toggled(toggled_on: bool) -> void:
 	show_sea = toggled_on
+	var state
+	if toggled_on:
+		state = "checked"
+	else:
+		state = "unchecked"
+	var animation = show_sea_checkbox.get_theme_icon(state)
+	
+	if animation:
+		animation.current_frame = 0
+		animation.pause = false
 
 func _on_better_sun_refs_button_toggled(toggled_on: bool) -> void:
 	better_reflections = toggled_on
+	var state
+	if toggled_on:
+		state = "checked"
+	else:
+		state = "unchecked"
+	var animation = better_reflections_checkbox.get_theme_icon(state)
+	
+	if animation:
+		animation.current_frame = 0
+		animation.pause = false
 
 func _on_show_fog_button_toggled(toggled_on: bool) -> void:
 	show_fog = toggled_on
+	var state
+	if toggled_on:
+		state = "checked"
+	else:
+		state = "unchecked"
+	var animation = show_fog_checkbox.get_theme_icon(state)
+	
+	if animation:
+		animation.current_frame = 0
+		animation.pause = false
 
 func _on_sun_strength_value_changed(value: float) -> void:
 	sun_strength = value
