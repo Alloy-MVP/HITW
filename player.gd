@@ -10,17 +10,25 @@ var sprinting: bool = false
 var friction = 20
 var dead: bool = false
 var sliding: bool = false
+var fly: bool = false
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("fly"):
+		fly = not fly
 
 func _physics_process(delta: float) -> void:
 	crouching = Player_Camera.crouching
 	sliding = Player_Camera.sliding
 	
-	if not is_on_floor():
+	if not is_on_floor() and not fly:
 		velocity += get_gravity() * delta
 		velocity = velocity * 0.98
 		accelleration = 4
 		friction = 6
+	elif fly:
+		speed = 20
+		friction = 20
+		accelleration = 20
 	else:
 		accelleration = 20
 		friction = 15
