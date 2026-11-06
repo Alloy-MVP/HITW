@@ -87,7 +87,6 @@ func load_config():
 	sun_strength = config.get_value("GRAPHICS", "sun_strength")
 	sun_strength_label.text = str(int(((sun_strength-4)/12)*100)) + "%"
 	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".value = sun_strength
-	
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -32,6 +32,268 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 content_margin_left = 4.0
 bg_color = Color(0, 0, 0, 0.13725491)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhgbh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ig5kc"]
+font = ExtResource("2_ig5kc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skmiq"]
+bg_color = Color(0.23921569, 0.23921569, 0.23921569, 0.5921569)
+
+[sub_resource type="LabelSettings" id="LabelSettings_05l2w"]
+font = ExtResource("2_ig5kc")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t1lix"]
+load_path = "res://.godot/imported/sprite_00.png-06c343c7da6592da3bab9ca898ab797f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4gmlt"]
+load_path = "res://.godot/imported/sprite_01.png-513e6fe6e3f03d2e6d087865858fc3ce.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ogda5"]
+load_path = "res://.godot/imported/sprite_10.png-10ac7c157d396515cf19a96099c8cfda.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6bffs"]
+load_path = "res://.godot/imported/sprite_11.png-4163d1e8a8d54bf39c7ce48ae80c64a3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vwtu1"]
+load_path = "res://.godot/imported/sprite_12.png-786870d7c51d442d6f4d9218da2704fb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrf4u"]
+load_path = "res://.godot/imported/sprite_13.png-7207f77ce6a84831c61646c0adaad750.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nqwpw"]
+load_path = "res://.godot/imported/sprite_14.png-3ebcf2c9bae07dfd17aa6cb2936f1cfb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mn670"]
+load_path = "res://.godot/imported/sprite_15.png-839dd8082bce6978d7956b198a7a566f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0g30k"]
+load_path = "res://.godot/imported/sprite_16.png-21d3d0e9a9ceec0a4a8279094db29c21.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sa5ru"]
+load_path = "res://.godot/imported/sprite_17.png-fedaabaa0ff66274c1dfc41d816df1e7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cust3"]
+load_path = "res://.godot/imported/sprite_18.png-f954a2d76fa45d94281f09dbccb7b7af.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_innu7"]
+load_path = "res://.godot/imported/sprite_19.png-4fa5073c85f141d0420cc630a612b0e4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fe2ui"]
+load_path = "res://.godot/imported/sprite_02.png-4e0873c11e5ef2b978d9b8ea9c21f62a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q7les"]
+load_path = "res://.godot/imported/sprite_20.png-8744b4c7f0378f51cd24d6254b581d41.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6jo7l"]
+load_path = "res://.godot/imported/sprite_21.png-7f3bafd3412b2b4af366204528a526c2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_58j1y"]
+load_path = "res://.godot/imported/sprite_22.png-6d823c3111a0f0094194ea821bf8075c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngskh"]
+load_path = "res://.godot/imported/sprite_23.png-e2bd8a639b9b753666ceb34c7347bedc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8v3uq"]
+load_path = "res://.godot/imported/sprite_03.png-4a5f4933f4155b9c60126adbec01b2c7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o32mg"]
+load_path = "res://.godot/imported/sprite_04.png-5192e35caea81c479199f4cd1e7df9f5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imrmm"]
+load_path = "res://.godot/imported/sprite_05.png-03555211a607dc1816fc91a1b3c640f8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ohij"]
+load_path = "res://.godot/imported/sprite_06.png-8e66c8e5f79a0af996f7db0da4f18a42.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0vvdh"]
+load_path = "res://.godot/imported/sprite_07.png-01d1d08b6aad81920e5dba2a36260cdd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_csgjg"]
+load_path = "res://.godot/imported/sprite_08.png-afbd37a0d5121f5ccf9e6603a25c132e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngclb"]
+load_path = "res://.godot/imported/sprite_09.png-2974d726777687df4a8cf2a3341e6b9c.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ig5kc"]
+frames = 24
+one_shot = true
+speed_scale = 5.0
+frame_0/texture = SubResource("CompressedTexture2D_t1lix")
+frame_0/duration = 0.05
+frame_1/texture = SubResource("CompressedTexture2D_4gmlt")
+frame_1/duration = 0.05
+frame_2/texture = SubResource("CompressedTexture2D_fe2ui")
+frame_2/duration = 0.05
+frame_3/texture = SubResource("CompressedTexture2D_8v3uq")
+frame_3/duration = 0.05
+frame_4/texture = SubResource("CompressedTexture2D_o32mg")
+frame_4/duration = 0.05
+frame_5/texture = SubResource("CompressedTexture2D_imrmm")
+frame_5/duration = 0.05
+frame_6/texture = SubResource("CompressedTexture2D_7ohij")
+frame_6/duration = 0.05
+frame_7/texture = SubResource("CompressedTexture2D_0vvdh")
+frame_7/duration = 0.05
+frame_8/texture = SubResource("CompressedTexture2D_csgjg")
+frame_8/duration = 0.05
+frame_9/texture = SubResource("CompressedTexture2D_ngclb")
+frame_9/duration = 0.05
+frame_10/texture = SubResource("CompressedTexture2D_ogda5")
+frame_10/duration = 0.05
+frame_11/texture = SubResource("CompressedTexture2D_6bffs")
+frame_11/duration = 0.05
+frame_12/texture = SubResource("CompressedTexture2D_vwtu1")
+frame_12/duration = 0.05
+frame_13/texture = SubResource("CompressedTexture2D_rrf4u")
+frame_13/duration = 0.05
+frame_14/texture = SubResource("CompressedTexture2D_nqwpw")
+frame_14/duration = 0.05
+frame_15/texture = SubResource("CompressedTexture2D_mn670")
+frame_15/duration = 0.05
+frame_16/texture = SubResource("CompressedTexture2D_0g30k")
+frame_16/duration = 0.05
+frame_17/texture = SubResource("CompressedTexture2D_sa5ru")
+frame_17/duration = 0.05
+frame_18/texture = SubResource("CompressedTexture2D_cust3")
+frame_18/duration = 0.05
+frame_19/texture = SubResource("CompressedTexture2D_innu7")
+frame_19/duration = 0.05
+frame_20/texture = SubResource("CompressedTexture2D_q7les")
+frame_20/duration = 0.05
+frame_21/texture = SubResource("CompressedTexture2D_6jo7l")
+frame_21/duration = 0.05
+frame_22/texture = SubResource("CompressedTexture2D_58j1y")
+frame_22/duration = 0.05
+frame_23/texture = SubResource("CompressedTexture2D_ngskh")
+frame_23/duration = 0.05
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wiuj4"]
+load_path = "res://.godot/imported/sprite_23.png-e2bd8a639b9b753666ceb34c7347bedc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_srcsg"]
+load_path = "res://.godot/imported/sprite_22.png-6d823c3111a0f0094194ea821bf8075c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dy6u0"]
+load_path = "res://.godot/imported/sprite_13.png-7207f77ce6a84831c61646c0adaad750.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c11mf"]
+load_path = "res://.godot/imported/sprite_12.png-786870d7c51d442d6f4d9218da2704fb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ncihb"]
+load_path = "res://.godot/imported/sprite_10.png-10ac7c157d396515cf19a96099c8cfda.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7beok"]
+load_path = "res://.godot/imported/sprite_09.png-2974d726777687df4a8cf2a3341e6b9c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2w4nq"]
+load_path = "res://.godot/imported/sprite_09.png-2974d726777687df4a8cf2a3341e6b9c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_em2rq"]
+load_path = "res://.godot/imported/sprite_08.png-afbd37a0d5121f5ccf9e6603a25c132e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_drsjf"]
+load_path = "res://.godot/imported/sprite_07.png-01d1d08b6aad81920e5dba2a36260cdd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0vgeu"]
+load_path = "res://.godot/imported/sprite_06.png-8e66c8e5f79a0af996f7db0da4f18a42.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pgoog"]
+load_path = "res://.godot/imported/sprite_05.png-03555211a607dc1816fc91a1b3c640f8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ae1ex"]
+load_path = "res://.godot/imported/sprite_04.png-5192e35caea81c479199f4cd1e7df9f5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hwh4r"]
+load_path = "res://.godot/imported/sprite_21.png-7f3bafd3412b2b4af366204528a526c2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lrovh"]
+load_path = "res://.godot/imported/sprite_03.png-4a5f4933f4155b9c60126adbec01b2c7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wb8oe"]
+load_path = "res://.godot/imported/sprite_02.png-4e0873c11e5ef2b978d9b8ea9c21f62a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_af6il"]
+load_path = "res://.godot/imported/sprite_01.png-513e6fe6e3f03d2e6d087865858fc3ce.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_85b2q"]
+load_path = "res://.godot/imported/sprite_00.png-06c343c7da6592da3bab9ca898ab797f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2p01t"]
+load_path = "res://.godot/imported/sprite_20.png-8744b4c7f0378f51cd24d6254b581d41.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_16hdg"]
+load_path = "res://.godot/imported/sprite_19.png-4fa5073c85f141d0420cc630a612b0e4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n3etk"]
+load_path = "res://.godot/imported/sprite_18.png-f954a2d76fa45d94281f09dbccb7b7af.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rnrfv"]
+load_path = "res://.godot/imported/sprite_17.png-fedaabaa0ff66274c1dfc41d816df1e7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2akbv"]
+load_path = "res://.godot/imported/sprite_16.png-21d3d0e9a9ceec0a4a8279094db29c21.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xmobi"]
+load_path = "res://.godot/imported/sprite_15.png-839dd8082bce6978d7956b198a7a566f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jd8g1"]
+load_path = "res://.godot/imported/sprite_14.png-3ebcf2c9bae07dfd17aa6cb2936f1cfb.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_05l2w"]
+frames = 24
+one_shot = true
+speed_scale = 5.0
+frame_0/texture = SubResource("CompressedTexture2D_wiuj4")
+frame_0/duration = 0.5
+frame_1/texture = SubResource("CompressedTexture2D_srcsg")
+frame_1/duration = 0.05
+frame_2/texture = SubResource("CompressedTexture2D_hwh4r")
+frame_2/duration = 0.05
+frame_3/texture = SubResource("CompressedTexture2D_2p01t")
+frame_3/duration = 0.05
+frame_4/texture = SubResource("CompressedTexture2D_16hdg")
+frame_4/duration = 0.05
+frame_5/texture = SubResource("CompressedTexture2D_n3etk")
+frame_5/duration = 0.05
+frame_6/texture = SubResource("CompressedTexture2D_rnrfv")
+frame_6/duration = 0.05
+frame_7/texture = SubResource("CompressedTexture2D_2akbv")
+frame_7/duration = 0.05
+frame_8/texture = SubResource("CompressedTexture2D_xmobi")
+frame_8/duration = 0.05
+frame_9/texture = SubResource("CompressedTexture2D_jd8g1")
+frame_9/duration = 0.05
+frame_10/texture = SubResource("CompressedTexture2D_dy6u0")
+frame_10/duration = 0.05
+frame_11/texture = SubResource("CompressedTexture2D_c11mf")
+frame_11/duration = 0.05
+frame_12/texture = SubResource("CompressedTexture2D_ncihb")
+frame_12/duration = 0.05
+frame_13/texture = SubResource("CompressedTexture2D_7beok")
+frame_13/duration = 0.05
+frame_14/texture = SubResource("CompressedTexture2D_2w4nq")
+frame_14/duration = 0.05
+frame_15/texture = SubResource("CompressedTexture2D_em2rq")
+frame_15/duration = 0.05
+frame_16/texture = SubResource("CompressedTexture2D_drsjf")
+frame_16/duration = 0.05
+frame_17/texture = SubResource("CompressedTexture2D_0vgeu")
+frame_17/duration = 0.05
+frame_18/texture = SubResource("CompressedTexture2D_pgoog")
+frame_18/duration = 0.05
+frame_19/texture = SubResource("CompressedTexture2D_ae1ex")
+frame_19/duration = 0.05
+frame_20/texture = SubResource("CompressedTexture2D_lrovh")
+frame_20/duration = 0.05
+frame_21/texture = SubResource("CompressedTexture2D_wb8oe")
+frame_21/duration = 0.05
+frame_22/texture = SubResource("CompressedTexture2D_af6il")
+frame_22/duration = 0.05
+frame_23/texture = SubResource("CompressedTexture2D_85b2q")
+frame_23/duration = 0.05
+
 [node name="Title Screen" type="Control" unique_id=836274124 groups=["Title Screen"]]
 layout_mode = 3
 anchors_preset = 15
@@ -41,21 +303,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v6p8y")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1544088487]
+[node name="title screen elements" type="Control" parent="." unique_id=692783302]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="title screen elements" unique_id=1544088487]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -529.0
-offset_top = 77.0
-offset_right = -379.0
-offset_bottom = 277.0
+offset_left = 27.0
+offset_top = 381.0
+offset_right = 177.0
+offset_bottom = 581.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=1058993904]
+[node name="Play" type="Button" parent="title screen elements/VBoxContainer" unique_id=1058993904]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
@@ -67,7 +334,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_05l2w")
 text = "Play"
 alignment = 0
 
-[node name="Options" type="Button" parent="VBoxContainer" unique_id=891090016]
+[node name="Options" type="Button" parent="title screen elements/VBoxContainer" unique_id=891090016]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
@@ -79,7 +346,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_013yr")
 text = "Options"
 alignment = 0
 
-[node name="Credits" type="MenuButton" parent="VBoxContainer" unique_id=836649520]
+[node name="Credits" type="MenuButton" parent="title screen elements/VBoxContainer" unique_id=836649520]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
@@ -94,7 +361,7 @@ item_count = 1
 popup/item_0/text = "Everything was made by me (Alloy)"
 popup/item_0/id = 0
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=365069377]
+[node name="Quit" type="Button" parent="title screen elements/VBoxContainer" unique_id=365069377]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 0.8784314, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0.8784314, 1)
@@ -106,11 +373,108 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_xfn3p")
 text = "Quit"
 alignment = 0
 
-[node name="HitwTitle" type="Sprite2D" parent="." unique_id=1519428941]
+[node name="HitwTitle" type="Sprite2D" parent="title screen elements" unique_id=1519428941]
 position = Vector2(590, 150)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_ak2if")
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Play Menu" type="CanvasLayer" parent="." unique_id=861252085]
+
+[node name="TabContainer" type="TabContainer" parent="Play Menu" unique_id=540447359]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 512.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rhgbh")
+current_tab = 1
+
+[node name="Levels" type="VBoxContainer" parent="Play Menu/TabContainer" unique_id=790878831]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Infinite" type="VBoxContainer" parent="Play Menu/TabContainer" unique_id=1587357149]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Play Menu/TabContainer/Infinite" unique_id=1329385742]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Difficulty" type="Label" parent="Play Menu/TabContainer/Infinite/HBoxContainer" unique_id=1229440156]
+layout_mode = 2
+text = "Difficulty"
+label_settings = SubResource("LabelSettings_ig5kc")
+
+[node name="Spacer" type="Control" parent="Play Menu/TabContainer/Infinite/HBoxContainer" unique_id=1682023374]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="Play Menu/TabContainer/Infinite/HBoxContainer" unique_id=1909705281]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_skmiq")
+item_count = 4
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+popup/item_3/text = "Impossible"
+popup/item_3/id = 3
+
+[node name="Traps" type="HBoxContainer" parent="Play Menu/TabContainer/Infinite" unique_id=1720470278]
+layout_mode = 2
+
+[node name="Traps" type="Label" parent="Play Menu/TabContainer/Infinite/Traps" unique_id=10173377]
+layout_mode = 2
+text = "Traps"
+label_settings = SubResource("LabelSettings_05l2w")
+
+[node name="Spacer" type="Control" parent="Play Menu/TabContainer/Infinite/Traps" unique_id=287460598]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="CheckButton" parent="Play Menu/TabContainer/Infinite/Traps" unique_id=1256072865]
+layout_mode = 2
+theme_override_icons/checked = SubResource("AnimatedTexture_ig5kc")
+theme_override_icons/unchecked = SubResource("AnimatedTexture_05l2w")
+
+[node name="Start" type="Button" parent="Play Menu" unique_id=1567764434]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Start"
+
+[node name="Back play" type="Button" parent="Play Menu" unique_id=97132596]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 45.0
+grow_vertical = 0
+text = "Back"
+
+[node name="Background" type="ColorRect" parent="Play Menu" unique_id=1832760487]
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="title screen elements/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="title screen elements/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="title screen elements/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="item_selected" from="Play Menu/TabContainer/Infinite/HBoxContainer/OptionButton" to="." method="_on_difficulty_item_selected"]
+[connection signal="pressed" from="Play Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Play Menu/Back play" to="." method="_on_back_play_pressed"]
