@@ -2,6 +2,9 @@ extends Control
 
 @onready var Play_Menu = $"Play Menu"
 @onready var title_screen_elements = $"title screen elements"
+@onready var difficulty_option = $"Play Menu/TabContainer/Infinite/HBoxContainer/OptionButton"
+@onready var traps_checkbutton = $"Play Menu/TabContainer/Infinite/Traps/CheckButton"
+
 
 var options_scene = preload("res://options_menu.tscn")
 var new_options_scene
@@ -18,6 +21,9 @@ func _ready() -> void:
 	if not FileAccess.file_exists(config_path):
 		DirAccess.copy_absolute(master_config_path, config_path)
 	config.load(config_path)
+	
+	difficulty_option.select(config.get_value("LEVEL OPTIONS", "difficulty"))
+	traps_checkbutton.button_pressed = config.get_value("LEVEL OPTIONS", "traps")
 	
 	Play_Menu.visible = false
 	title_screen_elements.visible = true
@@ -53,10 +59,19 @@ func _on_back_play_pressed() -> void:
 func Levels():
 	config.set_value("LEVEL OPTIONS", "infinite", false)
 	config.set_value("LEVEL OPTIONS", "levels", true)
+	config.save(config_path)
 
 func Infinite():
 	config.set_value("LEVEL OPTIONS", "infinite", true)
 	config.set_value("LEVEL OPTIONS", "levels", false)
+	config.save(config_path)
+
+func _on_tab_container_tab_clicked(tab: int) -> void:
+	if tab == 0:
+		Levels()
+	elif tab == 1:
+		Infinite()
+
 
 func _on_difficulty_item_selected(index: int) -> void:
 	config.set_value("LEVEL OPTIONS", "difficulty", index)
@@ -69,6 +84,14 @@ func _on_difficulty_item_selected(index: int) -> void:
 		print("Hard")
 	elif index == 3:
 		print("Impossible")
+
+func _on_traps_toggled(toggled_on: bool) -> void:
+	config.set_value("LEVEL OPTIONS", "traps", toggled_on)
+	Infinite()
+
+
+
+
 
 
 
