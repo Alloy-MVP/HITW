@@ -31,15 +31,21 @@ func level1():
 	await fade.finished
 
 func go_time():
-	var WV = Wall_Variants.pick_random()
-	Walls(WV)
+	var real_wall = randi_range(0, 3)
+	for i in range(4):
+		var index = randi_range(0, 11)
+		var real_wv: bool
+		if i == real_wall:
+			real_wv = true
+		else:
+			real_wv = false
+		Walls(Wall_Variants[index], real_wv)
 	score += 1
 
-func Walls(variant: GridMap):
+func Walls(variant: GridMap, real: bool):
 	var duplicate_wall = variant.duplicate()
 	duplicate_wall.visible = true
 	var direction = randi_range(1, 4)
-	var fake = randi_range(1, 2)
 	if direction == 1:
 		duplicate_wall.position = Vector3(0, 0.5, -15.5)
 	elif direction == 2:
@@ -55,41 +61,29 @@ func Walls(variant: GridMap):
 	var wall_animation = create_tween()
 	
 	if direction == 1:
-		if fake == 1:
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
-			wall_animation.tween_interval(2.0)
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 15.5), wall_speed)
-		elif fake == 2:
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
+		wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
+		wall_animation.tween_interval(2.0)
+		if real:
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 15.5), wall_speed)
 	if direction == 2:
-		if fake == 1:
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 15.5), wall_speed/3.0)
-			wall_animation.tween_interval(2.0)
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed)
-		elif fake == 2:
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 15.5), wall_speed/3.0)
+		wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 15.5), wall_speed/3.0)
+		wall_animation.tween_interval(2.0)
+		if real:
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed)
 	if direction == 3:
-		if fake == 1:
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
-			wall_animation.tween_interval(2.0)
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(15.5, 0.5, 0), wall_speed)
-		elif fake == 2:
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
+		wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
+		wall_animation.tween_interval(2.0)
+		if real:
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(15.5, 0.5, 0), wall_speed)
 	if direction == 4:
-		if fake == 1:
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
-			wall_animation.tween_interval(2.0)
+		wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
+		wall_animation.tween_interval(2.0)
+		if real:
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(-15.5, 0.5, 0), wall_speed)
-		if fake == 2:
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
-			wall_animation.tween_property(duplicate_wall, "position", Vector3(-15.5, 0.5, 0), wall_speed)
-	
 	await wall_animation.finished
 	duplicate_wall.queue_free()
-	go_time()
+	if real:
+		go_time()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
