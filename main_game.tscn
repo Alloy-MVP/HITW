@@ -171,6 +171,7 @@ label_settings = SubResource("LabelSettings_dugkq")
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Player/Player_Camera/CanvasLayer/Big Text" unique_id=1294122444]
+one_shot = true
 
 [node name="Black Fade" type="ColorRect" parent="Player/Player_Camera/CanvasLayer" unique_id=477615912]
 z_index = 20
@@ -194,6 +195,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
 
 [node name="Wall 1" type="GridMap" parent="Walls" unique_id=1742143274 groups=["Walls"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
 mesh_library = ExtResource("3_ykeeq")
 cell_size = Vector3(0.5, 0.5, 0.5)
 data = {

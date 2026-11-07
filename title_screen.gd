@@ -22,8 +22,8 @@ func _ready() -> void:
 		DirAccess.copy_absolute(master_config_path, config_path)
 	config.load(config_path)
 	
-	difficulty_option.select(config.get_value("LEVEL OPTIONS", "difficulty"))
-	traps_checkbutton.button_pressed = config.get_value("LEVEL OPTIONS", "traps")
+	difficulty_option.select(config.get_value("LEVEL OPTIONS", "difficulty", 0))
+	traps_checkbutton.button_pressed = config.get_value("LEVEL OPTIONS", "traps", false)
 	
 	Play_Menu.visible = false
 	title_screen_elements.visible = true
@@ -61,13 +61,15 @@ func Levels():
 	config.set_value("LEVEL OPTIONS", "infinite", false)
 	config.set_value("LEVEL OPTIONS", "levels", true)
 	config.save(config_path)
+	print("Levels")
 
 func Infinite():
 	config.load(config_path)
 	config.set_value("LEVEL OPTIONS", "infinite", true)
 	config.set_value("LEVEL OPTIONS", "levels", false)
 	config.save(config_path)
-
+	print("Infinite")
+	
 func _on_tab_container_tab_clicked(tab: int) -> void:
 	if tab == 0:
 		Levels()
@@ -76,8 +78,12 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 
 
 func _on_difficulty_item_selected(index: int) -> void:
+	config.load(config_path)
 	config.set_value("LEVEL OPTIONS", "difficulty", index)
-	Infinite()
+	config.set_value("LEVEL OPTIONS", "infinite", true)
+	config.set_value("LEVEL OPTIONS", "levels", false)
+	config.save(config_path)
+
 	if index == 0:
 		print("Easy")
 	elif index == 1:
@@ -88,8 +94,10 @@ func _on_difficulty_item_selected(index: int) -> void:
 		print("Impossible")
 
 func _on_traps_toggled(toggled_on: bool) -> void:
+	config.load(config_path)
 	config.set_value("LEVEL OPTIONS", "traps", toggled_on)
-	Infinite()
+	config.save(config_path)
+	print("Traps: "+str(config.get_value("LEVEL OPTIONS", "traps")))
 
 
 

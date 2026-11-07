@@ -30,62 +30,62 @@ func _ready() -> void:
 	
 func update():
 	config.load(config_path)
-	var animated = config.get_value("GRAPHICS", "animated_sea")
+	var animated = config.get_value("GRAPHICS", "animated_sea", true)
 	if Sea:
 		if animated == true:
 			Sea.material_override = animated_sea
 		else:
 			Sea.material_override = sea
 	
-	var shadows = config.get_value("GRAPHICS", "shadows")
+	var shadows = config.get_value("GRAPHICS", "shadows", true)
 	if Sun:
 		if shadows == true:
 			Sun.shadow_enabled = true
 		else:
 			Sun.shadow_enabled = false
 	
-	var show_sun = config.get_value("GRAPHICS", "show_sun")
+	var show_sun = config.get_value("GRAPHICS", "show_sun", true)
 	if Sun:
 		if show_sun == true:
 			Sun.visible = true
 		else:
 			Sun.visible = false
 	
-	var show_sky = config.get_value("GRAPHICS", "show_sky")
+	var show_sky = config.get_value("GRAPHICS", "show_sky", true)
 	if game_sky:
 		if show_sky == true:
 			game_sky.environment.sky = saved_sky
 		else:
 			game_sky.environment.sky = null
 	
-	var show_sea = config.get_value("GRAPHICS", "show_sea")
+	var show_sea = config.get_value("GRAPHICS", "show_sea", true)
 	if Sea:
 		if show_sea == true:
 			Sea.visible = true
 		else:
 			Sea.visible = false
 	
-	var better_reflections = config.get_value("GRAPHICS", "better_reflections")
+	var better_reflections = config.get_value("GRAPHICS", "better_reflections", true)
 	if game_sky:
 		if better_reflections == true:
 			game_sky.environment.glow_enabled = true
 		else:
 			game_sky.environment.glow_enabled = false
 	
-	var show_fog = config.get_value("GRAPHICS", "show_fog")
+	var show_fog = config.get_value("GRAPHICS", "show_fog", true)
 	if game_sky:
 		if show_fog == true:
 			game_sky.environment.fog_enabled = true
 		else:
 			game_sky.environment.fog_enabled = false
 	
-	var sun_strength = config.get_value("GRAPHICS", "sun_strength")
+	var sun_strength = config.get_value("GRAPHICS", "sun_strength", true)
 	if Sun:
 		if 4.0 <= sun_strength and sun_strength <= 16.0:
 			Sun.light_energy = sun_strength
 	print("sun energy: "+str(Sun.light_energy)+" setting energy: "+str(sun_strength))
 	
-	sensitivity = config.get_value("INPUTS", "sensitivity")
+	sensitivity = config.get_value("INPUTS", "sensitivity", 0.2)
 
 
 func _input(event: InputEvent) -> void:

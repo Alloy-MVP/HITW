@@ -379,6 +379,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_ak2if")
 
 [node name="Play Menu" type="CanvasLayer" parent="." unique_id=861252085]
+visible = false
 
 [node name="TabContainer" type="TabContainer" parent="Play Menu" unique_id=540447359]
 anchors_preset = 9
@@ -387,14 +388,14 @@ offset_right = 512.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ig5kc")
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhgbh")
-current_tab = 1
+current_tab = 0
 
 [node name="Levels" type="VBoxContainer" parent="Play Menu/TabContainer" unique_id=790878831]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Infinite" type="VBoxContainer" parent="Play Menu/TabContainer" unique_id=1587357149]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

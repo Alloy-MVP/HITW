@@ -18,8 +18,8 @@ var config_path = "user://Config.cfg"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	config.load(config_path)
-	if config.get_value("LEVEL OPTIONS", "infinite"):
-		difficulty = config.get_value("LEVEL OPTIONS", "difficulty")
+	if config.get_value("LEVEL OPTIONS", "infinite", false):
+		difficulty = config.get_value("LEVEL OPTIONS", "difficulty", 0)
 		if difficulty == 0:
 			wall_speed = 10
 		elif difficulty == 1:
@@ -41,9 +41,9 @@ func starting():
 		countdown = countdown - 1
 		await get_tree().create_timer(1.0, false).timeout
 	warning.text = ""
-	if config.get_value("LEVEL OPTIONS", "infinite"):
+	if config.get_value("LEVEL OPTIONS", "infinite", false):
 		Infinite()
-	if config.get_value("LEVEL OPTIONS", "levels"):
+	if config.get_value("LEVEL OPTIONS", "levels", true):
 		Levels()
 
 func Levels():
