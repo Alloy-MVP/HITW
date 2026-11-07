@@ -48,6 +48,14 @@ var master_config_path = "res://Config.cfg"
 func _ready() -> void:
 	if not FileAccess.file_exists(config_path):
 		DirAccess.copy_absolute(master_config_path, config_path)
+		sensitivity_label.text = "20%"
+		forward_input_label.text = "W"
+		backward_input_label.text = "S"
+		left_input_label.text = "A"
+		backward_input_label.text = "D"
+		jump_input_label.text = "SPACE"
+		crouch_input_label.text = "SHIFT"
+		slide_input_label.text = "M"
 	load_config()
 
 func load_config():

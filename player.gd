@@ -12,9 +12,9 @@ var dead: bool = false
 var sliding: bool = false
 var fly: bool = false
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("fly"):
-		fly = not fly
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("fly"):
+		#fly = not fly
 
 func _physics_process(delta: float) -> void:
 	crouching = Player_Camera.crouching

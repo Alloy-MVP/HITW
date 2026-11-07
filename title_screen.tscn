@@ -385,6 +385,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 512.0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ig5kc")
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhgbh")
 current_tab = 1
 
@@ -451,6 +452,8 @@ offset_left = -46.0
 offset_top = -31.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 20
 text = "Start"
 
 [node name="Back play" type="Button" parent="Play Menu" unique_id=97132596]
@@ -460,6 +463,8 @@ anchor_bottom = 1.0
 offset_top = -31.0
 offset_right = 45.0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 20
 text = "Back"
 
 [node name="Background" type="ColorRect" parent="Play Menu" unique_id=1832760487]

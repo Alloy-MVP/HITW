@@ -57,11 +57,13 @@ func _on_back_play_pressed() -> void:
 	menu_toggle()
 
 func Levels():
+	config.load(config_path)
 	config.set_value("LEVEL OPTIONS", "infinite", false)
 	config.set_value("LEVEL OPTIONS", "levels", true)
 	config.save(config_path)
 
 func Infinite():
+	config.load(config_path)
 	config.set_value("LEVEL OPTIONS", "infinite", true)
 	config.set_value("LEVEL OPTIONS", "levels", false)
 	config.save(config_path)

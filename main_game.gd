@@ -3,33 +3,59 @@ extends Node3D
 @onready var Wall_Variants = [$"Walls/Wall 1",$"Walls/Wall 2",$"Walls/Wall 3",$"Walls/Wall 4",$"Walls/Wall 5",$"Walls/Wall 6",$"Walls/Wall 7",$"Walls/Wall 8",$"Walls/Wall 9",$"Walls/Wall 10",$"Walls/Wall 11",$"Walls/Wall 12"]
 
 @onready var Score = $Player/Player_Camera/CanvasLayer/GUI/Score
-
 @onready var warning = $"Player/Player_Camera/CanvasLayer/Big Text/Warning"
+@onready var timer = $"Player/Player_Camera/CanvasLayer/Big Text/Timer"
 
-var wall_speed = 4 #in seconds
+var wall_speed = 10.0 #in seconds
+var difficulty
 var score: int = -1
+var timer_on: bool = false
+
+var config = ConfigFile.new()
+var config_path = "user://Config.cfg"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	config.load(config_path)
+	if config.get_value("LEVEL OPTIONS", "infinite"):
+		difficulty = config.get_value("LEVEL OPTIONS", "difficulty")
+		if difficulty == 0:
+			wall_speed = 10
+		elif difficulty == 1:
+			wall_speed = 8
+		elif difficulty == 2:
+			wall_speed = 6
+		elif difficulty == 3:
+			wall_speed = 3
 	Score.visible = false
 	for Wall in get_tree().get_nodes_in_group("Walls"):
 		Wall.visible = false
-	level1()
+	timer.wait_time = 300.0
+	starting()
 
-func level1():
+func starting():
 	var countdown = 4
 	for i in range(3):
 		warning.text = "Starting in: "+str(countdown-1)
 		countdown = countdown - 1
 		await get_tree().create_timer(1.0, false).timeout
-	warning.text = "GO!!!"
+	warning.text = ""
+	if config.get_value("LEVEL OPTIONS", "infinite"):
+		Infinite()
+	if config.get_value("LEVEL OPTIONS", "levels"):
+		Levels()
+
+func Levels():
+	timer_on = true
 	await get_tree().create_timer(1.0, false).timeout
+	timer.start()
+	go_time()
+
+func Infinite():
 	Score.visible = true
 	go_time()
-	var fade = create_tween()
-	fade.tween_property(warning, "modulate:a", 0.0, 2.0)
-	await fade.finished
-
+	
 func go_time():
 	var real_wall = randi_range(0, 3)
 	for i in range(4):
@@ -88,3 +114,10 @@ func Walls(variant: GridMap, real: bool):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	Score.text = "Score: " + str(score)
+	if timer_on:
+		var time = int(timer.time_left)
+		var seconds = time % 60
+		var minutes = floori(time / 60)
+		if seconds < 10:
+			seconds = "0" + str(seconds)
+		warning.text = str(minutes) +":"+ str(seconds)
