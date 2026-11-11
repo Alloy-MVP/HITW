@@ -57,21 +57,26 @@ func Infinite():
 	go_time()
 	
 func go_time():
-	var real_wall = randi_range(0, 3)
-	for i in range(4):
+	var directions = [1, 2, 3, 4]
+	directions.shuffle()
+	var all_walls = randi_range(1, 4)
+	var real_wall = randi_range(0, all_walls-1)
+	
+	for i in range(all_walls):
 		var index = randi_range(0, 11)
 		var real_wv: bool
 		if i == real_wall:
 			real_wv = true
 		else:
 			real_wv = false
-		Walls(Wall_Variants[index], real_wv)
+		var direction = directions[i]
+		print(direction)
+		Walls(Wall_Variants[index], real_wv, direction)
 	score += 1
 
-func Walls(variant: GridMap, real: bool):
+func Walls(variant: GridMap, real: bool, direction):
 	var duplicate_wall = variant.duplicate()
 	duplicate_wall.visible = true
-	var direction = randi_range(1, 4)
 	if direction == 1:
 		duplicate_wall.position = Vector3(0, 0.5, -15.5)
 	elif direction == 2:
