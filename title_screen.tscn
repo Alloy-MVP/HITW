@@ -379,12 +379,11 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_ak2if")
 
 [node name="Play Menu" type="CanvasLayer" parent="." unique_id=861252085]
-visible = false
 
 [node name="TabContainer" type="TabContainer" parent="Play Menu" unique_id=540447359]
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 512.0
+offset_right = 600.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ig5kc")
 theme_override_styles/panel = SubResource("StyleBoxFlat_rhgbh")
@@ -393,6 +392,29 @@ current_tab = 0
 [node name="Levels" type="VBoxContainer" parent="Play Menu/TabContainer" unique_id=790878831]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Play Menu/TabContainer/Levels" unique_id=415520334]
+layout_mode = 2
+
+[node name="Level 1" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1960555388]
+layout_mode = 2
+text = "Level 1"
+
+[node name="Level 2" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1972396729]
+layout_mode = 2
+text = "Level 2"
+
+[node name="Level 3" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1543000296]
+layout_mode = 2
+text = "Level 3"
+
+[node name="Level 4" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1251272724]
+layout_mode = 2
+text = "Level 4"
+
+[node name="Level 5" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=251813201]
+layout_mode = 2
+text = "Level 5"
 
 [node name="Infinite" type="VBoxContainer" parent="Play Menu/TabContainer" unique_id=1587357149]
 visible = false
