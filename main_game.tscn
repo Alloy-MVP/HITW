@@ -37,7 +37,6 @@ shadow_color = Color(0, 0, 0, 1)
 [sub_resource type="Environment" id="Environment_f52ns"]
 background_mode = 2
 sky = ExtResource("6_2pltu")
-fog_enabled = true
 fog_density = 0.003
 fog_sky_affect = 0.1
 

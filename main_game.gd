@@ -130,24 +130,27 @@ func go_time():
 	var all_walls = randi_range(1, max_walls)
 	var real_wall = randi_range(0, all_walls-1)
 	moving_walls = all_walls	
+	var queued = 0
 	
 	for i in range(all_walls):
 		var index = randi_range(0, 11)
 		var real_wv = false
 		var queue = false
+		var queued_walls = 0
 		if i == real_wall:
 			real_wv = true
 		else:
 			real_wv = false
 		
 		if not real_wv and max_walls > 1 and (randi_range(1,2) == 1):
-			queue = true
+			queued += 1
+			queued_walls = queued
 			
 		var direction = directions[i]
-		Walls(Wall_Variants[index], real_wv, direction, queue)
+		Walls(Wall_Variants[index], real_wv, direction, queued_walls)
 	score += 1
 
-func Walls(variant: GridMap, real: bool, direction, queue):
+func Walls(variant: GridMap, real: bool, direction, queued_walls):
 	var duplicate_wall = variant.duplicate()
 	duplicate_wall.visible = true
 	if direction == 1:
@@ -169,32 +172,32 @@ func Walls(variant: GridMap, real: bool, direction, queue):
 		wall_animation.tween_interval(2.0)
 		if real:
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 15.5), wall_speed)
-		elif queue:
-			wall_animation.tween_interval(wall_speed)
+		elif queued_walls >= 1:
+			wall_animation.tween_interval(wall_speed*queued_walls)
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 15.5), wall_speed)
 	if direction == 2:
 		wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 15.5), wall_speed/3.0)
 		wall_animation.tween_interval(2.0)
 		if real:
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed)
-		elif queue:
-			wall_animation.tween_interval(wall_speed)
+		elif queued_walls >= 1:
+			wall_animation.tween_interval(wall_speed*queued_walls)
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed)
 	if direction == 3:
 		wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
 		wall_animation.tween_interval(2.0)
 		if real:
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(15.5, 0.5, 0), wall_speed)
-		elif queue:
-			wall_animation.tween_interval(wall_speed)
+		elif queued_walls >= 1:
+			wall_animation.tween_interval(wall_speed*queued_walls)
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(15.5, 0.5, 0), wall_speed)
 	if direction == 4:
 		wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
 		wall_animation.tween_interval(2.0)
 		if real:
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(-15.5, 0.5, 0), wall_speed)
-		elif queue:
-			wall_animation.tween_interval(wall_speed)
+		elif queued_walls >= 1:
+			wall_animation.tween_interval(wall_speed*queued_walls)
 			wall_animation.tween_property(duplicate_wall, "position", Vector3(-15.5, 0.5, 0), wall_speed)
 	await wall_animation.finished
 	duplicate_wall.queue_free()
