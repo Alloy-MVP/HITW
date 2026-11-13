@@ -550,9 +550,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Black Fade" type="ColorRect" parent="." unique_id=1219067173]
+[node name="Black Fade" type="ColorRect" parent="Play Menu" unique_id=1219067173]
 z_index = 30
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

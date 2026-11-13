@@ -37,11 +37,8 @@ func _ready() -> void:
 	Play_Menu.visible = false
 	title_screen_elements.visible = true
 	
-	
-	
-	$"Black Fade".modulate.a =  1.0
 	var fade_out = create_tween()
-	fade_out.tween_property($"Black Fade", "modulate:a", 0.0, 1)
+	fade_out.tween_property($"Play Menu/Black Fade", "modulate:a", 0.0, 1)
 	await fade_out.finished
 
 func menu_toggle():
@@ -66,7 +63,7 @@ func _on_quit_pressed() -> void:
 
 func _on_start_pressed() -> void:
 	var fade_out = create_tween()
-	fade_out.tween_property($"Black Fade", "modulate:a", 1.0, 1)
+	fade_out.tween_property($"Play Menu/Black Fade", "modulate:a", 1.0, 1)
 	await fade_out.finished
 	get_tree().change_scene_to_file("res://main_game.tscn")
 	if new_options_scene and is_instance_valid(new_options_scene):
@@ -137,7 +134,7 @@ func options():
 func _process(delta: float) -> void:
 	if config.get_value("LEVEL OPTIONS", "levels"):
 		start_label.text = "Level "+str(config.get_value("LEVEL OPTIONS", "level"))+" "
-	if config.get_value("LEVEL OPTIONS", "infinite"):
+	elif config.get_value("LEVEL OPTIONS", "infinite"):
 		start_label.text = "Infinite "
 
 

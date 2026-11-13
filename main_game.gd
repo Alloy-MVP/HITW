@@ -26,23 +26,19 @@ func _ready() -> void:
 	config.load(config_path)
 	if config.get_value("LEVEL OPTIONS", "infinite", false):
 		difficulty = config.get_value("LEVEL OPTIONS", "difficulty", 0)
-		if difficulty == 0:
-			wall_speed = 10
-		elif difficulty == 1:
-			wall_speed = 8
-		elif difficulty == 2:
-			wall_speed = 6
-		elif difficulty == 3:
-			wall_speed = 3
+		Infinite()
 	if config.get_value("LEVEL OPTIONS", "levels"):
 		level = config.get_value("LEVEL OPTIONS", "level")
 	if level:
 		var level_function = "Level" + str(level)
 		if has_method(level_function):
 			call(level_function)
+		
+	
 	Score.visible = false
 	for Wall in get_tree().get_nodes_in_group("Walls"):
 		Wall.visible = false
+	await get_tree().create_timer(0.5, false).timeout
 	var fade_out = create_tween()
 	fade_out.tween_property($"Player/Player_Camera/CanvasLayer/Black Fade", "modulate:a", 0.0, 1)
 	await fade_out.finished
@@ -54,15 +50,13 @@ func starting():
 		countdown = countdown - 1
 		await get_tree().create_timer(1.0, false).timeout
 	warning.text = ""
-	if config.get_value("LEVEL OPTIONS", "infinite", false):
-		Infinite()
-		
+	
 	timer.start()
 	timer_on = true
 	go_time()
 
 func Level1():
-	timer.wait_time = 30.0
+	timer.wait_time = 31.0
 	
 	wall_speed = 10
 	max_walls = 1
@@ -71,15 +65,62 @@ func Level1():
 	starting()
 
 func Level2():
-	timer.wait_time = 60.0
+	timer.wait_time = 31.0
 	
-	wall_speed = 8
+	wall_speed = 10
 	max_walls = 2
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
+func Level3():
+	timer.wait_time = 46.0
+	
+	wall_speed = 10
+	max_walls = 3
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+	
+func Level4():
+	timer.wait_time = 46.0
+	
+	wall_speed = 10
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level5():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
 func Infinite():
+	if difficulty == 0:
+		wall_speed = 10
+		max_walls = 2
+	elif difficulty == 1:
+		wall_speed = 8
+		max_walls = 3
+	elif difficulty == 2:
+		wall_speed = 6
+		max_walls = 4
+	elif difficulty == 3:
+		wall_speed = 3
+		max_walls = 4
+	
+	var countdown = 4
+	for i in range(3):
+		warning.text = "Starting in: "+str(countdown-1)
+		countdown = countdown - 1
+		await get_tree().create_timer(1.0, false).timeout
+	warning.text = ""	
+	
 	Score.visible = true
 	go_time()
 	
@@ -177,6 +218,7 @@ func _process(delta: float) -> void:
 	if not player_perspective.dead and Player_Camera.global_position.y > -12 and time == 0:
 		won = true
 		if won:
+			timer_on = false
 			await get_tree().create_timer(5.0, false).timeout
 			var fade_out = create_tween()
 			fade_out.tween_property($"Player/Player_Camera/CanvasLayer/Black Fade", "modulate:a", 1.0, 1)
