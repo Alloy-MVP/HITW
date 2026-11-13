@@ -182,8 +182,16 @@ func _process(delta: float) -> void:
 			fade_out.tween_property($"Player/Player_Camera/CanvasLayer/Black Fade", "modulate:a", 1.0, 1)
 			await fade_out.finished
 			await get_tree().create_timer(0.5, false).timeout
+			config.load(config_path)
+			var levels_completed = config.get_value("LEVEL OPTIONS", "levels_completed")
+			var level = config.get_value("LEVEL OPTIONS", "level")
+			if level not in levels_completed:
+				levels_completed.append(level)
+			config.set_value("LEVEL OPTIONS", "levels_completed", levels_completed)
+			config.save(config_path)
 			won = false
 			get_tree().change_scene_to_file("res://title_screen.tscn")
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			
 			
 		

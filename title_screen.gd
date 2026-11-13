@@ -9,6 +9,7 @@ extends Control
 var options_scene = preload("res://options_menu.tscn")
 var new_options_scene
 var in_options_menu: bool = false
+var levels_completed
 
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
@@ -24,9 +25,24 @@ func _ready() -> void:
 	
 	difficulty_option.select(config.get_value("LEVEL OPTIONS", "difficulty", 0))
 	traps_checkbutton.button_pressed = config.get_value("LEVEL OPTIONS", "traps", false)
+	levels_completed = config.get_value("LEVEL OPTIONS", "levels_completed")
+	
+	var Level_Buttons = get_tree().get_nodes_in_group("Level Buttons")
+	for i in range(Level_Buttons.size()):
+		if i+1 in levels_completed:
+			var button_background = StyleBoxFlat.new()
+			button_background.bg_color = Color("0b6623")
+			Level_Buttons[i].add_theme_stylebox_override("normal", button_background)
 	
 	Play_Menu.visible = false
 	title_screen_elements.visible = true
+	
+	
+	
+	$"Black Fade".modulate.a =  1.0
+	var fade_out = create_tween()
+	fade_out.tween_property($"Black Fade", "modulate:a", 0.0, 1)
+	await fade_out.finished
 
 func menu_toggle():
 	Play_Menu.visible = not Play_Menu.visible
@@ -49,6 +65,9 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_start_pressed() -> void:
+	var fade_out = create_tween()
+	fade_out.tween_property($"Black Fade", "modulate:a", 1.0, 1)
+	await fade_out.finished
 	get_tree().change_scene_to_file("res://main_game.tscn")
 	if new_options_scene and is_instance_valid(new_options_scene):
 		new_options_scene.queue_free()
@@ -94,8 +113,6 @@ func _on_traps_toggled(toggled_on: bool) -> void:
 	config.load(config_path)
 	config.set_value("LEVEL OPTIONS", "traps", toggled_on)
 	config.save(config_path)
-	print("Traps: "+str(config.get_value("LEVEL OPTIONS", "traps")))
-
 
 
 
@@ -118,7 +135,10 @@ func options():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if config.get_value("LEVEL OPTIONS", "levels"):
+		start_label.text = "Level "+str(config.get_value("LEVEL OPTIONS", "level"))+" "
+	if config.get_value("LEVEL OPTIONS", "infinite"):
+		start_label.text = "Infinite "
 
 
 func _on_level_toggled(toggled_on: bool) -> void:
@@ -130,4 +150,5 @@ func _on_level_toggled(toggled_on: bool) -> void:
 		if Level_Buttons[i].button_pressed:
 			config.set_value("LEVEL OPTIONS", "level", i+1)
 	config.save(config_path)
-	print("Level: "+ str(config.get_value("LEVEL OPTIONS", "level")))
+	for b in Level_Buttons:
+		b.button_pressed = false

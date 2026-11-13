@@ -294,6 +294,10 @@ frame_22/duration = 0.05
 frame_23/texture = SubResource("CompressedTexture2D_85b2q")
 frame_23/duration = 0.05
 
+[sub_resource type="LabelSettings" id="LabelSettings_hafda"]
+font = ExtResource("2_ig5kc")
+font_size = 14
+
 [node name="Title Screen" type="Control" unique_id=836274124 groups=["Title Screen"]]
 layout_mode = 3
 anchors_preset = 15
@@ -487,28 +491,40 @@ theme_override_icons/unchecked = SubResource("AnimatedTexture_05l2w")
 
 [node name="Control" type="Control" parent="Play Menu" unique_id=1845463473]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Play Menu/Control" unique_id=1781561850]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Start" type="Button" parent="Play Menu/Control" unique_id=1567764434]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1045.0
-offset_top = 570.0
-offset_right = 1112.0
-offset_bottom = 608.0
+offset_left = -125.0
+offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="Label" type="Label" parent="Play Menu/Control" unique_id=1781561850]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_hafda")
+horizontal_alignment = 2
+
+[node name="Start" type="Button" parent="Play Menu/Control" unique_id=1567764434]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -19.0
+offset_bottom = 19.0
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_ig5kc")
 theme_override_font_sizes/font_size = 20
 text = "Start"
@@ -526,6 +542,17 @@ text = "Back"
 
 [node name="Background" type="ColorRect" parent="Play Menu" unique_id=1832760487]
 z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Black Fade" type="ColorRect" parent="." unique_id=1219067173]
+z_index = 30
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
