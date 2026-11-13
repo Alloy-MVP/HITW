@@ -33,6 +33,12 @@ func _ready() -> void:
 			var button_background = StyleBoxFlat.new()
 			button_background.bg_color = Color("0b6623")
 			Level_Buttons[i].add_theme_stylebox_override("normal", button_background)
+			
+		
+		if i+1 > levels_completed.size() + 1:
+			Level_Buttons[i].disabled = true
+		else:
+			Level_Buttons[i].disabled = false
 	
 	Play_Menu.visible = false
 	title_screen_elements.visible = true
