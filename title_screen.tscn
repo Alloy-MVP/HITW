@@ -396,24 +396,44 @@ metadata/_tab_index = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="Play Menu/TabContainer/Levels" unique_id=415520334]
 layout_mode = 2
 
-[node name="Level 1" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1960555388]
+[node name="Level 1" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1960555388 groups=["Level Buttons"]]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 20
+toggle_mode = true
 text = "Level 1"
 
-[node name="Level 2" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1972396729]
+[node name="Level 2" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1972396729 groups=["Level Buttons"]]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 20
+toggle_mode = true
 text = "Level 2"
 
-[node name="Level 3" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1543000296]
+[node name="Level 3" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1543000296 groups=["Level Buttons"]]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 20
+toggle_mode = true
 text = "Level 3"
 
-[node name="Level 4" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1251272724]
+[node name="Level 4" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=1251272724 groups=["Level Buttons"]]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 20
+toggle_mode = true
 text = "Level 4"
 
-[node name="Level 5" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=251813201]
+[node name="Level 5" type="Button" parent="Play Menu/TabContainer/Levels/HBoxContainer" unique_id=251813201 groups=["Level Buttons"]]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ig5kc")
+theme_override_font_sizes/font_size = 20
+toggle_mode = true
 text = "Level 5"
 
 [node name="Infinite" type="VBoxContainer" parent="Play Menu/TabContainer" unique_id=1587357149]
@@ -465,14 +485,29 @@ layout_mode = 2
 theme_override_icons/checked = SubResource("AnimatedTexture_ig5kc")
 theme_override_icons/unchecked = SubResource("AnimatedTexture_05l2w")
 
-[node name="Start" type="Button" parent="Play Menu" unique_id=1567764434]
+[node name="Control" type="Control" parent="Play Menu" unique_id=1845463473]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Play Menu/Control" unique_id=1781561850]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Start" type="Button" parent="Play Menu/Control" unique_id=1567764434]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -46.0
-offset_top = -31.0
+offset_left = 1045.0
+offset_top = 570.0
+offset_right = 1112.0
+offset_bottom = 608.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_ig5kc")
@@ -504,7 +539,12 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="title screen elements/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="title screen elements/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="tab_clicked" from="Play Menu/TabContainer" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="toggled" from="Play Menu/TabContainer/Levels/HBoxContainer/Level 1" to="." method="_on_level_toggled"]
+[connection signal="toggled" from="Play Menu/TabContainer/Levels/HBoxContainer/Level 2" to="." method="_on_level_toggled"]
+[connection signal="toggled" from="Play Menu/TabContainer/Levels/HBoxContainer/Level 3" to="." method="_on_level_toggled"]
+[connection signal="toggled" from="Play Menu/TabContainer/Levels/HBoxContainer/Level 4" to="." method="_on_level_toggled"]
+[connection signal="toggled" from="Play Menu/TabContainer/Levels/HBoxContainer/Level 5" to="." method="_on_level_toggled"]
 [connection signal="item_selected" from="Play Menu/TabContainer/Infinite/HBoxContainer/OptionButton" to="." method="_on_difficulty_item_selected"]
 [connection signal="toggled" from="Play Menu/TabContainer/Infinite/Traps/CheckButton" to="." method="_on_traps_toggled"]
-[connection signal="pressed" from="Play Menu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Play Menu/Control/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Play Menu/Back play" to="." method="_on_back_play_pressed"]

@@ -4,7 +4,7 @@ extends Control
 @onready var title_screen_elements = $"title screen elements"
 @onready var difficulty_option = $"Play Menu/TabContainer/Infinite/HBoxContainer/OptionButton"
 @onready var traps_checkbutton = $"Play Menu/TabContainer/Infinite/Traps/CheckButton"
-
+@onready var start_label = $"Play Menu/Control/Label"
 
 var options_scene = preload("res://options_menu.tscn")
 var new_options_scene
@@ -61,21 +61,18 @@ func Levels():
 	config.set_value("LEVEL OPTIONS", "infinite", false)
 	config.set_value("LEVEL OPTIONS", "levels", true)
 	config.save(config_path)
-	print("Levels")
 
 func Infinite():
 	config.load(config_path)
 	config.set_value("LEVEL OPTIONS", "infinite", true)
 	config.set_value("LEVEL OPTIONS", "levels", false)
 	config.save(config_path)
-	print("Infinite")
-	
+
 func _on_tab_container_tab_clicked(tab: int) -> void:
 	if tab == 0:
 		Levels()
 	elif tab == 1:
 		Infinite()
-
 
 func _on_difficulty_item_selected(index: int) -> void:
 	config.load(config_path)
@@ -122,3 +119,15 @@ func options():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_level_toggled(toggled_on: bool) -> void:
+	if not toggled_on:
+		return
+	config.load(config_path)
+	var Level_Buttons = get_tree().get_nodes_in_group("Level Buttons")
+	for i in range(5):
+		if Level_Buttons[i].button_pressed:
+			config.set_value("LEVEL OPTIONS", "level", i+1)
+	config.save(config_path)
+	print("Level: "+ str(config.get_value("LEVEL OPTIONS", "level")))
