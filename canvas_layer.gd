@@ -14,7 +14,6 @@ var dead: bool = false
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	pause_menu.visible = false
-	$"Black Fade".modulate.a = 0.0
 	await get_tree().create_timer(2.0).timeout
 
 func _input(event: InputEvent) -> void:

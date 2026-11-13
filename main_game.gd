@@ -5,6 +5,8 @@ extends Node3D
 @onready var Score = $Player/Player_Camera/CanvasLayer/GUI/Score
 @onready var warning = $"Player/Player_Camera/CanvasLayer/Big Text/Warning"
 @onready var timer = $"Player/Player_Camera/CanvasLayer/Big Text/Timer"
+@onready var player_perspective = $Player/Player_Camera/CanvasLayer
+@onready var Player_Camera = $Player/Player_Camera
 
 var wall_speed = 10.0 #in seconds
 var difficulty
@@ -13,6 +15,7 @@ var score: int = -1
 var timer_on: bool = false
 var max_walls: int
 var moving_walls
+var won: bool = false
 
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
@@ -33,13 +36,16 @@ func _ready() -> void:
 			wall_speed = 3
 	if config.get_value("LEVEL OPTIONS", "levels"):
 		level = config.get_value("LEVEL OPTIONS", "level")
-		
-	
+	if level:
+		var level_function = "Level" + str(level)
+		if has_method(level_function):
+			call(level_function)
 	Score.visible = false
 	for Wall in get_tree().get_nodes_in_group("Walls"):
 		Wall.visible = false
-	timer.wait_time = 300.0
-	starting()
+	var fade_out = create_tween()
+	fade_out.tween_property($"Player/Player_Camera/CanvasLayer/Black Fade", "modulate:a", 0.0, 1)
+	await fade_out.finished
 
 func starting():
 	var countdown = 4
@@ -50,15 +56,28 @@ func starting():
 	warning.text = ""
 	if config.get_value("LEVEL OPTIONS", "infinite", false):
 		Infinite()
-	var level_function = "Level" + str(level)
-	if has_method(level_function):
-		call(level_function)
+		
+	timer.start()
+	timer_on = true
+	go_time()
 
 func Level1():
-	timer_on = true
+	timer.wait_time = 30.0
+	
+	wall_speed = 10
+	max_walls = 1
+	
 	await get_tree().create_timer(1.0, false).timeout
-	timer.start()
-	go_time()
+	starting()
+
+func Level2():
+	timer.wait_time = 60.0
+	
+	wall_speed = 8
+	max_walls = 2
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
 
 func Infinite():
 	Score.visible = true
@@ -67,7 +86,6 @@ func Infinite():
 func go_time():
 	var directions = [1, 2, 3, 4]
 	directions.shuffle()
-	max_walls = 4
 	var all_walls = randi_range(1, max_walls)
 	var real_wall = randi_range(0, all_walls-1)
 	moving_walls = all_walls	
@@ -146,11 +164,26 @@ func Walls(variant: GridMap, real: bool, direction, queue):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var time
 	Score.text = "Score: " + str(score)
 	if timer_on:
-		var time = int(timer.time_left)
+		time = int(timer.time_left)
 		var seconds = time % 60
 		var minutes = floori(time / 60)
 		if seconds < 10:
 			seconds = "0" + str(seconds)
 		warning.text = str(minutes) +":"+ str(seconds)
+		
+	if not player_perspective.dead and Player_Camera.global_position.y > -12 and time == 0:
+		won = true
+		if won:
+			await get_tree().create_timer(5.0, false).timeout
+			var fade_out = create_tween()
+			fade_out.tween_property($"Player/Player_Camera/CanvasLayer/Black Fade", "modulate:a", 1.0, 1)
+			await fade_out.finished
+			await get_tree().create_timer(0.5, false).timeout
+			won = false
+			get_tree().change_scene_to_file("res://title_screen.tscn")
+			
+			
+		

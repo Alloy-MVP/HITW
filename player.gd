@@ -8,7 +8,6 @@ var accelleration: float
 var jump_velocity = 7.26
 var sprinting: bool = true
 var friction = 20
-var dead: bool = false
 var sliding: bool = false
 var fly: bool = false
 
