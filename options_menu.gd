@@ -18,7 +18,7 @@ extends Control
 @onready var better_reflections_checkbox = $"CanvasLayer/TabContainer/Graphics/Better Sun Refs/CheckButton"
 @onready var show_fog_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Fog/CheckButton"
 @onready var sun_strength_label = $"CanvasLayer/TabContainer/Graphics/Sun Strength/Label2"
-
+@onready var wall_texture_option = $"CanvasLayer/TabContainer/Graphics/Wall Texture/OptionButton"
 
 var sensitivity
 var forward
@@ -37,6 +37,7 @@ var show_sea: bool
 var better_reflections: bool
 var show_fog: bool
 var sun_strength
+var wall_texture
 
 signal options_update
 
@@ -94,6 +95,9 @@ func load_config():
 	show_fog_checkbox.set_pressed_no_signal(show_fog)
 	sun_strength = config.get_value("GRAPHICS", "sun_strength", 16.0)
 	sun_strength_label.text = str(int(((sun_strength-4)/12)*100)) + "%"
+	wall_texture = config.get_value("GRAPHICS", "wall_texture")
+	wall_texture_option.selected = wall_texture
+	
 	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".value = sun_strength
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 
@@ -292,6 +296,9 @@ func _on_sun_strength_value_changed(value: float) -> void:
 		var ss = str(int(((sun_strength-4)/12)*100))
 		sun_strength_label.text = ss + "%"
 
+func _on_wall_texture_item_selected(index: int) -> void:
+	wall_texture = index
+
 
 func _on_save_pressed() -> void:
 	config.set_value("INPUTS", "sensitivity", sensitivity)
@@ -355,6 +362,7 @@ func _on_save_pressed() -> void:
 	
 	config.set_value("GRAPHICS", "sun_strength", sun_strength)
 	
+	config.set_value("GRAPHICS", "wall_texture", wall_texture)
 	
 	config.save(config_path)
 	

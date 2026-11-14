@@ -100,6 +100,143 @@ func Level5():
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
+func Level6():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level7():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level8():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level9():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level10():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level11():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level12():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level13():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level14():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level15():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level16():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level17():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level18():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level19():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+func Level20():
+	timer.wait_time = 61.0
+	
+	wall_speed = 8
+	max_walls = 4
+	
+	await get_tree().create_timer(1.0, false).timeout
+	starting()
+
+
+
 func Infinite():
 	if difficulty == 0:
 		wall_speed = 10
@@ -135,7 +272,6 @@ func go_time():
 	for i in range(all_walls):
 		var index = randi_range(0, 11)
 		var real_wv = false
-		var queue = false
 		var queued_walls = 0
 		if i == real_wall:
 			real_wv = true
@@ -207,7 +343,7 @@ func Walls(variant: GridMap, real: bool, direction, queued_walls):
 		go_time()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var time
 	Score.text = "Score: " + str(score)
 	if timer_on:
@@ -229,7 +365,7 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(0.5, false).timeout
 			config.load(config_path)
 			var levels_completed = config.get_value("LEVEL OPTIONS", "levels_completed")
-			var level = config.get_value("LEVEL OPTIONS", "level")
+			level = config.get_value("LEVEL OPTIONS", "level")
 			if level not in levels_completed:
 				levels_completed.append(level)
 			config.set_value("LEVEL OPTIONS", "levels_completed", levels_completed)

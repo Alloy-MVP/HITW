@@ -1738,6 +1738,9 @@ expand_margin_bottom = 10.0
 bg_color = Color(1, 1, 1, 1)
 expand_margin_bottom = 10.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_t1lix"]
+font = ExtResource("2_t1lix")
+
 [node name="Control" type="Control" unique_id=47201885]
 process_mode = 3
 layout_mode = 3
@@ -2113,6 +2116,27 @@ max_value = 16.0
 step = 0.1
 value = 16.0
 
+[node name="Wall Texture" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=1095926220]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Wall Texture" unique_id=520290610]
+layout_mode = 2
+text = "Wall Texture"
+label_settings = SubResource("LabelSettings_t1lix")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Wall Texture" unique_id=731852173]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OptionButton" type="OptionButton" parent="CanvasLayer/TabContainer/Graphics/Wall Texture" unique_id=118429017]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Realistic"
+popup/item_0/id = 0
+popup/item_1/text = "Minecraft"
+popup/item_1/id = 1
+
 [node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=284663294]
 z_index = -1
 anchors_preset = 15
@@ -2141,3 +2165,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Better Sun Refs/CheckButton" to="." method="_on_better_sun_refs_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Show Fog/CheckButton" to="." method="_on_show_fog_button_toggled"]
 [connection signal="value_changed" from="CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider" to="." method="_on_sun_strength_value_changed"]
+[connection signal="item_selected" from="CanvasLayer/TabContainer/Graphics/Wall Texture/OptionButton" to="." method="_on_wall_texture_item_selected"]

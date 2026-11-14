@@ -19,12 +19,16 @@ var animated_sea = preload("res://textures/animated_sea.tres")
 var sea = preload("res://textures/non_animated_sea.tres")
 var cloud_sky = preload("res://textures/sky.tres")
 var saved_sky
+var Realistic_Texture = preload("res://textures/Realistic Map Designer.meshlib")
+var Default = preload("res://textures/Map Designer.meshlib")
+var walls
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera_y = self.position.y
 	saved_sky = cloud_sky
+	walls = get_tree().get_nodes_in_group("Walls")
 	update()
 	
 	
@@ -86,7 +90,18 @@ func update():
 	print("sun energy: "+str(Sun.light_energy)+" setting energy: "+str(sun_strength))
 	
 	sensitivity = config.get_value("INPUTS", "sensitivity", 0.2)
-
+	3
+	var wall_texture = config.get_value("GRAPHICS", "wall_texture")
+	if wall_texture != null:
+		if wall_texture == 0:
+			for i in walls:
+				i.mesh_library = null
+				i.mesh_library = Realistic_Texture
+				print("Real "+str(i.mesh_library.resource_path))
+		elif wall_texture == 1:
+			for i in walls:
+				i.mesh_library = Default
+				print("Default "+str(i.mesh_library.resource_path))
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:

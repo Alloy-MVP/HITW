@@ -9,7 +9,7 @@ extends Control
 var options_scene = preload("res://options_menu.tscn")
 var new_options_scene
 var in_options_menu: bool = false
-var levels_completed
+var levels_completed = []
 
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
@@ -31,7 +31,7 @@ func _ready() -> void:
 	for i in range(Level_Buttons.size()):
 		if i+1 in levels_completed:
 			var button_background = StyleBoxFlat.new()
-			button_background.bg_color = Color("0b6623")
+			button_background.bg_color = Color("159c39ff")
 			Level_Buttons[i].add_theme_stylebox_override("normal", button_background)
 			
 		
@@ -137,7 +137,7 @@ func options():
 	in_options_menu = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if config.get_value("LEVEL OPTIONS", "levels"):
 		start_label.text = "Level "+str(config.get_value("LEVEL OPTIONS", "level"))+" "
 	elif config.get_value("LEVEL OPTIONS", "infinite"):

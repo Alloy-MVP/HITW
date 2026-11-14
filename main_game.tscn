@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b6lnc1ru3mg7j" path="res://player.gd" id="1_1oj5k"]
 [ext_resource type="Script" uid="uid://xicymlrum6mw" path="res://main_game.gd" id="1_dugkq"]
 [ext_resource type="Script" uid="uid://bhc4wd5gq7gx8" path="res://player_camera.gd" id="2_yx7mw"]
-[ext_resource type="MeshLibrary" uid="uid://dgevva58ucwpo" path="res://Map Designer.meshlib" id="3_ykeeq"]
+[ext_resource type="MeshLibrary" uid="uid://dgevva58ucwpo" path="res://textures/Map Designer.meshlib" id="3_ykeeq"]
 [ext_resource type="Script" uid="uid://3x20scnan24h" path="res://canvas_layer.gd" id="4_dugkq"]
 [ext_resource type="FontFile" uid="uid://wmqyqqlf3trb" path="res://textures/boston_traffic.ttf" id="5_f52ns"]
 [ext_resource type="Sky" uid="uid://tkk6lyttm4qj" path="res://textures/sky.tres" id="6_2pltu"]
