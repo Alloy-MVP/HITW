@@ -14,7 +14,7 @@ void fragment() {
 	vec2 uv1 = UV * 4.0;
 	vec2 uv2 = UV * 35.0;
 	uv1.x += 2.0*sin((TIME/2.0) + (uv1.x + uv1.y) * 25.0) * 0.01;
-	uv1.y += 2.0*cos((TIME*1.5) + (uv1.x - uv1.y) * 25.0) * 0.01;
+	uv1.y += 2.0*cos((TIME/3.0) + (uv1.x - uv1.y) * 25.0) * 0.01;
 	vec3 uv1_normal = texture(wave_noise, uv1).rgb;
 	vec3 uv2_normal = texture(wave_noise, uv2).rgb;
 	
@@ -22,8 +22,8 @@ void fragment() {
 	NORMAL_MAP = mix(uv1_normal, uv2_normal, 0.5);
 	NORMAL *= 0.5;
 	ALBEDO = water_colour;
-	ROUGHNESS = 0.0;
-	ALPHA = 0.5;
+	ROUGHNESS = 0.2;
+	ALPHA = 0.4;
 }
 
 //void light() {

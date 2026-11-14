@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://3x20scnan24h" path="res://canvas_layer.gd" id="4_dugkq"]
 [ext_resource type="FontFile" uid="uid://wmqyqqlf3trb" path="res://textures/boston_traffic.ttf" id="5_f52ns"]
 [ext_resource type="Sky" uid="uid://tkk6lyttm4qj" path="res://textures/sky.tres" id="6_2pltu"]
+[ext_resource type="Material" uid="uid://c4hv2iicwths2" path="res://textures/animated_sea.tres" id="8_l5ukw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
 size = Vector3(0.5, 1.8, 0.5)
@@ -40,10 +41,9 @@ sky = ExtResource("6_2pltu")
 fog_density = 0.003
 fog_sky_affect = 0.1
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_2pltu"]
-size = Vector2(2000, 2000)
-subdivide_width = 32
-subdivide_depth = 32
+[sub_resource type="BoxMesh" id="BoxMesh_f52ns"]
+material = ExtResource("8_l5ukw")
+size = Vector3(2000, 10, 2000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2pltu"]
 size = Vector3(200, 1, 200)
@@ -324,8 +324,8 @@ light_volumetric_fog_energy = 0.0
 [node name="Sea" type="Area3D" parent="." unique_id=1502195633]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sea" unique_id=1857272165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
-mesh = SubResource("PlaneMesh_2pltu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0)
+mesh = SubResource("BoxMesh_f52ns")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sea" unique_id=1442537433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)

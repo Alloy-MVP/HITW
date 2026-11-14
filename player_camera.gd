@@ -16,7 +16,7 @@ var sliding: bool = false
 var crouch_tween: Tween
 var camera_y: float
 var animated_sea = preload("res://textures/animated_sea.tres")
-var sea = preload("res://textures/non_animated_sea.tres")
+#var sea = preload("res://textures/test_sea_v1.tres")
 var cloud_sky = preload("res://textures/sky.tres")
 var saved_sky
 var Realistic_Texture = preload("res://textures/Realistic Map Designer.meshlib")
@@ -39,7 +39,8 @@ func update():
 		if animated == true:
 			Sea.material_override = animated_sea
 		else:
-			Sea.material_override = sea
+			#Sea.material_override = sea
+			pass
 	
 	var shadows = config.get_value("GRAPHICS", "shadows", true)
 	if Sun:
