@@ -5,6 +5,7 @@ extends Control
 @onready var difficulty_option = $"Play Menu/TabContainer/Infinite/HBoxContainer/OptionButton"
 @onready var traps_checkbutton = $"Play Menu/TabContainer/Infinite/Traps/CheckButton"
 @onready var start_label = $"Play Menu/Control/Label"
+@onready var play_menu_tabcontainer = $"Play Menu/TabContainer"
 
 var options_scene = preload("res://options_menu.tscn")
 var new_options_scene
@@ -26,6 +27,10 @@ func _ready() -> void:
 	difficulty_option.select(config.get_value("LEVEL OPTIONS", "difficulty", 0))
 	traps_checkbutton.button_pressed = config.get_value("LEVEL OPTIONS", "traps", false)
 	levels_completed = config.get_value("LEVEL OPTIONS", "levels_completed")
+	if config.get_value("LEVEL OPTIONS", "infinite"):
+		play_menu_tabcontainer.current_tab = 1
+	elif config.get_value("LEVEL OPTIONS", "levels"):
+		play_menu_tabcontainer.current_tab = 0
 	
 	var Level_Buttons = get_tree().get_nodes_in_group("Level Buttons")
 	for i in range(Level_Buttons.size()):

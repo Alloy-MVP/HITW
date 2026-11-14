@@ -87,21 +87,18 @@ func update():
 	if Sun:
 		if 4.0 <= sun_strength and sun_strength <= 16.0:
 			Sun.light_energy = sun_strength
-	print("sun energy: "+str(Sun.light_energy)+" setting energy: "+str(sun_strength))
 	
 	sensitivity = config.get_value("INPUTS", "sensitivity", 0.2)
-	3
+	
 	var wall_texture = config.get_value("GRAPHICS", "wall_texture")
 	if wall_texture != null:
 		if wall_texture == 0:
 			for i in walls:
 				i.mesh_library = null
 				i.mesh_library = Realistic_Texture
-				print("Real "+str(i.mesh_library.resource_path))
 		elif wall_texture == 1:
 			for i in walls:
 				i.mesh_library = Default
-				print("Default "+str(i.mesh_library.resource_path))
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:

@@ -11,15 +11,17 @@ noise = SubResource("FastNoiseLite_htvso")
 color_ramp = SubResource("Gradient_htvso")
 seamless = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f52ns"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3qpo"]
 transparency = 1
-albedo_color = Color(0.12941177, 0.8392157, 0, 0.7058824)
+albedo_color = Color(0.12941177, 0.8392157, 0, 0.54901963)
 metallic = 1.0
 metallic_specular = 0.1
+roughness = 0.0
 normal_scale = 0.5
 normal_texture = SubResource("NoiseTexture2D_61bax")
 refraction_enabled = true
 refraction_scale = 0.1
 
 [resource]
-material = SubResource("StandardMaterial3D_f52ns")
+material = SubResource("StandardMaterial3D_n3qpo")
+size = Vector3(0.5, 0.5, 0.5)
