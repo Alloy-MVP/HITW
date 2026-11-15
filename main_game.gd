@@ -16,7 +16,8 @@ var timer_on: bool = false
 var max_walls: int
 var moving_walls
 var won: bool = false
-
+var ice_trap
+var ice: bool = false
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
 
@@ -33,7 +34,7 @@ func _ready() -> void:
 		var level_function = "Level" + str(level)
 		if has_method(level_function):
 			call(level_function)
-		
+	ice_trap = config.get_value("LEVEL OPTIONS", "traps", false)
 	
 	Score.visible = false
 	for Wall in get_tree().get_nodes_in_group("Walls"):
@@ -112,7 +113,7 @@ func Level6():
 func Level7():
 	timer.wait_time = 61.0
 	
-	wall_speed = 8
+	wall_speed = 7
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
@@ -121,115 +122,115 @@ func Level7():
 func Level8():
 	timer.wait_time = 61.0
 	
-	wall_speed = 8
+	wall_speed = 7
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level9():
-	timer.wait_time = 61.0
+	timer.wait_time = 101.0
 	
-	wall_speed = 8
+	wall_speed = 6
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level10():
-	timer.wait_time = 61.0
+	timer.wait_time = 121.0
 	
-	wall_speed = 8
+	wall_speed = 6
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level11():
-	timer.wait_time = 61.0
+	timer.wait_time = 151.0
 	
-	wall_speed = 8
+	wall_speed = 5
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level12():
-	timer.wait_time = 61.0
+	timer.wait_time = 171.0
 	
-	wall_speed = 8
+	wall_speed = 5
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level13():
-	timer.wait_time = 61.0
+	timer.wait_time = 201.0
 	
-	wall_speed = 8
+	wall_speed = 5
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level14():
-	timer.wait_time = 61.0
+	timer.wait_time = 231.0
 	
-	wall_speed = 8
+	wall_speed = 4
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level15():
-	timer.wait_time = 61.0
+	timer.wait_time = 251.0
 	
-	wall_speed = 8
+	wall_speed = 4
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level16():
-	timer.wait_time = 61.0
+	timer.wait_time = 271.0
 	
-	wall_speed = 8
+	wall_speed = 4
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level17():
-	timer.wait_time = 61.0
+	timer.wait_time = 301.0
 	
-	wall_speed = 8
+	wall_speed = 4
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level18():
-	timer.wait_time = 61.0
+	timer.wait_time = 251.0
 	
-	wall_speed = 8
+	wall_speed = 3
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level19():
-	timer.wait_time = 61.0
+	timer.wait_time = 271.0
 	
-	wall_speed = 8
+	wall_speed = 3
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Level20():
-	timer.wait_time = 61.0
+	timer.wait_time = 301.0
 	
-	wall_speed = 8
+	wall_speed = 3
 	max_walls = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
@@ -250,6 +251,11 @@ func Infinite():
 	elif difficulty == 3:
 		wall_speed = 3
 		max_walls = 4
+	
+	if ice_trap:
+		ice = true
+	else:
+		ice = false
 	
 	var countdown = 4
 	for i in range(3):
@@ -358,6 +364,8 @@ func _process(_delta: float) -> void:
 		won = true
 		if won:
 			timer_on = false
+			warning.text = "Level Completed"
+			warning.visible = true
 			await get_tree().create_timer(5.0, false).timeout
 			var fade_out = create_tween()
 			fade_out.tween_property($"Player/Player_Camera/CanvasLayer/Black Fade", "modulate:a", 1.0, 1)

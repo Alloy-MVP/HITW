@@ -33,3 +33,6 @@ Screenshots ⬇⬇⬇
 <img width="1366" height="768" alt="Screenshot 2026-11-01 14 23 45" src="https://github.com/user-attachments/assets/45eb3108-677d-44bc-9408-fcddd8e5e851" />
 <img width="1321" height="736" alt="Screenshot 2026-11-05 15 23 53" src="https://github.com/user-attachments/assets/13ec1a03-e60c-4116-a32b-14440da8430b" />
 
+Credits:
+- Wind audio: https://freesound.org/people/Huggy13ear/sounds/138970/
+

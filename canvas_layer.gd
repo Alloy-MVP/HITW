@@ -39,7 +39,7 @@ func back():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player_camera.global_position.y < -20 and not dead:
+	if player_camera.global_position.y < -16 and not dead:
 		get_tree().paused = false
 		print(player_camera.global_position.y)
 		pause_menu.visible = false

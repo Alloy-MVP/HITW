@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var Player_Camera = $Player_Camera
 @onready var crouching: bool = Player_Camera.crouching
+@onready var Main_Game = $".."
 
 var speed = 3
 var accelleration: float
@@ -16,13 +17,18 @@ var random_roll_direction
 func _ready() -> void:
 	Player_Camera.mouse_disabled = false
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("fly"):
-		fly = not fly
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("fly"):
+		#fly = not fly
 
 func _physics_process(delta: float) -> void:
 	crouching = Player_Camera.crouching
 	sliding = Player_Camera.sliding
+	
+	#if Main_Game.ice:
+		#friction = 1
+		#accelleration = 1
+		#print("Icey!!!")
 	
 	if not is_on_floor() and not fly:
 		velocity += get_gravity() * delta

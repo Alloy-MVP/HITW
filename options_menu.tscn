@@ -2134,7 +2134,7 @@ selected = 0
 item_count = 2
 popup/item_0/text = "Realistic"
 popup/item_0/id = 0
-popup/item_1/text = "Minecraft"
+popup/item_1/text = "Default"
 popup/item_1/id = 1
 
 [node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=284663294]
