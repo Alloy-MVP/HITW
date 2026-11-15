@@ -15,5 +15,5 @@ seamless = true
 [resource]
 render_priority = 0
 shader = ExtResource("1_lafe2")
-shader_parameter/water_colour = Color(0, 0.08627451, 0.972549, 1)
+shader_parameter/water_colour = Color(0.03356523, 0.25808683, 0.9859087, 1)
 shader_parameter/wave_noise = SubResource("NoiseTexture2D_4srsv")

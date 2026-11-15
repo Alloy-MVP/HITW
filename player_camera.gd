@@ -22,11 +22,13 @@ var saved_sky
 var Realistic_Texture = preload("res://textures/Realistic Map Designer.meshlib")
 var Default = preload("res://textures/Map Designer.meshlib")
 var walls
+var mouse_disabled: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera_y = self.position.y
+	mouse_disabled = false
 	saved_sky = cloud_sky
 	walls = get_tree().get_nodes_in_group("Walls")
 	update()
@@ -145,7 +147,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and not mouse_disabled:
 		Player.rotate_y(deg_to_rad(-event.relative.x * sensitivity))
 		rotate_x(deg_to_rad(-event.relative.y * sensitivity))
 		rotation.x = clamp(rotation.x, deg_to_rad(-90), deg_to_rad(90))

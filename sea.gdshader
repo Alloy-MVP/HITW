@@ -23,7 +23,7 @@ void fragment() {
 	NORMAL *= 0.5;
 	ALBEDO = water_colour;
 	ROUGHNESS = 0.2;
-	ALPHA = 0.4;
+	ALPHA = 0.2;
 }
 
 //void light() {

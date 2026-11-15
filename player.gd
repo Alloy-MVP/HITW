@@ -10,6 +10,11 @@ var sprinting: bool = true
 var friction = 20
 var sliding: bool = false
 var fly: bool = false
+var falling: bool = false
+var random_roll_direction
+
+func _ready() -> void:
+	Player_Camera.mouse_disabled = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("fly"):
@@ -78,6 +83,16 @@ func _physics_process(delta: float) -> void:
 				var wall_direction = bounce.get_normal()
 				self.velocity = wall_direction * 7
 				self.velocity.y = 3
+	
+	if self.global_position.y < 0 and not falling:
+		falling = true
+		print("♬Free Fallin♬")
+		random_roll_direction = Vector3(randf_range(-5.0, 5.0),randf_range(-5.0, 5.0),randf_range(-5.0, 5.0))
+		Player_Camera.mouse_disabled = true
+		
+		var camera_roll_tween = create_tween()
+		camera_roll_tween.tween_property(Player_Camera, "rotation", Player_Camera.rotation + random_roll_direction, 3.5)
+		
 
 
 func _on_sea_body_entered(body: Node3D) -> void:

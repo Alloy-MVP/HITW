@@ -43,7 +43,7 @@ fog_sky_affect = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_f52ns"]
 material = ExtResource("8_l5ukw")
-size = Vector3(2000, 10, 2000)
+size = Vector3(2000, 50, 2000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2pltu"]
 size = Vector3(200, 1, 200)
@@ -324,7 +324,7 @@ light_volumetric_fog_energy = 0.0
 [node name="Sea" type="Area3D" parent="." unique_id=1502195633]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sea" unique_id=1857272165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -49, 0)
 mesh = SubResource("BoxMesh_f52ns")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sea" unique_id=1442537433]
