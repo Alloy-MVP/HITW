@@ -10,7 +10,10 @@ Massive visual progress, added: panorama sky, virtual sun (directionlight3d), oc
 ## Week 3:
 Added 2 game modes: Levels (which currently is the same as infinite on easy difficulty but has a 5 minute timer), and Infinite which has 4 difficulties (easy, medium, hard, and impossible). Also added a custom font to most text, and styled all of the buttons, checkboxes, and sliders.
 
-Demo is available on itch however it is currently at a very early stage in development:
+## Week 4:
+Lots of bug fixes, wall queue system that lets multiple walls go accross the platform instead of one per wave like before. Levels; there are 20 levels ranging from level 1 (easiest) to level 20 (hardest) with the difficulty being measured by time needed to survive, wall speed, and amount of walls per wave, also completed levels have a green background and the next level wont unlock until the previous one has been beaten. Textures: added a semi transparent "slime" texture that is supposed to look semi realistic and reworked the sea to look slightly lighter since the brightness of the water doesn't match the lighting. Lastly the biggest feature is a free falling animation combined with wind audio, when the player falls of the platform their mouse will be disconnected and the camera will roll like you have no control while a wind noise starts playing and its loudness is relative to the speed the player is falling.
+
+Demo is available on itch however it is currently in development:
 https://alloymvp.itch.io/hitw
 
 ## CONTROLS (default keybinds):
@@ -26,12 +29,14 @@ https://alloymvp.itch.io/hitw
 This game is being made in the Godot Game Engine
 
 Screenshots ⬇⬇⬇
-<img width="1366" height="768" alt="Screenshot 2026-11-02 16 51 15" src="https://github.com/user-attachments/assets/039c2ab7-3854-490f-9a01-1c5c28a8c050" />
-<img width="1366" height="768" alt="Screenshot 2026-11-02 06 08 18" src="https://github.com/user-attachments/assets/323434f8-ef96-480c-9c36-93f1ebc7721e" />
-<img width="1320" height="736" alt="Screenshot 2026-11-02 16 08 24" src="https://github.com/user-attachments/assets/710098c9-0448-4d2e-9bfb-b5c60d791e15" />
-<img width="1366" height="768" alt="Screenshot 2026-11-02 06 08 09" src="https://github.com/user-attachments/assets/631869a0-28ce-488e-aa0d-b24fc95a88c2" />
-<img width="1366" height="768" alt="Screenshot 2026-11-01 14 23 45" src="https://github.com/user-attachments/assets/45eb3108-677d-44bc-9408-fcddd8e5e851" />
+<img width="1366" height="768" alt="Screenshot 2026-11-14 22 43 34" src="https://github.com/user-attachments/assets/bd6bdc9e-e41d-4776-81ca-3334013098bf" />
 <img width="1321" height="736" alt="Screenshot 2026-11-05 15 23 53" src="https://github.com/user-attachments/assets/13ec1a03-e60c-4116-a32b-14440da8430b" />
+
+Experimenting with the slime texture ⬇⬇⬇
+<img width="1366" height="768" alt="Screenshot 2026-11-14 16 14 24" src="https://github.com/user-attachments/assets/3f1f6848-dd60-4597-8f8b-6a1f83742470" />
+<img width="1366" height="768" alt="Screenshot 2026-11-14 16 30 44" src="https://github.com/user-attachments/assets/146fbb43-e333-4439-8472-29a3624fb903" />
+<img width="1366" height="768" alt="Screenshot 2026-11-14 16 25 37" src="https://github.com/user-attachments/assets/5090084e-a3e3-4294-afaa-6b76008e0a3b" />
+
 
 Credits:
 - Wind audio: https://freesound.org/people/Huggy13ear/sounds/138970/
