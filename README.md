@@ -29,13 +29,11 @@ https://alloymvp.itch.io/hitw
 This game is being made in the Godot Game Engine
 
 Screenshots ⬇⬇⬇
-<img width="1366" height="768" alt="Screenshot 2026-11-14 22 43 34" src="https://github.com/user-attachments/assets/bd6bdc9e-e41d-4776-81ca-3334013098bf" />
+<img width="1366" height="768" alt="Screenshot 2026-11-16 19 12 17" src="https://github.com/user-attachments/assets/ee567347-bd75-488a-8c31-60a9ddf80d93" />
+<img width="1366" height="768" alt="Screenshot 2026-11-16 19 12 28" src="https://github.com/user-attachments/assets/9b73a004-09a2-4b73-80b8-323ceeb7516f" />
+<img width="1366" height="768" alt="Screenshot 2026-11-16 19 12 37" src="https://github.com/user-attachments/assets/9c556903-6a5e-4c66-8733-ca58fe1d5423" />
 <img width="1321" height="736" alt="Screenshot 2026-11-05 15 23 53" src="https://github.com/user-attachments/assets/13ec1a03-e60c-4116-a32b-14440da8430b" />
 
-Experimenting with the slime texture ⬇⬇⬇
-<img width="1366" height="768" alt="Screenshot 2026-11-14 16 14 24" src="https://github.com/user-attachments/assets/3f1f6848-dd60-4597-8f8b-6a1f83742470" />
-<img width="1366" height="768" alt="Screenshot 2026-11-14 16 30 44" src="https://github.com/user-attachments/assets/146fbb43-e333-4439-8472-29a3624fb903" />
-<img width="1366" height="768" alt="Screenshot 2026-11-14 16 25 37" src="https://github.com/user-attachments/assets/5090084e-a3e3-4294-afaa-6b76008e0a3b" />
 
 
 Credits:
