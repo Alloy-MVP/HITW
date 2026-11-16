@@ -95,7 +95,7 @@ func load_config():
 	show_fog_checkbox.set_pressed_no_signal(show_fog)
 	sun_strength = config.get_value("GRAPHICS", "sun_strength", 16.0)
 	sun_strength_label.text = str(int(((sun_strength-4)/12)*100)) + "%"
-	wall_texture = config.get_value("GRAPHICS", "wall_texture")
+	wall_texture = config.get_value("GRAPHICS", "wall_texture", 0)
 	wall_texture_option.selected = wall_texture
 	
 	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".value = sun_strength

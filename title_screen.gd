@@ -26,10 +26,10 @@ func _ready() -> void:
 	
 	difficulty_option.select(config.get_value("LEVEL OPTIONS", "difficulty", 0))
 	traps_checkbutton.button_pressed = config.get_value("LEVEL OPTIONS", "traps", false)
-	levels_completed = config.get_value("LEVEL OPTIONS", "levels_completed")
-	if config.get_value("LEVEL OPTIONS", "infinite"):
+	levels_completed = config.get_value("LEVEL OPTIONS", "levels_completed", [])
+	if config.get_value("LEVEL OPTIONS", "infinite", false):
 		play_menu_tabcontainer.current_tab = 1
-	elif config.get_value("LEVEL OPTIONS", "levels"):
+	elif config.get_value("LEVEL OPTIONS", "levels", true):
 		play_menu_tabcontainer.current_tab = 0
 	
 	var Level_Buttons = get_tree().get_nodes_in_group("Level Buttons")
@@ -143,9 +143,9 @@ func options():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if config.get_value("LEVEL OPTIONS", "levels"):
-		start_label.text = "Level "+str(config.get_value("LEVEL OPTIONS", "level"))+" "
-	elif config.get_value("LEVEL OPTIONS", "infinite"):
+	if config.get_value("LEVEL OPTIONS", "levels", true):
+		start_label.text = "Level "+str(config.get_value("LEVEL OPTIONS", "level", "Config Error"))+" "
+	elif config.get_value("LEVEL OPTIONS", "infinite", false):
 		start_label.text = "Infinite "
 
 

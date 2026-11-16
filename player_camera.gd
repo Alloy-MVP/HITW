@@ -93,7 +93,7 @@ func update():
 	
 	sensitivity = config.get_value("INPUTS", "sensitivity", 0.2)
 	
-	var wall_texture = config.get_value("GRAPHICS", "wall_texture")
+	var wall_texture = config.get_value("GRAPHICS", "wall_texture", 0)
 	if wall_texture != null:
 		if wall_texture == 0:
 			for i in walls:

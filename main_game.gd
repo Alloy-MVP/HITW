@@ -28,8 +28,8 @@ func _ready() -> void:
 	if config.get_value("LEVEL OPTIONS", "infinite", false):
 		difficulty = config.get_value("LEVEL OPTIONS", "difficulty", 0)
 		Infinite()
-	if config.get_value("LEVEL OPTIONS", "levels"):
-		level = config.get_value("LEVEL OPTIONS", "level")
+	if config.get_value("LEVEL OPTIONS", "levels", true):
+		level = config.get_value("LEVEL OPTIONS", "level", 1)
 	if level:
 		var level_function = "Level" + str(level)
 		if has_method(level_function):
@@ -372,8 +372,8 @@ func _process(_delta: float) -> void:
 			await fade_out.finished
 			await get_tree().create_timer(0.5, false).timeout
 			config.load(config_path)
-			var levels_completed = config.get_value("LEVEL OPTIONS", "levels_completed")
-			level = config.get_value("LEVEL OPTIONS", "level")
+			var levels_completed = config.get_value("LEVEL OPTIONS", "levels_completed", [])
+			level = config.get_value("LEVEL OPTIONS", "level", 1)
 			if level not in levels_completed:
 				levels_completed.append(level)
 			config.set_value("LEVEL OPTIONS", "levels_completed", levels_completed)
