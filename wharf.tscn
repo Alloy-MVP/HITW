@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dbs6iafnjed1e"]
+
+[ext_resource type="PackedScene" uid="uid://cklvfcs0bsvil" path="res://models/Wharf.glb" id="1_hmymv"]
+[ext_resource type="Script" uid="uid://bb1vcqooihmcy" path="res://wharf.gd" id="2_h5a7v"]
+[ext_resource type="AnimationLibrary" uid="uid://bd2fpwya2w77g" path="res://models/wharf_animation.res" id="3_rd6uq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hmymv"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_h5a7v"]
+
+[node name="Wharf" unique_id=2038392694 instance=ExtResource("1_hmymv")]
+script = ExtResource("2_h5a7v")
+
+[node name="AnimationPlayer" parent="." index="269" unique_id=480923775]
+libraries/ = ExtResource("3_rd6uq")
+
+[node name="Area3D" type="Area3D" parent="." index="270" unique_id=1606369797]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=321040434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.2, 0)
+shape = SubResource("BoxShape3D_hmymv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="271" unique_id=1600013169]
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer" index="0" unique_id=1144062755]
+transform = Transform3D(1, 0, 0, 0, 0.9335179, 0.35853088, 0, -0.35853088, 0.9335179, 0, 31.206299, 24.00151)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="272" unique_id=676686260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.01088, 0)
+light_energy = 16.0
+omni_range = 40.0
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="273" unique_id=1051621385]
+tree_root = SubResource("AnimationNodeBlendTree_h5a7v")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="RealAnimationPlayer" type="AnimationPlayer" parent="." index="274" unique_id=620026245]

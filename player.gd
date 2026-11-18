@@ -93,7 +93,7 @@ func _physics_process(delta: float) -> void:
 	if self.global_position.y < 0 and not falling:
 		falling = true
 		print("♬Free Fallin♬")
-		random_roll_direction = Vector3(randf_range(-5.0, 5.0),randf_range(-5.0, 5.0),randf_range(-5.0, 5.0))
+		random_roll_direction = Vector3(randf_range(-10.0, 10.0),randf_range(-10.0, 10.0),randf_range(-10.0, 10.0))
 		Player_Camera.mouse_disabled = true
 		
 		var camera_roll_tween = create_tween()
