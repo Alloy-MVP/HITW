@@ -21,9 +21,12 @@ var ice: bool = false
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
 
+signal snap_floor
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	snap_floor.connect($wharf.Snap_Floor)
+	
 	config.load(config_path)
 	if config.get_value("LEVEL OPTIONS", "infinite", false):
 		difficulty = config.get_value("LEVEL OPTIONS", "difficulty", 0)
@@ -362,6 +365,7 @@ func _process(_delta: float) -> void:
 		
 	if not player_perspective.dead and Player_Camera.global_position.y > -12 and time == 0:
 		won = true
+		snap_floor.emit()
 		if won:
 			timer_on = false
 			warning.text = "Level Completed"

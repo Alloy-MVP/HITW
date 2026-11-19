@@ -16,10 +16,11 @@ var random_roll_direction
 
 func _ready() -> void:
 	Player_Camera.mouse_disabled = false
+	fly = true
 
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("fly"):
-		#fly = not fly
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("fly"):
+		fly = not fly
 
 func _physics_process(delta: float) -> void:
 	crouching = Player_Camera.crouching

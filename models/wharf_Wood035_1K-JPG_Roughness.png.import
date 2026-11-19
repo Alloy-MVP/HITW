@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3y26dvac4mwp"
-path.s3tc="res://.godot/imported/Wharf_rough_wood_diff_1k.jpg-5bfc3fa841f3f7136a6e58a82da76f86.s3tc.ctex"
+uid="uid://2pxgnd2kf0im"
+path.s3tc="res://.godot/imported/wharf_Wood035_1K-JPG_Roughness.png-e02ed2f1f06ff578b739515860e5d33e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5f494e0abc93b30e9f025e92695be4a3"
+"md5": "f726ba7b552b447585ec4d2bd19f7dda"
 }
 
 [deps]
 
-source_file="res://models/Wharf_rough_wood_diff_1k.jpg"
-dest_files=["res://.godot/imported/Wharf_rough_wood_diff_1k.jpg-5bfc3fa841f3f7136a6e58a82da76f86.s3tc.ctex"]
+source_file="res://models/wharf_Wood035_1K-JPG_Roughness.png"
+dest_files=["res://.godot/imported/wharf_Wood035_1K-JPG_Roughness.png-e02ed2f1f06ff578b739515860e5d33e.s3tc.ctex"]
 
 [params]
 

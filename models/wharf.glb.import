@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cklvfcs0bsvil"
-path="res://.godot/imported/Wharf.glb-5e2204a59513b1416a8b5c3aa156de22.scn"
+uid="uid://dcpyv53u2ckxm"
+path="res://.godot/imported/wharf.glb-31020b8f0d190e60ed718ac8362cd993.scn"
 
 [deps]
 
-source_file="res://models/Wharf.glb"
-dest_files=["res://.godot/imported/Wharf.glb-5e2204a59513b1416a8b5c3aa156de22.scn"]
+source_file="res://models/wharf.glb"
+dest_files=["res://.godot/imported/wharf.glb-31020b8f0d190e60ed718ac8362cd993.scn"]
 
 [params]
 

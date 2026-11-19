@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2pxgnd2kf0im"
-path.s3tc="res://.godot/imported/Wharf_Wood035_1K-JPG_Roughness.png-17dba040bbfb42d5ad8ce0b2d2627fc0.s3tc.ctex"
+uid="uid://cb8veock81lmq"
+path.s3tc="res://.godot/imported/wharf_muchbettertexture.png-344d77f49179033844d200903d988df8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f726ba7b552b447585ec4d2bd19f7dda"
+"md5": "e374c91347c0fe9dfc86f601d3531d2d"
 }
 
 [deps]
 
-source_file="res://models/Wharf_Wood035_1K-JPG_Roughness.png"
-dest_files=["res://.godot/imported/Wharf_Wood035_1K-JPG_Roughness.png-17dba040bbfb42d5ad8ce0b2d2627fc0.s3tc.ctex"]
+source_file="res://models/wharf_muchbettertexture.png"
+dest_files=["res://.godot/imported/wharf_muchbettertexture.png-344d77f49179033844d200903d988df8.s3tc.ctex"]
 
 [params]
 

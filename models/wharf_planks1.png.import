@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfk7hqkqk4746"
-path.s3tc="res://.godot/imported/Wharf_planks1.png-784bb7c5acd1fa706053a38c6a7feac6.s3tc.ctex"
+path.s3tc="res://.godot/imported/wharf_planks1.png-a7fb92713289a552d23ad29815271de9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://models/Wharf_planks1.png"
-dest_files=["res://.godot/imported/Wharf_planks1.png-784bb7c5acd1fa706053a38c6a7feac6.s3tc.ctex"]
+source_file="res://models/wharf_planks1.png"
+dest_files=["res://.godot/imported/wharf_planks1.png-a7fb92713289a552d23ad29815271de9.s3tc.ctex"]
 
 [params]
 
