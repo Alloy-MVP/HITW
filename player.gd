@@ -16,7 +16,6 @@ var random_roll_direction
 
 func _ready() -> void:
 	Player_Camera.mouse_disabled = false
-	fly = true
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("fly"):
@@ -26,16 +25,12 @@ func _physics_process(delta: float) -> void:
 	crouching = Player_Camera.crouching
 	sliding = Player_Camera.sliding
 	
-	#if Main_Game.ice:
-		#friction = 1
-		#accelleration = 1
-		#print("Icey!!!")
-	
 	if not is_on_floor() and not fly:
 		velocity += get_gravity() * delta
 		velocity = velocity * 0.98
 		accelleration = 4
 		friction = 6
+		
 	elif fly:
 		speed = 20
 		friction = 20
@@ -43,6 +38,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		accelleration = 20
 		friction = 15
+
+	if Main_Game.ice:
+		friction = 2
+		accelleration = 5
 
 	if Input.is_action_just_pressed("sprint"):
 		sprinting = not sprinting

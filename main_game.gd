@@ -26,8 +26,10 @@ signal snap_floor
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	snap_floor.connect($wharf.Snap_Floor)
-	
+
 	config.load(config_path)
+	ice_trap = config.get_value("LEVEL OPTIONS", "traps", false)
+
 	if config.get_value("LEVEL OPTIONS", "infinite", false):
 		difficulty = config.get_value("LEVEL OPTIONS", "difficulty", 0)
 		Infinite()
@@ -36,9 +38,7 @@ func _ready() -> void:
 	if level:
 		var level_function = "Level" + str(level)
 		if has_method(level_function):
-			call(level_function)
-	ice_trap = config.get_value("LEVEL OPTIONS", "traps", false)
-	
+			call(level_function)	
 	Score.visible = false
 	for Wall in get_tree().get_nodes_in_group("Walls"):
 		Wall.visible = false
