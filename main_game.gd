@@ -24,6 +24,7 @@ var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
 var trap_start_time
 var traps_on: bool = false
+var max_traps
 
 signal snap_floor
 
@@ -71,8 +72,6 @@ func starting():
 	warning.visible = false
 	$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = false
 	
-	trap_start_time = floori(float(timer.wait_time / 2))
-	print(trap_start_time)
 	timer.start()
 	timer_on = true
 	go_time()
@@ -163,6 +162,7 @@ func Level10():
 	
 	wall_speed = 6
 	max_walls = 4
+	max_traps = 1
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -172,6 +172,7 @@ func Level11():
 	
 	wall_speed = 5
 	max_walls = 4
+	max_traps = 2
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -181,6 +182,7 @@ func Level12():
 	
 	wall_speed = 5
 	max_walls = 4
+	max_traps = 2
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -190,6 +192,7 @@ func Level13():
 	
 	wall_speed = 5
 	max_walls = 4
+	max_traps = 3
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -199,6 +202,7 @@ func Level14():
 	
 	wall_speed = 4
 	max_walls = 4
+	max_traps = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -208,6 +212,7 @@ func Level15():
 	
 	wall_speed = 4
 	max_walls = 4
+	max_traps = 5
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -216,7 +221,7 @@ func Level16():
 	timer.wait_time = 271.0
 	
 	wall_speed = 4
-	max_walls = 4
+	max_walls = 6
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -226,6 +231,7 @@ func Level17():
 	
 	wall_speed = 4
 	max_walls = 4
+	max_traps = 7
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -235,6 +241,7 @@ func Level18():
 	
 	wall_speed = 3
 	max_walls = 4
+	max_traps = 8
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -244,6 +251,7 @@ func Level19():
 	
 	wall_speed = 3
 	max_walls = 4
+	max_traps = 9
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -253,17 +261,41 @@ func Level20():
 	
 	wall_speed = 3
 	max_walls = 4
+	max_traps = 10
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
 func Traps():
-	important_text_bottom.text = "ICEY⚠⚠⚠"
-	$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
-	await get_tree().create_timer(1.0, false).timeout
-	ice = true
-	var fade_out = create_tween()
-	fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
+	if config.get_value("LEVEL OPTIONS", "levels", true):
+		var trap_time = floori(timer.wait_time)
+	var trap = randi_range(1,10)
+	if trap == 1:
+		important_text_bottom.text = "ICEY⚠⚠⚠"
+		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
+		await get_tree().create_timer(1.0, false).timeout
+		ice = true
+		var fade_out = create_tween()
+		fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
+	elif trap == 2:
+		pass
+	elif trap == 3:
+		pass
+	elif trap == 4:
+		pass
+	elif trap == 5:
+		pass
+	elif trap == 6:
+		pass
+	elif trap == 7:
+		pass
+	elif trap == 8:
+		pass
+	elif trap == 9:
+		pass
+	elif trap == 10:
+		pass
+
 
 func Infinite():
 	if difficulty == 0:
