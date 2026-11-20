@@ -34,9 +34,16 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0, 0, 0, 0.13725491)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dugkq"]
-font_size = 50
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_02kkc"]
+font = ExtResource("5_f52ns")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_aomqu"]
+font = ExtResource("5_f52ns")
+font_size = 20
 
 [sub_resource type="Environment" id="Environment_f52ns"]
 background_mode = 2
@@ -184,6 +191,31 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Bigger Text" type="VBoxContainer" parent="Player/Player_Camera/CanvasLayer" unique_id=1547307143]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -35.5
+offset_right = 20.0
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="top" type="Label" parent="Player/Player_Camera/CanvasLayer/Bigger Text" unique_id=1555434327]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_02kkc")
+
+[node name="bottom" type="Label" parent="Player/Player_Camera/CanvasLayer/Bigger Text" unique_id=1966979254]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_aomqu")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AudioStreamPlayer" parent="Player/Player_Camera" unique_id=1168868949 instance=ExtResource("6_4srsv")]
 stream = ExtResource("7_mf81u")

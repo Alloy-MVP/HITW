@@ -4,6 +4,8 @@ extends Node3D
 
 @onready var Score = $Player/Player_Camera/CanvasLayer/GUI/Score
 @onready var warning = $"Player/Player_Camera/CanvasLayer/Big Text/Warning"
+@onready var important_text_top = $"Player/Player_Camera/CanvasLayer/Bigger Text/top"
+@onready var important_text_bottom = $"Player/Player_Camera/CanvasLayer/Bigger Text/bottom"
 @onready var timer = $"Player/Player_Camera/CanvasLayer/Big Text/Timer"
 @onready var player_perspective = $Player/Player_Camera/CanvasLayer
 @onready var Player_Camera = $Player/Player_Camera
@@ -20,6 +22,8 @@ var ice_trap
 var ice: bool = false
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
+var trap_start_time
+var traps_on: bool = false
 
 signal snap_floor
 
@@ -48,13 +52,27 @@ func _ready() -> void:
 	await fade_out.finished
 
 func starting():
+	warning.visible = true
+	$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
 	var countdown = 4
-	for i in range(3):
-		warning.text = "Starting in: "+str(countdown-1)
-		countdown = countdown - 1
+	var start_time = 10
+	for i in range(10):
+		warning.text = "GAME STARTING IN: 00:0"+str(start_time)
+		start_time = start_time - 1
+		if i > 6:
+			countdown = countdown - 1
+			important_text_top.text = "Starting in"
+			important_text_bottom.text = ">"+str(countdown)+"<"
 		await get_tree().create_timer(1.0, false).timeout
+		
+	important_text_top.text = ""
+	important_text_bottom.text = ""
 	warning.text = ""
+	warning.visible = false
+	$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = false
 	
+	trap_start_time = floori(float(timer.wait_time / 2))
+	print(trap_start_time)
 	timer.start()
 	timer_on = true
 	go_time()
@@ -239,7 +257,13 @@ func Level20():
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
-
+func Traps():
+	important_text_bottom.text = "ICEY⚠⚠⚠"
+	$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
+	await get_tree().create_timer(1.0, false).timeout
+	ice = true
+	var fade_out = create_tween()
+	fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
 
 func Infinite():
 	if difficulty == 0:
@@ -353,16 +377,23 @@ func Walls(variant: GridMap, real: bool, direction, queued_walls):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	
 	var time
 	Score.text = "Score: " + str(score)
 	if timer_on:
+		warning.visible = true
 		time = int(timer.time_left)
 		var seconds = time % 60
 		var minutes = floori(time / 60)
 		if seconds < 10:
 			seconds = "0" + str(seconds)
 		warning.text = str(minutes) +":"+ str(seconds)
-		
+		if time < trap_start_time and not traps_on:
+			traps_on = true
+			Traps()
+			
+
+	
 	if not player_perspective.dead and Player_Camera.global_position.y > -12 and time == 0:
 		won = true
 		snap_floor.emit()
