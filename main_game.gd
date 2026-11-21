@@ -25,6 +25,7 @@ var config_path = "user://Config.cfg"
 var trap_start_time
 var traps_on: bool = false
 var max_traps
+var nausea: bool = false
 
 signal snap_floor
 
@@ -269,16 +270,21 @@ func Level20():
 func Traps():
 	if config.get_value("LEVEL OPTIONS", "levels", true):
 		var trap_time = floori(timer.wait_time)
-	var trap = randi_range(1,10)
+	var trap = randi_range(1,2)
 	if trap == 1:
 		important_text_bottom.text = "ICEY⚠⚠⚠"
 		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
-		await get_tree().create_timer(1.0, false).timeout
+		await get_tree().create_timer(5.0, false).timeout
 		ice = true
 		var fade_out = create_tween()
 		fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
 	elif trap == 2:
-		pass
+		important_text_bottom.text = "Nausea"
+		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
+		await get_tree().create_timer(5.0, false).timeout
+		nausea = true
+		var fade_out = create_tween()
+		fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
 	elif trap == 3:
 		pass
 	elif trap == 4:
@@ -420,7 +426,7 @@ func _process(_delta: float) -> void:
 		if seconds < 10:
 			seconds = "0" + str(seconds)
 		warning.text = str(minutes) +":"+ str(seconds)
-		if time < trap_start_time and not traps_on:
+		if time and not traps_on:
 			traps_on = true
 			Traps()
 			

@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://wmqyqqlf3trb" path="res://textures/boston_traffic.ttf" id="5_f52ns"]
 [ext_resource type="Sky" uid="uid://tkk6lyttm4qj" path="res://textures/sky.tres" id="6_2pltu"]
 [ext_resource type="PackedScene" uid="uid://btiakal04ornt" path="res://audio.tscn" id="6_4srsv"]
+[ext_resource type="Shader" uid="uid://dbu327arf1ay5" path="res://nausea.gdshader" id="6_aomqu"]
 [ext_resource type="AudioStream" uid="uid://c00wam2puyawe" path="res://textures/windv1.wav" id="7_mf81u"]
 [ext_resource type="Material" uid="uid://c4hv2iicwths2" path="res://textures/animated_sea.tres" id="8_l5ukw"]
 [ext_resource type="PackedScene" uid="uid://dbs6iafnjed1e" path="res://wharf.tscn" id="11_02kkc"]
@@ -44,6 +45,10 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_aomqu"]
 font = ExtResource("5_f52ns")
 font_size = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_krmtw"]
+shader = ExtResource("6_aomqu")
+shader_parameter/amplification = 0.00999999977648
 
 [sub_resource type="Environment" id="Environment_f52ns"]
 background_mode = 2
@@ -183,6 +188,7 @@ horizontal_alignment = 1
 one_shot = true
 
 [node name="Black Fade" type="ColorRect" parent="Player/Player_Camera/CanvasLayer" unique_id=477615912]
+visible = false
 z_index = 20
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,6 +222,16 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_aomqu")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Nausea" type="ColorRect" parent="Player/Player_Camera/CanvasLayer" unique_id=1109779880]
+z_index = -3
+material = SubResource("ShaderMaterial_krmtw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="AudioStreamPlayer" parent="Player/Player_Camera" unique_id=1168868949 instance=ExtResource("6_4srsv")]
 stream = ExtResource("7_mf81u")
