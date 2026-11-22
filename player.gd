@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 var speed = 3
 var accelleration: float
-var jump_velocity = 7.26
+var jump_velocity = 7.8
 var sprinting: bool = true
 var friction = 20
 var sliding: bool = false

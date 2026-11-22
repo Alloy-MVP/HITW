@@ -24,8 +24,8 @@ var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
 var trap_start_time
 var traps_on: bool = false
-var max_traps
 var nausea: bool = false
+var break_floor: bool = false
 
 signal snap_floor
 
@@ -163,7 +163,6 @@ func Level10():
 	
 	wall_speed = 6
 	max_walls = 4
-	max_traps = 1
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -173,7 +172,6 @@ func Level11():
 	
 	wall_speed = 5
 	max_walls = 4
-	max_traps = 2
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -183,7 +181,6 @@ func Level12():
 	
 	wall_speed = 5
 	max_walls = 4
-	max_traps = 2
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -193,7 +190,6 @@ func Level13():
 	
 	wall_speed = 5
 	max_walls = 4
-	max_traps = 3
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -203,7 +199,6 @@ func Level14():
 	
 	wall_speed = 4
 	max_walls = 4
-	max_traps = 4
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -213,7 +208,6 @@ func Level15():
 	
 	wall_speed = 4
 	max_walls = 4
-	max_traps = 5
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -232,7 +226,6 @@ func Level17():
 	
 	wall_speed = 4
 	max_walls = 4
-	max_traps = 7
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -242,7 +235,6 @@ func Level18():
 	
 	wall_speed = 3
 	max_walls = 4
-	max_traps = 8
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -252,7 +244,6 @@ func Level19():
 	
 	wall_speed = 3
 	max_walls = 4
-	max_traps = 9
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
@@ -262,14 +253,21 @@ func Level20():
 	
 	wall_speed = 3
 	max_walls = 4
-	max_traps = 10
 	
 	await get_tree().create_timer(1.0, false).timeout
 	starting()
 
+
+func breaking_floor():
+	important_text_top.text = "Floor is breaking!!!"
+	important_text_top.visible = true
+	important_text_top.modulate.a = 1.0
+	await get_tree().create_timer(3.0, false).timeout
+	emit_signal("snap_floor")
+	var fade_out = create_tween()
+	fade_out.tween_property(important_text_top, "modulate:a", 0.0, 1.0)
+
 func Traps():
-	if config.get_value("LEVEL OPTIONS", "levels", true):
-		var trap_time = floori(timer.wait_time)
 	var trap = randi_range(1,2)
 	if trap == 1:
 		important_text_bottom.text = "ICEY⚠⚠⚠"
@@ -281,7 +279,7 @@ func Traps():
 	elif trap == 2:
 		important_text_bottom.text = "Nausea"
 		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
-		await get_tree().create_timer(5.0, false).timeout
+		await get_tree().create_timer(3.0, false).timeout
 		nausea = true
 		var fade_out = create_tween()
 		fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
@@ -301,6 +299,10 @@ func Traps():
 		pass
 	elif trap == 10:
 		pass
+	await get_tree().create_timer(10.0, false).timeout
+	ice = false
+	nausea = false
+	Traps()
 
 
 func Infinite():
@@ -317,10 +319,6 @@ func Infinite():
 		wall_speed = 3
 		max_walls = 4
 	
-	if ice_trap:
-		ice = true
-	else:
-		ice = false
 	
 	var countdown = 4
 	for i in range(3):
@@ -328,9 +326,12 @@ func Infinite():
 		countdown = countdown - 1
 		await get_tree().create_timer(1.0, false).timeout
 	warning.text = ""	
-	
 	Score.visible = true
-	go_time()
+	
+	if config.get_value("LEVEL OPTIONS", "traps", false):
+		Traps()
+		
+	#go_time()
 	
 func go_time():
 	var directions = [1, 2, 3, 4]
@@ -341,7 +342,7 @@ func go_time():
 	var queued = 0
 	
 	for i in range(all_walls):
-		var index = randi_range(0, 11)
+		var index = randi_range(6, 6)
 		var real_wv = false
 		var queued_walls = 0
 		if i == real_wall:
@@ -415,7 +416,6 @@ func Walls(variant: GridMap, real: bool, direction, queued_walls):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	
 	var time
 	Score.text = "Score: " + str(score)
 	if timer_on:
@@ -429,12 +429,14 @@ func _process(_delta: float) -> void:
 		if time and not traps_on:
 			traps_on = true
 			Traps()
-			
+	
+		if time <= int(timer.wait_time)/2 and not break_floor:
+			break_floor = true
+			breaking_floor()
 
 	
 	if not player_perspective.dead and Player_Camera.global_position.y > -12 and time == 0:
 		won = true
-		snap_floor.emit()
 		if won:
 			timer_on = false
 			warning.text = "Level Completed"

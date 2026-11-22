@@ -11,6 +11,7 @@ func _ready() -> void:
 func Snap_Floor():
 	print("snapped floor")
 	animation_player.play("break")
+	await get_tree().create_timer(0.9, false).timeout
 	Fragile_collision.disabled = true
 
 

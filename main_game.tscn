@@ -188,7 +188,6 @@ horizontal_alignment = 1
 one_shot = true
 
 [node name="Black Fade" type="ColorRect" parent="Player/Player_Camera/CanvasLayer" unique_id=477615912]
-visible = false
 z_index = 20
 anchors_preset = 15
 anchor_right = 1.0
@@ -369,6 +368,7 @@ light_energy = 4.0
 light_volumetric_fog_energy = 0.0
 
 [node name="Sea" type="Area3D" parent="." unique_id=1502195633]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sea" unique_id=1857272165]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -49, 0)
@@ -380,6 +380,15 @@ shape = SubResource("BoxShape3D_2pltu")
 
 [node name="wharf" parent="." unique_id=2082226717 instance=ExtResource("11_02kkc")]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, -19.8, 0)
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1157980428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh_library = ExtResource("3_ykeeq")
+cell_size = Vector3(0.5, 0.5, 0.5)
+data = {
+"cells": PackedInt32Array(3, 0, 5, 65539, 0, 5, 131075, 0, 5, 196611, 0, 5)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Resume" to="Player/Player_Camera/CanvasLayer" method="_on_resume_pressed"]
 [connection signal="pressed" from="Player/Player_Camera/CanvasLayer/Pause Menu/VBoxContainer/Options" to="Player/Player_Camera/CanvasLayer" method="_on_options_pressed"]

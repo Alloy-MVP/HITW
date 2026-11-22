@@ -102,6 +102,11 @@ func update():
 		elif wall_texture == 1:
 			for i in walls:
 				i.mesh_library = Default
+	
+	var fov = config.get_value("GRAPHICS", "fov", 75.0)
+	if fov:
+		if fov >= 30.0 and fov <= 120.0:
+			self.fov = fov
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:
@@ -154,4 +159,5 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	fps.text = "FPS: " + str(Engine.get_frames_per_second())
+	#fps.text = "FPS: " + str(Engine.get_frames_per_second())
+	fps.text = str($"..".global_position.y)

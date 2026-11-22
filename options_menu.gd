@@ -19,6 +19,8 @@ extends Control
 @onready var show_fog_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Fog/CheckButton"
 @onready var sun_strength_label = $"CanvasLayer/TabContainer/Graphics/Sun Strength/Label2"
 @onready var wall_texture_option = $"CanvasLayer/TabContainer/Graphics/Wall Texture/OptionButton"
+@onready var fov_label = $CanvasLayer/TabContainer/Graphics/FOV/Label2
+
 
 var sensitivity
 var forward
@@ -38,6 +40,7 @@ var better_reflections: bool
 var show_fog: bool
 var sun_strength
 var wall_texture
+var fov
 
 signal options_update
 
@@ -97,9 +100,13 @@ func load_config():
 	sun_strength_label.text = str(int(((sun_strength-4)/12)*100)) + "%"
 	wall_texture = config.get_value("GRAPHICS", "wall_texture", 0)
 	wall_texture_option.selected = wall_texture
+	fov = config.get_value("GRAPHICS", "fov", 75.0)
+	fov_label.text = str(int(fov))
 	
-	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".value = sun_strength
+	
+	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".set_value_no_signal(sun_strength)
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
+	$CanvasLayer/TabContainer/Graphics/FOV/HSlider.set_value_no_signal(fov)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
@@ -299,6 +306,12 @@ func _on_sun_strength_value_changed(value: float) -> void:
 func _on_wall_texture_item_selected(index: int) -> void:
 	wall_texture = index
 
+func _on_fov_value_changed(value: float) -> void:
+	fov = value
+	if fov:
+		var f = str(int(fov))
+		fov_label.text = f
+
 
 func _on_save_pressed() -> void:
 	config.set_value("INPUTS", "sensitivity", sensitivity)
@@ -364,7 +377,13 @@ func _on_save_pressed() -> void:
 	
 	config.set_value("GRAPHICS", "wall_texture", wall_texture)
 	
+	config.set_value("GRAPHICS", "fov", fov)
+	
 	config.save(config_path)
+	emit_signal("options_update")
 	
 	$"CanvasLayer/Options Saved".text = "Options saved"
-	emit_signal("options_update")
+	await get_tree().create_timer(0.5, false).timeout
+	var options_text_fade_out = create_tween()
+	options_text_fade_out.tween_property($"CanvasLayer/Options Saved", "modulate:a", 0.0, 1.0)
+	
