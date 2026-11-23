@@ -331,7 +331,7 @@ func Infinite():
 	if config.get_value("LEVEL OPTIONS", "traps", false):
 		Traps()
 		
-	#go_time()
+	go_time()
 	
 func go_time():
 	var directions = [1, 2, 3, 4]

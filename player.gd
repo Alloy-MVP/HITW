@@ -110,5 +110,4 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_sea_body_entered(body: Node3D) -> void:
-	print("Splash!!")
 	pass # audio splash
