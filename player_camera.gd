@@ -6,6 +6,9 @@ extends Camera3D
 @onready var Sea: MeshInstance3D = $"../../Sea/MeshInstance3D"
 @onready var Sun = $"../../Sun"
 @onready var game_sky = $"../../WorldEnvironment"
+@onready var Overlays = $CanvasLayer/Overlays
+
+
 
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
@@ -107,7 +110,13 @@ func update():
 	if fov:
 		if fov >= 30.0 and fov <= 120.0:
 			self.fov = fov
-
+	
+	var overlays = config.get_value("GRAPHICS", "overlays", true)
+	if overlays:
+		Overlays.visible = true
+	else:
+		Overlays.visible = false
+	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:
 		Collision_Shape.shape.size = Vector3(0.5, 1.4, 0.5)

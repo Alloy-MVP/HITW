@@ -6,7 +6,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h5a7v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hmymv"]
-size = Vector3(20, 0.4, 20)
+size = Vector3(20, 0.2, 20)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rd6uq"]
 
@@ -44,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 10, -4.999967, 22.990643, 1.25
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 10, 5.000033, 22.990643, 1.2571675e-09)
 
 [node name="Fragile" type="StaticBody3D" parent="." index="270" unique_id=732003297]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.1, 0)
 physics_material_override = SubResource("PhysicsMaterial_h5a7v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fragile" index="0" unique_id=1822728329]

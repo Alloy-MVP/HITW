@@ -20,7 +20,7 @@ extends Control
 @onready var sun_strength_label = $"CanvasLayer/TabContainer/Graphics/Sun Strength/Label2"
 @onready var wall_texture_option = $"CanvasLayer/TabContainer/Graphics/Wall Texture/OptionButton"
 @onready var fov_label = $CanvasLayer/TabContainer/Graphics/FOV/Label2
-
+@onready var overlay_checkbox = $CanvasLayer/TabContainer/Graphics/Overlays/CheckButton
 
 var sensitivity
 var forward
@@ -41,6 +41,7 @@ var show_fog: bool
 var sun_strength
 var wall_texture
 var fov
+var overlays: bool
 
 signal options_update
 
@@ -102,6 +103,8 @@ func load_config():
 	wall_texture_option.selected = wall_texture
 	fov = config.get_value("GRAPHICS", "fov", 75.0)
 	fov_label.text = str(int(fov))
+	overlays = config.get_value("GRAPHICS", "overlays", true)
+	overlay_checkbox.set_pressed_no_signal(overlays)
 	
 	
 	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".set_value_no_signal(sun_strength)
@@ -312,6 +315,20 @@ func _on_fov_value_changed(value: float) -> void:
 		var f = str(int(fov))
 		fov_label.text = f
 
+func _on_overlays_button_toggled(toggled_on: bool) -> void:
+	overlays = toggled_on
+	var state
+	if toggled_on:
+		state = "checked"
+	else:
+		state = "unchecked"
+	var animation = show_fog_checkbox.get_theme_icon(state)
+	
+	if animation:
+		animation.current_frame = 0
+		animation.pause = false
+
+
 
 func _on_save_pressed() -> void:
 	config.set_value("INPUTS", "sensitivity", sensitivity)
@@ -378,6 +395,8 @@ func _on_save_pressed() -> void:
 	config.set_value("GRAPHICS", "wall_texture", wall_texture)
 	
 	config.set_value("GRAPHICS", "fov", fov)
+	
+	config.set_value("GRAPHICS", "overlays", overlays)
 	
 	config.save(config_path)
 	emit_signal("options_update")

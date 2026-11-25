@@ -3,7 +3,7 @@ extends CharacterBody3D
 @onready var Player_Camera = $Player_Camera
 @onready var crouching: bool = Player_Camera.crouching
 @onready var Main_Game = $".."
-@onready var Nausea = $Player_Camera/CanvasLayer/Nausea
+@onready var Nausea = $Player_Camera/CanvasLayer/Overlays/Nausea
 
 var speed = 3
 var accelleration: float

@@ -268,7 +268,7 @@ func breaking_floor():
 	fade_out.tween_property(important_text_top, "modulate:a", 0.0, 1.0)
 
 func Traps():
-	var trap = randi_range(1,2)
+	var trap = randi_range(2,2)
 	if trap == 1:
 		important_text_bottom.text = "ICEY⚠⚠⚠"
 		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
@@ -342,7 +342,7 @@ func go_time():
 	var queued = 0
 	
 	for i in range(all_walls):
-		var index = randi_range(6, 6)
+		var index = randi_range(0, 11)
 		var real_wv = false
 		var queued_walls = 0
 		if i == real_wall:

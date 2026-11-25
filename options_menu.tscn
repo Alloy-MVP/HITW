@@ -2,6 +2,29 @@
 
 [ext_resource type="Script" uid="uid://3jcb2ddiejc2" path="res://options_menu.gd" id="1_lbr8e"]
 [ext_resource type="FontFile" uid="uid://wmqyqqlf3trb" path="res://textures/boston_traffic.ttf" id="2_t1lix"]
+[ext_resource type="Texture2D" uid="uid://bjiyfq5oav3vp" path="res://textures/checkbutton_on/sprite_23.png" id="3_ngclb"]
+[ext_resource type="Texture2D" uid="uid://1url1xvvkueh" path="res://textures/checkbutton_on/sprite_22.png" id="4_q3mjl"]
+[ext_resource type="Texture2D" uid="uid://d32hnevw7ofxp" path="res://textures/checkbutton_on/sprite_13.png" id="5_c8er6"]
+[ext_resource type="Texture2D" uid="uid://che4yd5ok4doh" path="res://textures/checkbutton_on/sprite_12.png" id="6_4lusl"]
+[ext_resource type="Texture2D" uid="uid://d3or7mi1m2f11" path="res://textures/checkbutton_on/sprite_10.png" id="7_mnqro"]
+[ext_resource type="Texture2D" uid="uid://dugfllmslcnkr" path="res://textures/checkbutton_on/sprite_09.png" id="8_dl0ua"]
+[ext_resource type="Texture2D" uid="uid://cq0o03udjlltt" path="res://textures/checkbutton_on/sprite_08.png" id="9_jljty"]
+[ext_resource type="Texture2D" uid="uid://cj04pyf3tvxnf" path="res://textures/checkbutton_on/sprite_07.png" id="10_1itt1"]
+[ext_resource type="Texture2D" uid="uid://xuixe41wv7e0" path="res://textures/checkbutton_on/sprite_06.png" id="11_2tset"]
+[ext_resource type="Texture2D" uid="uid://b0sy8pvx7qpic" path="res://textures/checkbutton_on/sprite_05.png" id="12_p5gj6"]
+[ext_resource type="Texture2D" uid="uid://bbx4fvefibkwv" path="res://textures/checkbutton_on/sprite_04.png" id="13_javf4"]
+[ext_resource type="Texture2D" uid="uid://3orr5eylnkvs" path="res://textures/checkbutton_on/sprite_21.png" id="14_jqsa1"]
+[ext_resource type="Texture2D" uid="uid://ci3nlcnyqai16" path="res://textures/checkbutton_on/sprite_03.png" id="15_p4lof"]
+[ext_resource type="Texture2D" uid="uid://cxenp2f81j6qh" path="res://textures/checkbutton_on/sprite_02.png" id="16_k6pnu"]
+[ext_resource type="Texture2D" uid="uid://dchgx5oxj6ucv" path="res://textures/checkbutton_on/sprite_01.png" id="17_dvxjh"]
+[ext_resource type="Texture2D" uid="uid://dg138vdcmvb4j" path="res://textures/checkbutton_on/sprite_00.png" id="18_oci5s"]
+[ext_resource type="Texture2D" uid="uid://kkiph8k2mchr" path="res://textures/checkbutton_on/sprite_20.png" id="19_lw6nk"]
+[ext_resource type="Texture2D" uid="uid://dia327ht3vb8w" path="res://textures/checkbutton_on/sprite_19.png" id="20_nutp5"]
+[ext_resource type="Texture2D" uid="uid://xwuvwrj4qlq8" path="res://textures/checkbutton_on/sprite_18.png" id="21_0nmhu"]
+[ext_resource type="Texture2D" uid="uid://v6lg7h3a6u7u" path="res://textures/checkbutton_on/sprite_17.png" id="22_41tvv"]
+[ext_resource type="Texture2D" uid="uid://w6uq7yru3qux" path="res://textures/checkbutton_on/sprite_16.png" id="23_38era"]
+[ext_resource type="Texture2D" uid="uid://ddlpnnomv2ol2" path="res://textures/checkbutton_on/sprite_15.png" id="24_1u6fn"]
+[ext_resource type="Texture2D" uid="uid://oi5pja5m4lye" path="res://textures/checkbutton_on/sprite_14.png" id="25_5i58s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lbr8e"]
 shadow_color = Color(0, 0, 0, 1)
@@ -1765,6 +1788,187 @@ expand_margin_bottom = 10.0
 bg_color = Color(1, 1, 1, 1)
 expand_margin_bottom = 10.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_6bffs"]
+font = ExtResource("2_t1lix")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_024g0"]
+load_path = "res://.godot/imported/sprite_00.png-06c343c7da6592da3bab9ca898ab797f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sxeyk"]
+load_path = "res://.godot/imported/sprite_01.png-513e6fe6e3f03d2e6d087865858fc3ce.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_njwdn"]
+load_path = "res://.godot/imported/sprite_10.png-10ac7c157d396515cf19a96099c8cfda.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ya423"]
+load_path = "res://.godot/imported/sprite_11.png-4163d1e8a8d54bf39c7ce48ae80c64a3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x8etr"]
+load_path = "res://.godot/imported/sprite_12.png-786870d7c51d442d6f4d9218da2704fb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cj4uo"]
+load_path = "res://.godot/imported/sprite_13.png-7207f77ce6a84831c61646c0adaad750.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mqvei"]
+load_path = "res://.godot/imported/sprite_14.png-3ebcf2c9bae07dfd17aa6cb2936f1cfb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ymo58"]
+load_path = "res://.godot/imported/sprite_15.png-839dd8082bce6978d7956b198a7a566f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s47ar"]
+load_path = "res://.godot/imported/sprite_16.png-21d3d0e9a9ceec0a4a8279094db29c21.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8jskr"]
+load_path = "res://.godot/imported/sprite_17.png-fedaabaa0ff66274c1dfc41d816df1e7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b3ttp"]
+load_path = "res://.godot/imported/sprite_18.png-f954a2d76fa45d94281f09dbccb7b7af.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oyb78"]
+load_path = "res://.godot/imported/sprite_19.png-4fa5073c85f141d0420cc630a612b0e4.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_epfbf"]
+load_path = "res://.godot/imported/sprite_02.png-4e0873c11e5ef2b978d9b8ea9c21f62a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0unmk"]
+load_path = "res://.godot/imported/sprite_20.png-8744b4c7f0378f51cd24d6254b581d41.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jd8us"]
+load_path = "res://.godot/imported/sprite_21.png-7f3bafd3412b2b4af366204528a526c2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3xqhs"]
+load_path = "res://.godot/imported/sprite_22.png-6d823c3111a0f0094194ea821bf8075c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8icww"]
+load_path = "res://.godot/imported/sprite_23.png-e2bd8a639b9b753666ceb34c7347bedc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bdmij"]
+load_path = "res://.godot/imported/sprite_03.png-4a5f4933f4155b9c60126adbec01b2c7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uw1kr"]
+load_path = "res://.godot/imported/sprite_04.png-5192e35caea81c479199f4cd1e7df9f5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ku6os"]
+load_path = "res://.godot/imported/sprite_05.png-03555211a607dc1816fc91a1b3c640f8.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0v2am"]
+load_path = "res://.godot/imported/sprite_06.png-8e66c8e5f79a0af996f7db0da4f18a42.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ug403"]
+load_path = "res://.godot/imported/sprite_07.png-01d1d08b6aad81920e5dba2a36260cdd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1kw0e"]
+load_path = "res://.godot/imported/sprite_08.png-afbd37a0d5121f5ccf9e6603a25c132e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_chb8o"]
+load_path = "res://.godot/imported/sprite_09.png-2974d726777687df4a8cf2a3341e6b9c.ctex"
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_8ffvf"]
+frames = 24
+one_shot = true
+speed_scale = 5.0
+frame_0/texture = SubResource("CompressedTexture2D_024g0")
+frame_0/duration = 0.05
+frame_1/texture = SubResource("CompressedTexture2D_sxeyk")
+frame_1/duration = 0.05
+frame_2/texture = SubResource("CompressedTexture2D_epfbf")
+frame_2/duration = 0.05
+frame_3/texture = SubResource("CompressedTexture2D_bdmij")
+frame_3/duration = 0.05
+frame_4/texture = SubResource("CompressedTexture2D_uw1kr")
+frame_4/duration = 0.05
+frame_5/texture = SubResource("CompressedTexture2D_ku6os")
+frame_5/duration = 0.05
+frame_6/texture = SubResource("CompressedTexture2D_0v2am")
+frame_6/duration = 0.05
+frame_7/texture = SubResource("CompressedTexture2D_ug403")
+frame_7/duration = 0.05
+frame_8/texture = SubResource("CompressedTexture2D_1kw0e")
+frame_8/duration = 0.05
+frame_9/texture = SubResource("CompressedTexture2D_chb8o")
+frame_9/duration = 0.05
+frame_10/texture = SubResource("CompressedTexture2D_njwdn")
+frame_10/duration = 0.05
+frame_11/texture = SubResource("CompressedTexture2D_ya423")
+frame_11/duration = 0.05
+frame_12/texture = SubResource("CompressedTexture2D_x8etr")
+frame_12/duration = 0.05
+frame_13/texture = SubResource("CompressedTexture2D_cj4uo")
+frame_13/duration = 0.05
+frame_14/texture = SubResource("CompressedTexture2D_mqvei")
+frame_14/duration = 0.05
+frame_15/texture = SubResource("CompressedTexture2D_ymo58")
+frame_15/duration = 0.05
+frame_16/texture = SubResource("CompressedTexture2D_s47ar")
+frame_16/duration = 0.05
+frame_17/texture = SubResource("CompressedTexture2D_8jskr")
+frame_17/duration = 0.05
+frame_18/texture = SubResource("CompressedTexture2D_b3ttp")
+frame_18/duration = 0.05
+frame_19/texture = SubResource("CompressedTexture2D_oyb78")
+frame_19/duration = 0.05
+frame_20/texture = SubResource("CompressedTexture2D_0unmk")
+frame_20/duration = 0.05
+frame_21/texture = SubResource("CompressedTexture2D_jd8us")
+frame_21/duration = 0.05
+frame_22/texture = SubResource("CompressedTexture2D_3xqhs")
+frame_22/duration = 0.05
+frame_23/texture = SubResource("CompressedTexture2D_8icww")
+frame_23/duration = 0.05
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_15mw8"]
+frames = 24
+one_shot = true
+speed_scale = 5.0
+frame_0/texture = ExtResource("3_ngclb")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("4_q3mjl")
+frame_1/duration = 0.05
+frame_2/texture = ExtResource("14_jqsa1")
+frame_2/duration = 0.05
+frame_3/texture = ExtResource("19_lw6nk")
+frame_3/duration = 0.05
+frame_4/texture = ExtResource("20_nutp5")
+frame_4/duration = 0.05
+frame_5/texture = ExtResource("21_0nmhu")
+frame_5/duration = 0.05
+frame_6/texture = ExtResource("22_41tvv")
+frame_6/duration = 0.05
+frame_7/texture = ExtResource("23_38era")
+frame_7/duration = 0.05
+frame_8/texture = ExtResource("24_1u6fn")
+frame_8/duration = 0.05
+frame_9/texture = ExtResource("25_5i58s")
+frame_9/duration = 0.05
+frame_10/texture = ExtResource("5_c8er6")
+frame_10/duration = 0.05
+frame_11/texture = ExtResource("6_4lusl")
+frame_11/duration = 0.05
+frame_12/texture = ExtResource("7_mnqro")
+frame_12/duration = 0.05
+frame_13/texture = ExtResource("8_dl0ua")
+frame_13/duration = 0.05
+frame_14/texture = ExtResource("8_dl0ua")
+frame_14/duration = 0.05
+frame_15/texture = ExtResource("9_jljty")
+frame_15/duration = 0.05
+frame_16/texture = ExtResource("10_1itt1")
+frame_16/duration = 0.05
+frame_17/texture = ExtResource("11_2tset")
+frame_17/duration = 0.05
+frame_18/texture = ExtResource("12_p5gj6")
+frame_18/duration = 0.05
+frame_19/texture = ExtResource("13_javf4")
+frame_19/duration = 0.05
+frame_20/texture = ExtResource("15_p4lof")
+frame_20/duration = 0.05
+frame_21/texture = ExtResource("16_k6pnu")
+frame_21/duration = 0.05
+frame_22/texture = ExtResource("17_dvxjh")
+frame_22/duration = 0.05
+frame_23/texture = ExtResource("18_oci5s")
+frame_23/duration = 0.05
+
 [node name="Control" type="Control" unique_id=47201885]
 process_mode = 3
 layout_mode = 3
@@ -2191,6 +2395,23 @@ min_value = 30.0
 max_value = 120.0
 value = 75.0
 
+[node name="Overlays" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=1156985576]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Overlays" unique_id=1364347447]
+layout_mode = 2
+text = "Overlays"
+label_settings = SubResource("LabelSettings_6bffs")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Overlays" unique_id=1857502882]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/TabContainer/Graphics/Overlays" unique_id=339032165]
+layout_mode = 2
+theme_override_icons/checked = SubResource("AnimatedTexture_8ffvf")
+theme_override_icons/unchecked = SubResource("AnimatedTexture_15mw8")
+
 [node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=284663294]
 z_index = -1
 anchors_preset = 15
@@ -2221,3 +2442,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="value_changed" from="CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider" to="." method="_on_sun_strength_value_changed"]
 [connection signal="item_selected" from="CanvasLayer/TabContainer/Graphics/Wall Texture/OptionButton" to="." method="_on_wall_texture_item_selected"]
 [connection signal="value_changed" from="CanvasLayer/TabContainer/Graphics/FOV/HSlider" to="." method="_on_fov_value_changed"]
+[connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Overlays/CheckButton" to="." method="_on_overlays_button_toggled"]
