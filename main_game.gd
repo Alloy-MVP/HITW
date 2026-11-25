@@ -26,6 +26,7 @@ var trap_start_time
 var traps_on: bool = false
 var nausea: bool = false
 var break_floor: bool = false
+var wall_animations = []
 
 signal snap_floor
 
@@ -271,6 +272,7 @@ func Traps():
 	var trap = randi_range(2,2)
 	if trap == 1:
 		important_text_bottom.text = "ICEY⚠⚠⚠"
+		important_text_bottom.modulate.a = 1.0
 		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
 		await get_tree().create_timer(5.0, false).timeout
 		ice = true
@@ -278,6 +280,7 @@ func Traps():
 		fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
 	elif trap == 2:
 		important_text_bottom.text = "Nausea"
+		important_text_bottom.modulate.a = 1.0
 		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
 		await get_tree().create_timer(3.0, false).timeout
 		nausea = true
@@ -302,7 +305,9 @@ func Traps():
 	await get_tree().create_timer(10.0, false).timeout
 	ice = false
 	nausea = false
-	Traps()
+	
+	if not won:
+		Traps()
 
 
 func Infinite():
@@ -334,29 +339,30 @@ func Infinite():
 	go_time()
 	
 func go_time():
-	var directions = [1, 2, 3, 4]
-	directions.shuffle()
-	var all_walls = randi_range(1, max_walls)
-	var real_wall = randi_range(0, all_walls-1)
-	moving_walls = all_walls	
-	var queued = 0
-	
-	for i in range(all_walls):
-		var index = randi_range(0, 11)
-		var real_wv = false
-		var queued_walls = 0
-		if i == real_wall:
-			real_wv = true
-		else:
-			real_wv = false
+	if not won:
+		var directions = [1, 2, 3, 4]
+		directions.shuffle()
+		var all_walls = randi_range(1, max_walls)
+		var real_wall = randi_range(0, all_walls-1)
+		moving_walls = all_walls	
+		var queued = 0
 		
-		if not real_wv and max_walls > 1 and (randi_range(1,2) == 1):
-			queued += 1
-			queued_walls = queued
+		for i in range(all_walls):
+			var index = randi_range(0, 11)
+			var real_wv = false
+			var queued_walls = 0
+			if i == real_wall:
+				real_wv = true
+			else:
+				real_wv = false
 			
-		var direction = directions[i]
-		Walls(Wall_Variants[index], real_wv, direction, queued_walls)
-	score += 1
+			if not real_wv and max_walls > 1 and (randi_range(1,2) == 1):
+				queued += 1
+				queued_walls = queued
+				
+			var direction = directions[i]
+			Walls(Wall_Variants[index], real_wv, direction, queued_walls)
+		score += 1
 
 func Walls(variant: GridMap, real: bool, direction, queued_walls):
 	var duplicate_wall = variant.duplicate()
@@ -374,6 +380,7 @@ func Walls(variant: GridMap, real: bool, direction, queued_walls):
 	get_tree().current_scene.add_child(duplicate_wall)
 	
 	var wall_animation = create_tween()
+	wall_animations.append(wall_animation)
 	
 	if direction == 1:
 		wall_animation.tween_property(duplicate_wall, "position", Vector3(0, 0.5, 0), wall_speed/3.0)
@@ -411,7 +418,7 @@ func Walls(variant: GridMap, real: bool, direction, queued_walls):
 	duplicate_wall.queue_free()
 	
 	moving_walls -= 1
-	if moving_walls <= 0:
+	if moving_walls <= 0 and not won:
 		go_time()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -435,10 +442,17 @@ func _process(_delta: float) -> void:
 			breaking_floor()
 
 	
-	if not player_perspective.dead and Player_Camera.global_position.y > -12 and time == 0:
+	if not player_perspective.dead and Player_Camera.global_position.y > -12 and time == 0 and not won:
 		won = true
 		if won:
 			timer_on = false
+			ice = false
+			nausea = false
+			
+			for i in wall_animations:
+				i.kill()
+			wall_animations.clear()
+			
 			warning.text = "Level Completed"
 			warning.visible = true
 			await get_tree().create_timer(5.0, false).timeout
