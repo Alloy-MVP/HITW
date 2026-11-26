@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var crouching: bool = Player_Camera.crouching
 @onready var Main_Game = $".."
 @onready var Nausea = $Player_Camera/CanvasLayer/Overlays/Nausea
+@onready var Pumpking = $Player_Camera/CanvasLayer/Overlays/Pumpking
 
 var speed = 3
 var accelleration: float
@@ -18,6 +19,7 @@ var random_roll_direction
 func _ready() -> void:
 	Player_Camera.mouse_disabled = false
 	Nausea.visible = false
+	Pumpking.visible = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("fly"):
@@ -50,6 +52,11 @@ func _physics_process(delta: float) -> void:
 		Nausea.visible = true
 	else:
 		Nausea.visible = false
+	
+	if Main_Game.pumpking:
+		Pumpking.visible = true
+	else:
+		Pumpking.visible = false
 
 	if Input.is_action_just_pressed("sprint"):
 		sprinting = not sprinting

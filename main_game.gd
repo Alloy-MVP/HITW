@@ -9,6 +9,7 @@ extends Node3D
 @onready var timer = $"Player/Player_Camera/CanvasLayer/Big Text/Timer"
 @onready var player_perspective = $Player/Player_Camera/CanvasLayer
 @onready var Player_Camera = $Player/Player_Camera
+@onready var Bigger_Text = $"Player/Player_Camera/CanvasLayer/Bigger Text"
 
 var wall_speed = 10.0 #in seconds
 var difficulty
@@ -27,6 +28,7 @@ var traps_on: bool = false
 var nausea: bool = false
 var break_floor: bool = false
 var wall_animations = []
+var pumpking: bool = false
 
 signal snap_floor
 
@@ -269,11 +271,11 @@ func breaking_floor():
 	fade_out.tween_property(important_text_top, "modulate:a", 0.0, 1.0)
 
 func Traps():
-	var trap = randi_range(2,2)
+	var trap = randi_range(3,3)
 	if trap == 1:
 		important_text_bottom.text = "ICEY⚠⚠⚠"
 		important_text_bottom.modulate.a = 1.0
-		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
+		Bigger_Text.visible = true
 		await get_tree().create_timer(5.0, false).timeout
 		ice = true
 		var fade_out = create_tween()
@@ -281,13 +283,19 @@ func Traps():
 	elif trap == 2:
 		important_text_bottom.text = "Nausea"
 		important_text_bottom.modulate.a = 1.0
-		$"Player/Player_Camera/CanvasLayer/Bigger Text".visible = true
+		Bigger_Text.visible = true
 		await get_tree().create_timer(3.0, false).timeout
 		nausea = true
 		var fade_out = create_tween()
 		fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
 	elif trap == 3:
-		pass
+		important_text_bottom.text = "Spooky!"
+		important_text_bottom.modulate.a = 1.0
+		Bigger_Text.visible = true
+		await get_tree().create_timer(3.0, false).timeout
+		pumpking = true
+		var fade_out = create_tween()
+		fade_out.tween_property(important_text_bottom, "modulate:a", 0.0, 1.0)
 	elif trap == 4:
 		pass
 	elif trap == 5:
@@ -305,6 +313,7 @@ func Traps():
 	await get_tree().create_timer(10.0, false).timeout
 	ice = false
 	nausea = false
+	pumpking = false
 	
 	if not won:
 		Traps()
