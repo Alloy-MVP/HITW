@@ -446,7 +446,7 @@ func _process(_delta: float) -> void:
 			traps_on = true
 			Traps()
 	
-		if time <= int(timer.wait_time)/2 and not break_floor:
+		if time <= int(timer.wait_time)/2.0 and not break_floor:
 			break_floor = true
 			breaking_floor()
 

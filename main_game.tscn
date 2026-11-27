@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dbs6iafnjed1e" path="res://wharf.tscn" id="11_02kkc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ihbon"]
-size = Vector3(0.5, 1.8, 0.5)
+size = Vector3(0.8, 1.8, 0.8)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f52ns"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

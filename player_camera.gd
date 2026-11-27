@@ -106,10 +106,10 @@ func update():
 			for i in walls:
 				i.mesh_library = Default
 	
-	var fov = config.get_value("GRAPHICS", "fov", 75.0)
-	if fov:
-		if fov >= 30.0 and fov <= 120.0:
-			self.fov = fov
+	var camera_fov = config.get_value("GRAPHICS", "fov", 75.0)
+	if camera_fov:
+		if camera_fov >= 30.0 and camera_fov <= 120.0:
+			self.fov = camera_fov
 	
 	var overlays = config.get_value("GRAPHICS", "overlays", true)
 	if overlays:

@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var Player_Camera = $Player_Camera
+@onready var Player_Camera: Camera3D = $Player_Camera
 @onready var crouching: bool = Player_Camera.crouching
 @onready var Main_Game = $".."
 @onready var Nausea = $Player_Camera/CanvasLayer/Overlays/Nausea
@@ -8,7 +8,7 @@ extends CharacterBody3D
 
 var speed = 3
 var accelleration: float
-var jump_velocity = 7.8
+var jump_velocity = 6.67
 var sprinting: bool = true
 var friction = 20
 var sliding: bool = false
@@ -29,24 +29,27 @@ func _physics_process(delta: float) -> void:
 	crouching = Player_Camera.crouching
 	sliding = Player_Camera.sliding
 	
+	var input_dir := Input.get_vector("left", "right", "forward", "backward")
+	var direction := (Player_Camera.global_basis * Vector3(input_dir.x, 0, input_dir.y) * Vector3(1.0, 0, 1.0)).normalized()
+	
+	
 	if not is_on_floor() and not fly:
 		velocity += get_gravity() * delta
-		velocity = velocity * 0.98
-		accelleration = 4
-		friction = 6
+		velocity.y *= 0.98 ** 0.333
+		accelleration = 6
+		friction = 4
 		
 	elif fly:
 		speed = 20
 		friction = 20
 		accelleration = 20
 	else:
-		accelleration = 20
-		friction = 15
+		accelleration = 30
+		friction = 20
 
 	# Traps
 	if Main_Game.ice:
 		friction = 2
-		accelleration = 5
 	
 	if Main_Game.nausea:
 		Nausea.visible = true
@@ -63,25 +66,24 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+		if sprinting and direction:
+			velocity.x += direction.x * 1.25
+			velocity.z += direction.z * 1.25
 	
 	if Input.is_action_just_pressed("slide"):
 		sliding = true
-	
-	if sliding and is_on_floor():
-		speed = 8
 		
-	elif sprinting and crouching:
-		speed = 1
-	elif crouching:
-		speed = 1
-	elif sprinting:
-		speed = 4
-	else:
-		speed = 2.5
-	
-	
-	var input_dir := Input.get_vector("left", "right", "forward", "backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if not fly:
+		if sliding and is_on_floor():
+			speed = 8
+		elif sprinting and crouching:
+			speed = 1.4
+		elif crouching:
+			speed = 1.3
+		elif sprinting:
+			speed = 5.6
+		else:
+			speed = 4.3
 	
 	var vx = direction.x * speed
 	var vz = direction.z * speed
@@ -89,7 +91,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = move_toward(velocity.x, vx, delta * accelleration)
 		velocity.z = move_toward(velocity.z, vz, delta * accelleration)
-	elif is_on_floor():
+	else:
 		velocity.x = move_toward(velocity.x, 0, delta * friction)
 		velocity.z = move_toward(velocity.z, 0, delta * friction)
 
