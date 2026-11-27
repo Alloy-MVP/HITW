@@ -116,9 +116,15 @@ func update():
 		Overlays.visible = true
 	else:
 		Overlays.visible = false
+		
+	var background_blur = config.get_value("GRAPHICS", "blur", 0.0)
+	if background_blur:
+		if background_blur >= 0.0 and background_blur <= 5.0:
+			print(str(background_blur))
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:
+		Collision_Shape.position.y -= 0.2
 		Collision_Shape.shape.size = Vector3(0.5, 1.4, 0.5)
 		if crouch_tween:
 			crouch_tween.kill()
@@ -129,6 +135,7 @@ func _input(event: InputEvent) -> void:
 		crouching = true
 	
 	elif Input.is_action_just_released("crouch") and crouching:
+		Collision_Shape.position.y += 0.2
 		Collision_Shape.shape.size = Vector3(0.5, 1.8, 0.5)
 		if crouch_tween:
 			crouch_tween.kill()
@@ -140,6 +147,7 @@ func _input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("slide") and not sliding:
 		Collision_Shape.shape.size = Vector3(0.5, 1.4, 0.5)
+		Collision_Shape.position.y -= 0.2
 		if crouch_tween:
 			crouch_tween.kill()
 		
@@ -150,6 +158,7 @@ func _input(event: InputEvent) -> void:
 		
 		await get_tree().create_timer(0.65).timeout
 		
+		Collision_Shape.position.y += 0.2
 		Collision_Shape.shape.size = Vector3(0.5, 1.8, 0.5)
 		if crouch_tween:
 			crouch_tween.kill()

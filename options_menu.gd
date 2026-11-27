@@ -10,7 +10,6 @@ extends Control
 @onready var crouch_input_label = $CanvasLayer/TabContainer/Inputs/Crouch/Button
 @onready var slide_input_label = $CanvasLayer/TabContainer/Inputs/Slide/Button
 
-@onready var animated_sea_checkbox = $"CanvasLayer/TabContainer/Graphics/Animated Sea/Animated Sea"
 @onready var shadows_checkbox = $CanvasLayer/TabContainer/Graphics/Shadows/Shadows
 @onready var show_sun_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Sun/CheckButton"
 @onready var show_sky_checkbox = $"CanvasLayer/TabContainer/Graphics/Show Sky/CheckButton"
@@ -21,6 +20,7 @@ extends Control
 @onready var wall_texture_option = $"CanvasLayer/TabContainer/Graphics/Wall Texture/OptionButton"
 @onready var fov_label = $CanvasLayer/TabContainer/Graphics/FOV/Label2
 @onready var overlay_checkbox = $CanvasLayer/TabContainer/Graphics/Overlays/CheckButton
+@onready var blur_label = $CanvasLayer/TabContainer/Graphics/Blur/Label2
 
 var sensitivity
 var forward
@@ -31,7 +31,6 @@ var jump
 var crouch
 var slide
 var selected_keybind = ""
-var animated_sea: bool
 var shadows: bool
 var show_sun: bool
 var show_sky: bool
@@ -42,6 +41,7 @@ var sun_strength
 var wall_texture
 var fov
 var overlays: bool
+var background_blur
 
 signal options_update
 
@@ -83,8 +83,6 @@ func load_config():
 	slide_input_label.text = str(slide)
 	
 	
-	animated_sea = config.get_value("GRAPHICS", "animated_sea", true)
-	animated_sea_checkbox.set_pressed_no_signal(animated_sea)
 	shadows = config.get_value("GRAPHICS", "shadows", true)
 	shadows_checkbox.set_pressed_no_signal(shadows)
 	show_sun = config.get_value("GRAPHICS", "show_sun", true)
@@ -105,11 +103,14 @@ func load_config():
 	fov_label.text = str(int(fov))
 	overlays = config.get_value("GRAPHICS", "overlays", true)
 	overlay_checkbox.set_pressed_no_signal(overlays)
+	background_blur = config.get_value("GRAPHICS", "blur", 0.0)
+	blur_label.text = str(int(background_blur))
 	
 	
 	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".set_value_no_signal(sun_strength)
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 	$CanvasLayer/TabContainer/Graphics/FOV/HSlider.set_value_no_signal(fov)
+	$CanvasLayer/TabContainer/Graphics/Blur/HSlider.set_value_no_signal(background_blur)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
@@ -209,19 +210,6 @@ func slide_selected() -> void:
 	slide_input_label.text = ">Press any key<"
 
 # GRAPHICS
-func _on_animate_sea_toggled(toggled_on: bool) -> void:
-	animated_sea = toggled_on
-	var state
-	if toggled_on:
-		state = "checked"
-	else:
-		state = "unchecked"
-	var animation = animated_sea_checkbox.get_theme_icon(state)
-	
-	if animation:
-		animation.current_frame = 0
-		animation.pause = false
-
 func _on_shadows_toggled(toggled_on: bool) -> void:
 	shadows = toggled_on
 	var state
@@ -328,6 +316,11 @@ func _on_overlays_button_toggled(toggled_on: bool) -> void:
 		animation.current_frame = 0
 		animation.pause = false
 
+func _on_background_blur_value_changed(value: float) -> void:
+	background_blur = value
+	if background_blur:
+		var bb = str(int(background_blur))
+		blur_label.text = bb
 
 
 func _on_save_pressed() -> void:
@@ -376,8 +369,6 @@ func _on_save_pressed() -> void:
 	InputMap.action_add_event("slide", new_slide)
 	
 	
-	config.set_value("GRAPHICS", "animated_sea", animated_sea)
-	
 	config.set_value("GRAPHICS", "shadows", shadows)
 	
 	config.set_value("GRAPHICS", "show_sun", show_sun)
@@ -397,6 +388,8 @@ func _on_save_pressed() -> void:
 	config.set_value("GRAPHICS", "fov", fov)
 	
 	config.set_value("GRAPHICS", "overlays", overlays)
+	
+	config.set_value("GRAPHICS", "blur", background_blur)
 	
 	config.save(config_path)
 	emit_signal("options_update")

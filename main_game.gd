@@ -271,7 +271,7 @@ func breaking_floor():
 	fade_out.tween_property(important_text_top, "modulate:a", 0.0, 1.0)
 
 func Traps():
-	var trap = randi_range(3,3)
+	var trap = randi_range(1,3)
 	if trap == 1:
 		important_text_bottom.text = "ICEY⚠⚠⚠"
 		important_text_bottom.modulate.a = 1.0
