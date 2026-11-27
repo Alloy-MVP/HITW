@@ -9,6 +9,7 @@
 [ext_resource type="Sky" uid="uid://tkk6lyttm4qj" path="res://textures/sky.tres" id="6_2pltu"]
 [ext_resource type="PackedScene" uid="uid://btiakal04ornt" path="res://audio.tscn" id="6_4srsv"]
 [ext_resource type="Shader" uid="uid://dbu327arf1ay5" path="res://nausea.gdshader" id="6_aomqu"]
+[ext_resource type="Shader" uid="uid://bb7vuciuqospb" path="res://blur.gdshader" id="6_jgkyn"]
 [ext_resource type="Texture2D" uid="uid://clk5olarcore" path="res://textures/pumpking_overlay.png" id="7_krmtw"]
 [ext_resource type="AudioStream" uid="uid://c00wam2puyawe" path="res://textures/windv1.wav" id="7_mf81u"]
 [ext_resource type="Material" uid="uid://c4hv2iicwths2" path="res://textures/animated_sea.tres" id="8_l5ukw"]
@@ -34,6 +35,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aomqu"]
 bg_color = Color(0, 0, 0, 0.13725491)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpaub"]
+shader = ExtResource("6_jgkyn")
+shader_parameter/blur_strength = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_dugkq"]
 shadow_size = 2
@@ -142,6 +147,17 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_02kkc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aomqu")
 text = "Quit"
+
+[node name="Blur Overlay" type="ColorRect" parent="Player/Player_Camera/CanvasLayer/Pause Menu" unique_id=828207931]
+z_index = -1
+material = SubResource("ShaderMaterial_qpaub")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="GUI" type="Control" parent="Player/Player_Camera/CanvasLayer" unique_id=694018001]
 layout_mode = 3

@@ -7,6 +7,7 @@ extends Camera3D
 @onready var Sun = $"../../Sun"
 @onready var game_sky = $"../../WorldEnvironment"
 @onready var Overlays = $CanvasLayer/Overlays
+@onready var Blur_Overlay = $"CanvasLayer/Pause Menu/Blur Overlay"
 
 
 
@@ -118,9 +119,9 @@ func update():
 		Overlays.visible = false
 		
 	var background_blur = config.get_value("GRAPHICS", "blur", 0.0)
-	if background_blur:
-		if background_blur >= 0.0 and background_blur <= 5.0:
-			print(str(background_blur))
+	if background_blur >= 0.0 and background_blur <= 5.0:
+		Blur_Overlay.material.set_shader_parameter("blur_strength", background_blur)
+		print(Blur_Overlay.material.get_shader_parameter("blur_strength"))
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:

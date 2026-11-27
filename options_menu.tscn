@@ -1733,12 +1733,15 @@ size = Vector2(1, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngclb"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3mjl"]
 bg_color = Color(1, 1, 1, 1)
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8er6"]
 bg_color = Color(1, 1, 1, 1)
+expand_margin_bottom = 10.0
 
 [node name="Control" type="Control" unique_id=47201885]
 process_mode = 3

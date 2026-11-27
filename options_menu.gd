@@ -318,9 +318,8 @@ func _on_overlays_button_toggled(toggled_on: bool) -> void:
 
 func _on_background_blur_value_changed(value: float) -> void:
 	background_blur = value
-	if background_blur:
-		var bb = str(int(background_blur))
-		blur_label.text = bb
+	var bb = str(int(background_blur))
+	blur_label.text = bb
 
 
 func _on_save_pressed() -> void:
