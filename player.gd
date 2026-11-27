@@ -37,14 +37,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		velocity.y *= 0.98 ** 0.333
 		accelleration = 6
-		friction = 4
+		friction = 3
 		
 	elif fly:
 		speed = 20
 		friction = 20
 		accelleration = 20
 	else:
-		accelleration = 30
+		accelleration = 20
 		friction = 20
 
 	# Traps
@@ -66,9 +66,6 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
-		if sprinting and direction:
-			velocity.x += direction.x * 1.25
-			velocity.z += direction.z * 1.25
 	
 	if Input.is_action_just_pressed("slide"):
 		sliding = true
@@ -80,10 +77,13 @@ func _physics_process(delta: float) -> void:
 			speed = 1.4
 		elif crouching:
 			speed = 1.3
-		elif sprinting:
+		elif sprinting and input_dir.y < 0 and not (input_dir.x > 0 or input_dir.x < 0):
 			speed = 5.6
 		else:
 			speed = 4.3
+		
+		if not is_on_floor():
+			speed *= 0.5
 	
 	var vx = direction.x * speed
 	var vz = direction.z * speed
