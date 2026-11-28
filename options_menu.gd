@@ -22,6 +22,8 @@ extends Control
 @onready var overlay_checkbox = $CanvasLayer/TabContainer/Graphics/Overlays/CheckButton
 @onready var blur_label = $CanvasLayer/TabContainer/Graphics/Blur/Label2
 
+@onready var master_volume_label = $CanvasLayer/TabContainer/Audio/Master/Label2
+
 var sensitivity
 var forward
 var backward
@@ -42,6 +44,7 @@ var wall_texture
 var fov
 var overlays: bool
 var background_blur
+var master_volume
 
 signal options_update
 
@@ -107,10 +110,15 @@ func load_config():
 	blur_label.text = str(int(background_blur))
 	
 	
+	master_volume = config.get_value("AUDIO", "master_volume", 100.0)
+	master_volume_label.text = str(int(master_volume))
+	
+	
 	$"CanvasLayer/TabContainer/Graphics/Sun Strength/HSlider".set_value_no_signal(sun_strength)
 	$CanvasLayer/TabContainer/Inputs/Sensitivity/HSlider.set_value_no_signal(sensitivity)
 	$CanvasLayer/TabContainer/Graphics/FOV/HSlider.set_value_no_signal(fov)
 	$CanvasLayer/TabContainer/Graphics/Blur/HSlider.set_value_no_signal(background_blur)
+	$CanvasLayer/TabContainer/Audio/Master/HSlider.set_value_no_signal(master_volume)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
@@ -170,9 +178,8 @@ func _on_back_pressed() -> void:
 # INPUTS
 func sensitivity_changed(value: float) -> void:
 	sensitivity = value
-	if sensitivity:
-		var s = str(int(value*100))
-		sensitivity_label.text = s + "%"
+	var s = str(int(value*100))
+	sensitivity_label.text = s + "%"
 
 func forwards_selected() -> void:
 	selected_keybind = "forward"
@@ -321,6 +328,10 @@ func _on_background_blur_value_changed(value: float) -> void:
 	var bb = str(int(background_blur))
 	blur_label.text = bb
 
+# AUDIO
+func _on_master_volume_value_changed(value: float) -> void:
+	master_volume = value
+	master_volume_label.text = str(int(master_volume))
 
 func _on_save_pressed() -> void:
 	config.set_value("INPUTS", "sensitivity", sensitivity)
@@ -389,6 +400,8 @@ func _on_save_pressed() -> void:
 	config.set_value("GRAPHICS", "overlays", overlays)
 	
 	config.set_value("GRAPHICS", "blur", background_blur)
+	
+	config.set_value("AUDIO", "master_volume", master_volume)
 	
 	config.save(config_path)
 	emit_signal("options_update")

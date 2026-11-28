@@ -52,18 +52,18 @@ size = Vector2(1, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqwpw"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrf4u"]
 bg_color = Color(1, 1, 1, 1)
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mn670"]
 bg_color = Color(1, 1, 1, 1)
-expand_margin_top = 5.0
-expand_margin_bottom = 5.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q3mjl"]
 load_path = "res://.godot/imported/sprite_00.png-06c343c7da6592da3bab9ca898ab797f.ctex"
@@ -1501,14 +1501,17 @@ size = Vector2(1, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0g30k"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa5ru"]
 bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cust3"]
 bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_t1lix"]
@@ -1528,14 +1531,17 @@ size = Vector2(1, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_innu7"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe2ui"]
 bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7les"]
 bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_6bffs"]
@@ -1733,14 +1739,44 @@ size = Vector2(1, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngclb"]
 bg_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3mjl"]
 bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8er6"]
 bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_c8er6"]
+font = ExtResource("2_t1lix")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4lusl"]
+font = ExtResource("2_t1lix")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c8er6"]
+size = Vector2(1, 10)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4lusl"]
+size = Vector2(1, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lusl"]
+bg_color = Color(0.44313726, 0.44313726, 0.44313726, 1)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnqro"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dl0ua"]
+bg_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
 expand_margin_bottom = 10.0
 
 [node name="Control" type="Control" unique_id=47201885]
@@ -1807,14 +1843,14 @@ offset_right = 420.0
 offset_bottom = 520.0
 theme_override_fonts/font = ExtResource("2_t1lix")
 theme_override_styles/panel = SubResource("StyleBoxFlat_vwtu1")
-current_tab = 1
+current_tab = 0
 
 [node name="Inputs" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=948763679]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Sensitivity" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=202832086]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Sensitivity" unique_id=1325181938]
@@ -1846,6 +1882,7 @@ step = 0.01
 value = 0.2
 
 [node name="Forward" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=1609096895]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Forward" unique_id=646129095]
@@ -1864,6 +1901,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Backward" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=104445698]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Backward" unique_id=958253889]
@@ -1881,6 +1919,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Left" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=316887740]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Left" unique_id=1684957926]
@@ -1898,6 +1937,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Right" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=631909233]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Right" unique_id=810562409]
@@ -1915,6 +1955,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Jump" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=1635503740]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Jump" unique_id=1572436548]
@@ -1932,6 +1973,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Crouch" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=612218440]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Crouch" unique_id=690491292]
@@ -1949,6 +1991,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Slide" type="HBoxContainer" parent="CanvasLayer/TabContainer/Inputs" unique_id=1029037436]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Inputs/Slide" unique_id=1035061235]
@@ -1966,10 +2009,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_t1lix")
 
 [node name="Graphics" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=1730094708]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="Shadows" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=150336616]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Shadows" unique_id=1303087198]
@@ -1987,6 +2032,7 @@ theme_override_icons/checked = SubResource("AnimatedTexture_wiuj4")
 theme_override_icons/unchecked = SubResource("AnimatedTexture_srcsg")
 
 [node name="Show Sun" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=685201914]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Show Sun" unique_id=1786333373]
@@ -2004,6 +2050,7 @@ theme_override_icons/checked = SubResource("AnimatedTexture_ghrd2")
 theme_override_icons/unchecked = SubResource("AnimatedTexture_024g0")
 
 [node name="Show Sky" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=915031301]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Show Sky" unique_id=966830016]
@@ -2021,6 +2068,7 @@ theme_override_icons/checked = SubResource("AnimatedTexture_ngclb")
 theme_override_icons/unchecked = SubResource("AnimatedTexture_sxeyk")
 
 [node name="Show Sea" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=1769921922]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Show Sea" unique_id=1090658070]
@@ -2038,6 +2086,7 @@ theme_override_icons/checked = SubResource("AnimatedTexture_njwdn")
 theme_override_icons/unchecked = SubResource("AnimatedTexture_ya423")
 
 [node name="Better Sun Refs" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=675729338]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Better Sun Refs" unique_id=1878795136]
@@ -2055,6 +2104,7 @@ theme_override_icons/checked = SubResource("AnimatedTexture_x8etr")
 theme_override_icons/unchecked = SubResource("AnimatedTexture_cj4uo")
 
 [node name="Show Fog" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=1808973353]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Show Fog" unique_id=202027768]
@@ -2072,6 +2122,7 @@ theme_override_icons/checked = SubResource("AnimatedTexture_mqvei")
 theme_override_icons/unchecked = SubResource("AnimatedTexture_ymo58")
 
 [node name="Sun Strength" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=43906173]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=1421333097]
@@ -2091,6 +2142,7 @@ theme_override_font_sizes/font_size = 16
 [node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Graphics/Sun Strength" unique_id=318031330]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_icons/grabber = SubResource("PlaceholderTexture2D_ogda5")
 theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_6bffs")
 theme_override_styles/slider = SubResource("StyleBoxFlat_0g30k")
@@ -2102,6 +2154,7 @@ step = 0.1
 value = 16.0
 
 [node name="Wall Texture" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=1095926220]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Wall Texture" unique_id=520290610]
@@ -2123,6 +2176,7 @@ popup/item_1/text = "Default"
 popup/item_1/id = 1
 
 [node name="FOV" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=303047169]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/FOV" unique_id=1260760254]
@@ -2143,6 +2197,7 @@ label_settings = SubResource("LabelSettings_ogda5")
 [node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Graphics/FOV" unique_id=1874392531]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_icons/grabber = SubResource("PlaceholderTexture2D_vwtu1")
 theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_rrf4u")
 theme_override_styles/slider = SubResource("StyleBoxFlat_innu7")
@@ -2153,6 +2208,7 @@ max_value = 120.0
 value = 75.0
 
 [node name="Overlays" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=1156985576]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Overlays" unique_id=1364347447]
@@ -2170,6 +2226,7 @@ theme_override_icons/checked = SubResource("AnimatedTexture_8ffvf")
 theme_override_icons/unchecked = SubResource("AnimatedTexture_15mw8")
 
 [node name="Blur" type="HBoxContainer" parent="CanvasLayer/TabContainer/Graphics" unique_id=689029732]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/TabContainer/Graphics/Blur" unique_id=1687055155]
@@ -2180,6 +2237,7 @@ label_settings = SubResource("LabelSettings_ngclb")
 [node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Graphics/Blur" unique_id=920311329]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Graphics/Blur" unique_id=1172854938]
 layout_mode = 2
@@ -2188,12 +2246,46 @@ label_settings = SubResource("LabelSettings_q3mjl")
 [node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Graphics/Blur" unique_id=1625105720]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_icons/grabber = SubResource("PlaceholderTexture2D_ngclb")
 theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_q3mjl")
 theme_override_styles/slider = SubResource("StyleBoxFlat_ngclb")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_q3mjl")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_c8er6")
 max_value = 5.0
+
+[node name="Audio" type="VBoxContainer" parent="CanvasLayer/TabContainer" unique_id=756008200]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Master" type="HBoxContainer" parent="CanvasLayer/TabContainer/Audio" unique_id=777672237]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/TabContainer/Audio/Master" unique_id=1836464573]
+layout_mode = 2
+text = "Master Volume"
+label_settings = SubResource("LabelSettings_c8er6")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/TabContainer/Audio/Master" unique_id=1639894950]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="CanvasLayer/TabContainer/Audio/Master" unique_id=2066250260]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_4lusl")
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/TabContainer/Audio/Master" unique_id=190894902]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_icons/grabber = SubResource("PlaceholderTexture2D_c8er6")
+theme_override_icons/grabber_highlight = SubResource("PlaceholderTexture2D_4lusl")
+theme_override_styles/slider = SubResource("StyleBoxFlat_4lusl")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_mnqro")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_dl0ua")
 
 [node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=284663294]
 z_index = -1
@@ -2226,3 +2318,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="value_changed" from="CanvasLayer/TabContainer/Graphics/FOV/HSlider" to="." method="_on_fov_value_changed"]
 [connection signal="toggled" from="CanvasLayer/TabContainer/Graphics/Overlays/CheckButton" to="." method="_on_overlays_button_toggled"]
 [connection signal="value_changed" from="CanvasLayer/TabContainer/Graphics/Blur/HSlider" to="." method="_on_background_blur_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/TabContainer/Audio/Master/HSlider" to="." method="_on_master_volume_value_changed"]
