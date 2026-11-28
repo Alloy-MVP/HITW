@@ -10,7 +10,6 @@ extends Camera3D
 @onready var Blur_Overlay = $"CanvasLayer/Pause Menu/Blur Overlay"
 
 
-
 var config = ConfigFile.new()
 var config_path = "user://Config.cfg"
 var sensitivity: float = 0.2
@@ -27,6 +26,8 @@ var Realistic_Texture = preload("res://textures/Realistic Map Designer.meshlib")
 var Default = preload("res://textures/Map Designer.meshlib")
 var walls
 var mouse_disabled: bool = false
+var master_volume
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -122,6 +123,8 @@ func update():
 	if background_blur >= 0.0 and background_blur <= 5.0:
 		Blur_Overlay.material.set_shader_parameter("blur_strength", background_blur)
 		print(Blur_Overlay.material.get_shader_parameter("blur_strength"))
+	
+	master_volume = config.get_value("AUDIO", "master_volume", 100.0)
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("crouch") and not crouching:

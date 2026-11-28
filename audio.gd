@@ -17,6 +17,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	self.volume_linear = float($"..".master_volume)/100
 	if Player and GUI:
 		if not wind_sound:
 			if Player.falling:
